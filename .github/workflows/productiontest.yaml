@@ -1,4 +1,4 @@
-name: Run Deployment and Tool Tests for 21.01 production
+name: 21.05 production Deployment and Tool Tests for 
 on:
   schedule:
     - cron: "0 4 * * *"
@@ -14,7 +14,7 @@ jobs:
   deploygke:
     env:
       GKE_ZONE: us-east1-b
-      GKE_VERSION: "1.18"
+      GKE_VERSION: "1.19"
       GXY_TMP: /tmp/gxy
       PREFIX: gxy-auto
     runs-on: ubuntu-latest
@@ -56,8 +56,9 @@ jobs:
       - name: Install Helm
         run: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
       - name: Add anvil repository
-        run: helm repo add anvil https://github.com/cloudve/helm-charts/raw/anvil
+        run: helm repo add anvil https://github.com/cloudve/helm-charts/raw/anvil && helm repo update
       - name: Deploy GalaxyKubeMan 1
+        continue-on-error: true
         run: >
           (time sh -c "kubectl create ns ${{needs.deploygke.outputs.prefix}}-1; helm install -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
               --wait\
@@ -92,11 +93,16 @@ jobs:
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set cvmfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
+              --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
+              --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
+              --set galaxy.configs.\"job_conf\.yml\".runners.k8s.k8s_node_selector=\"cloud.google.com/gke-nodepool: default-pool\"\
               --set galaxy.webHandlers.startupDelay=10\
               --set galaxy.jobHandlers.startupDelay=5\
               --set galaxy.workflowHandlers.startupDelay=0\
               --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"") 1> "$GXY_TMP" 2>> "$GXY_TMP"
 
+      - name: Print output
+        run: cat "$GXY_TMP"
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
@@ -108,27 +114,28 @@ jobs:
       - name: Add report from this run
         run: bash ./.github/scripts/report_deployment.sh "$GXY_TMP" anvil-production ${{ secrets.GIT_TOKEN }}
       - name: Get Galaxy IP and port
-        id: gxyservice2
+        id: gxyservice1
         run: echo "::set-output name=address::$(echo \"http://$(kubectl get svc -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy-nginx -o jsonpath='{.status.loadBalancer.ingress[0].ip}' | sed -e 's/\"//g'):$(kubectl get svc -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy-nginx -o jsonpath='{.spec.ports[0].port}')$(kubectl get ingress -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy -o jsonpath='{.spec.rules[0].http.paths[0].path}')/\")"
       - name: Create remote single user
-        run: curl ${{steps.gxyservice2.outputs.address}}
+        run: curl ${{steps.gxyservice1.outputs.address}}
       - name: Create reports dir for this date
         run: mkdir -p reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1
       - name: Get tool list
         run: cp production/anvil/tools.yaml reports/anvil-production/tools.yaml
       - name: Create and get API key
-        run: echo "::set-output name=key::$(python .github/scripts/create_api_key.py ${{steps.gxyservice2.outputs.address}} ${{secrets.COMMON_PASSWORD}})"
+        run: echo "::set-output name=key::$(python .github/scripts/create_api_key.py ${{steps.gxyservice1.outputs.address}} ${{secrets.COMMON_PASSWORD}})"
         id: api1
       - name: Split tool tests
         run: python .github/scripts/subset_tools.py reports/anvil-production/tools.yaml reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1 ${{ github.event.inputs.chunk }}
       - name: Run tool tests
-        run: sleep 30 && shed-tools test -g ${{steps.gxyservice2.outputs.address}} -u "alex@fake.org" -a "${{steps.api1.outputs.key}}" --parallel_tests 4 -t reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/tools.yaml --test_json reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.json
+        run: sleep 30 && shed-tools test -g ${{steps.gxyservice1.outputs.address}} -u "alex@fake.org" -a "${{steps.api1.outputs.key}}" --parallel_tests 4 -t reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/tools.yaml --test_json reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.json
       - name: Create HTML report
         run: planemo test_reports reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.json --test_output_xunit reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.xunit --test_output reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.html
       - name: Update Readme
         run: python .github/scripts/update_readme.py reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/chunk.json reports/anvil-production/tool-tests/chunks.json reports/anvil-production/README.md
       - name: Add tool-test report from this run
         run: bash ./.github/scripts/report_tests.sh ${{ secrets.GIT_TOKEN }} "Adding anvil-production tool test report for ${{needs.deploygke.outputs.prefix}}-1" reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1
+
   cleanup:
     if: always()
     needs: [deploygke,testgalaxy1]
