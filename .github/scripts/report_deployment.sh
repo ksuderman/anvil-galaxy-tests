@@ -6,7 +6,7 @@ STATUS=$(cat $1 | grep "STATUS:" | grep -oP '(?<=STATUS\: )\w+')
 DATE=$(cat $1 | grep "LAST DEPLOYED:" | grep -oP '(?<=LAST DEPLOYED\: )[^\n]+')
 REPORT_DIR=$2
 GIT_TOKEN=$3
-GIT_BRANCH=master
+GIT_BRANCH=main
 REMOTE="https://$GITHUB_ACTOR:$GIT_TOKEN@github.com/$GITHUB_REPOSITORY.git"
 
 setup_git() {
@@ -18,7 +18,7 @@ setup_git() {
 
 push_report() {
   git stash
-  git pull origin master
+  git pull origin $GIT_BRANCH
   git stash pop | true
   git add reports/$REPORT_DIR
   git commit -m "Submitting $REPORT_DIR report for deployment from $DATE"

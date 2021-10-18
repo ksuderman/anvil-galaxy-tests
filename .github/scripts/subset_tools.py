@@ -12,7 +12,7 @@ time_of_day = 0 if today.strftime("%p") == 'AM' else 1
 runs_per_day = 2 # run twice a day
 total_chunks = 7 * runs_per_day
 
-github_base = "https://github.com/almahmoud/anvil-misc/blob/master"
+github_base = "https://github.com/anvilproject/galaxy-ci/blob/main"
 preview_base = "https://htmlpreview.github.io/?{}".format(github_base)
 
 with open(infile, 'r') as f:
