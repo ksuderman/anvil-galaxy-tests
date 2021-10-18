@@ -37,4 +37,4 @@ with open(readme_path, "w") as f:
         eachchunk = chunks.get(eachid)
         htmlout += "<tr><td>{}</td><td><a href=\"{}\">Toolset</a></td><td><a href=\"{}\">{}</a></td><td><a href=\"{}\">{}</a></td></tr>".format(eachid, eachchunk.get("tools"), eachchunk.get("run1"), eachchunk.get("date1"), eachchunk.get("run2"), eachchunk.get("date2"))
     htmlout += "</tbody>"
-    f.write(template.render(anviltools=htmlout))
+    f.write(template.render(anviltools=htmlout, reportdir=readme_path.replace("/README.md", "")))
