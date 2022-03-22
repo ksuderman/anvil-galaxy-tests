@@ -1,9 +1,9 @@
-name: 21.05 production Deployment and Tool Tests for 
+name: 21.05 production Deployment and Tool Tests for
 on:
   schedule:
     - cron: "0 4 * * *"
     - cron: "0 16 * * *"
-    
+
   workflow_dispatch:
     inputs:
       chunk:
@@ -38,7 +38,7 @@ jobs:
     env:
       GKE_ZONE: us-east1-b
       GXY_TMP: /tmp/gxy
-      GKM_VERSION: "1.1.0"
+      GKM_VERSION: "1.2.1"
     runs-on: ubuntu-latest
     steps:
       - name: Set up Cloud SDK
@@ -64,7 +64,7 @@ jobs:
               --wait\
               --timeout 2800s\
               --version $GKM_VERSION\
-              --set galaxy.image.tag=\"21.05\"\
+              --set galaxy.image.tag=\"21.09\"\
               --set nfs.storageClass.name=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set cvmfs.repositories.cvmfs-gxy-data-${{needs.deploygke.outputs.prefix}}-1=\"data.galaxyproject.org\"\
               --set cvmfs.cache.alienCache.storageClass=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
@@ -99,6 +99,10 @@ jobs:
               --set galaxy.webHandlers.startupDelay=10\
               --set galaxy.jobHandlers.startupDelay=5\
               --set galaxy.workflowHandlers.startupDelay=0\
+              --set galaxy.jobs.maxRequests.cpu=4\
+              --set galaxy.jobs.maxRequests.memory=45\
+              --set galaxy.jobs.maxLimits.cpu=5\
+              --set galaxy.jobs.maxLimits.memory=50\
               --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"") 1> "$GXY_TMP" 2>> "$GXY_TMP"
 
       - name: Print output
