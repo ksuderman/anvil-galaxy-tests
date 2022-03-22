@@ -23,9 +23,9 @@ jobs:
     steps:
       - name: Set prefix with date
         id: prefix
-        run: echo "::set-output name=prefix::$(echo $PREFIX-$(date +'%m-%d-%H-%M-%S'))"
+        run: echo "::set-output name=prefix::$(echo $PREFIX-$(date +'%Y-%m-%d-%H-%M-%S'))"
       - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud@v0
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
