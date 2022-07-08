@@ -37,11 +37,16 @@ with open(readme_path, "w") as f:
     reports_html = "<thead><tr><th>Chunk ID</th><th>Tool List</th><th>Latest report</th><th>Previous report</th></tr></thead><tbody>"
     for eachid in ids:
         eachchunk = chunks.get(eachid)
-        reports_html += "<tr><td>{}</td><td><a href=\"{}\">Toolset</a></td><td><a href=\"{}\">{}</a></td><td><a href=\"{}\">{}</a></td></tr>".format(
-            eachid, eachchunk.get("tools"), eachchunk.get("run1"), eachchunk.get("date1"), eachchunk.get("run2"), eachchunk.get("date2"))
+        reports_html += f"""
+    <tr>
+        <td>{eachid}</td>
+        <td><a href=\"{eachchunk.get("tools")}\">Toolset</a></td>
+        <td><a href=\"{eachchunk.get("run1")}\">{eachchunk.get("date1")}</a></td>
+        <td><a href=\"{eachchunk.get("run2")}\">{eachchunk.get("date2")}</a></td>
+    </tr>"""
     reports_html += "</tbody>"
     # List tools individually
-    tool_tests_html = "<thead<tr><th>#</th><th>Tool ID</th><th>Test results</th></thead><tbody>"
+    tool_tests_html = "<thead<tr><th>#</th><th>Tool ID</th><th>Test #</th><th>Test results</th></thead><tbody>"
     count = 0
     for each_id in ids:
         chunk = chunks.get(each_id)
@@ -52,7 +57,25 @@ with open(readme_path, "w") as f:
             for tool in chunk_tools['tools']:
                 for rev in tool['revisions']:
                     count += 1
-                    tool_tests_html += f"<tr><td>{count}</td><td>{tool['owner']}/{tool['name']}@{rev}</td><td></td></tr>"
+                    tool_tests_html += f"""
+    <tr>
+        <td>{count}</td>
+        <td>{tool['owner']}/{tool['name']}@{rev}</td>"""
+                    test_count = 0
+                    for test in range(3):  # TODO: Link with tests
+                        test_count += 1
+                        if test_count == 1:
+                            tool_tests_html += f"""
+        <td>Test #{test_count}</td>
+        <td><span style='color:red'>F</span>P</td>"""
+                        else:
+                            tool_tests_html += f"""
+    <tr>
+        <td></td><td></td>
+        <td>Test #{test_count}</td>
+        <td><span style='color:red'>F</span>P</td>
+    </tr>"""
+                    tool_tests_html +="</tr>"
     tool_tests_html += "</tbody>"
 
     f.write(template.render(toolreports=reports_html, tooltests=tool_tests_html, reportdir=readme_path.replace("/README.md", "")))
