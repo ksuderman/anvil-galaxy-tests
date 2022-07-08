@@ -34,7 +34,7 @@ with open(readme_path, "w") as f:
     ids.sort()
     ids = [str(x) for x in ids]
     # Write the chunked test reports table
-    reports_html = "<thead><tr><th>Chunk ID</th><th>Tool List</th><th>Latest report</th><th>Previous report</th></tr></thead><tbody>"
+    reports_html = "<thead><tr><th>Report ID</th><th>Tool List</th><th>Latest report</th><th>Previous report</th></tr></thead><tbody>"
     for eachid in ids:
         eachchunk = chunks.get(eachid)
         reports_html += f"""
@@ -46,7 +46,7 @@ with open(readme_path, "w") as f:
     </tr>"""
     reports_html += "</tbody>"
     # List tools individually
-    tool_tests_html = "<thead<tr><th>#</th><th>Chunk #</th><th>Tool ID</th><th>Test #</th><th>Test results</th></thead><tbody>"
+    tool_tests_html = "<thead<tr><th>#</th><th>Report ID</th><th>Tool ID</th><th>Test #</th><th>Test results</th></thead><tbody>"
     count = 0
     for each_id in ids:
         chunk = chunks.get(each_id)
