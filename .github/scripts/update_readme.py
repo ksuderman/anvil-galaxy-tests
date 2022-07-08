@@ -46,7 +46,7 @@ with open(readme_path, "w") as f:
     </tr>"""
     reports_html += "</tbody>"
     # List tools individually
-    tool_tests_html = "<thead<tr><th>#</th><th>Tool ID</th><th>Test #</th><th>Test results</th></thead><tbody>"
+    tool_tests_html = "<thead<tr><th>#</th><th>Chunk #</th><th>Tool ID</th><th>Test #</th><th>Test results</th></thead><tbody>"
     count = 0
     for each_id in ids:
         chunk = chunks.get(each_id)
@@ -60,6 +60,7 @@ with open(readme_path, "w") as f:
                     tool_tests_html += f"""
     <tr>
         <td>{count}</td>
+        <td><a href=\"{chunk.get("run1")}\">{each_id}</a></td>
         <td>{tool['owner']}/{tool['name']}@{rev}</td>"""
                     test_count = 0
                     for test in range(3):  # TODO: Link with tests
@@ -71,7 +72,7 @@ with open(readme_path, "w") as f:
                         else:
                             tool_tests_html += f"""
     <tr>
-        <td></td><td></td>
+        <td></td><td></td><td></td>
         <td>Test #{test_count}</td>
         <td><span style='color:red'>F</span>P</td>
     </tr>"""
