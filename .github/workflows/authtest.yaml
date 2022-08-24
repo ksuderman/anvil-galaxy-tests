@@ -27,3 +27,6 @@ jobs:
 
     - name: 'Use gcloud CLI'
       run: 'gcloud info'
+
+    - name: 'List GKE clusters'
+      run: 'gcloud container clusters list'
