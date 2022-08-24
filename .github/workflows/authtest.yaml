@@ -25,6 +25,9 @@ jobs:
         workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
         service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
 
+    - name: Dump json
+      run: 'cat /home/runner/work/galaxy-tests/galaxy-tests/*.json'
+
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v0'
 
