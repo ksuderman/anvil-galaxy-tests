@@ -14,9 +14,9 @@ jobs:
   deploygke:
     env:
       GKE_ZONE: us-east1-b
-      GKE_VERSION: "1.19"
+      GKE_VERSION: "1.21"
       GXY_TMP: /tmp/gxy
-      PREFIX: gxy-auto
+      PREFIX: gxy-anvil-tests-ci-prod
     runs-on: ubuntu-latest
     outputs:
       prefix: ${{ steps.prefix.outputs.prefix }}
@@ -38,7 +38,7 @@ jobs:
     env:
       GKE_ZONE: us-east1-b
       GXY_TMP: /tmp/gxy
-      GKM_VERSION: "1.2.1"
+      GKM_VERSION: "1.6.3"
     runs-on: ubuntu-latest
     steps:
       - name: Set up Cloud SDK
@@ -66,16 +66,12 @@ jobs:
               --version $GKM_VERSION\
               --set galaxy.image.tag=\"21.09\"\
               --set nfs.storageClass.name=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
-              --set cvmfs.repositories.cvmfs-gxy-data-${{needs.deploygke.outputs.prefix}}-1=\"data.galaxyproject.org\"\
-              --set cvmfs.cache.alienCache.storageClass=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set galaxy.persistence.storageClass=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
-              --set galaxy.cvmfs.galaxyPersistentVolumeClaims.data.storageClassName=cvmfs-gxy-data-${{needs.deploygke.outputs.prefix}}-1\
               --set galaxy.service.type=LoadBalancer\
               --set galaxy.service.port=8000\
               --set rbac.enabled=false\
               --set galaxy.terra.launch.workspace=\"De novo transcriptome reconstruction with RNA-Seq\"\
               --set galaxy.terra.launch.namespace=\"galaxy-anvil-edge\"\
-              --set cvmfs.cache.preload.enabled=false\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=${{secrets.COMMON_PASSWORD}}\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.single_user=\"alex@fake.org\"\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"alex@fake.org\"\
@@ -92,7 +88,6 @@ jobs:
               --set galaxy.postgresql.galaxyDatabasePassword=${{secrets.COMMON_PASSWORD}}\
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set cvmfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.configs.\"job_conf\.yml\".runners.k8s.k8s_node_selector=\"cloud.google.com/gke-nodepool: default-pool\"\
