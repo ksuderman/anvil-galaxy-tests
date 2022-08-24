@@ -16,7 +16,7 @@ jobs:
       GKE_ZONE: us-east1-b
       GKE_VERSION: "1.21"
       GXY_TMP: /tmp/gxy
-      PREFIX: gxy-anvil-ci-prod
+      PREFIX: gtests-prod
     runs-on: ubuntu-latest
     outputs:
       prefix: ${{ steps.prefix.outputs.prefix }}
