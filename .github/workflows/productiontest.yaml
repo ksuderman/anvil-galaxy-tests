@@ -38,7 +38,7 @@ jobs:
     env:
       GKE_ZONE: us-east1-b
       GXY_TMP: /tmp/gxy
-      GKM_VERSION: "1.6.3"
+      GKM_VERSION: "1.6.1"
     runs-on: ubuntu-latest
     steps:
       - name: Set up Cloud SDK
