@@ -43,15 +43,8 @@ jobs:
     - name: 'gcloud info'
       run: 'gcloud info'
 
-    - id: 'gcloud-login-id'
-      name: 'gcloud login'
-      run: gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
-
     - name: 'gcloud auth list'
       run: 'gcloud auth list'
-
-    - name: 'gcloud services list'
-      run: 'gcloud services list'
 
     - name: 'List GKE clusters'
       run: 'gcloud container clusters list'
