@@ -19,9 +19,18 @@ jobs:
     - name: Dump env
       run: env
 
+    - name: Actions token url
+      shell: bash
+      run: echo ${ACTIONS_ID_TOKEN_REQUEST_URL}
+
+    - name: Actions token id-token
+      shell: bash
+      run: echo ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}
+
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
       with:
+        create_credentials_file: 'true'
         workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
         service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
 
@@ -31,8 +40,21 @@ jobs:
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v0'
 
-    - name: 'Use gcloud CLI'
+    - name: 'gcloud info'
       run: 'gcloud info'
+
+    - name: 'Show gcloud logs'
+      run: 'cat /home/runner/.config/gcloud/logs/*.log'
+
+    - id: 'gcloud-login-id'
+      name: 'gcloud login'
+      run: gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
+
+    - name: 'gcloud auth list'
+      run: 'gcloud auth list'
+
+    - name: 'gcloud services list'
+      run: 'gcloud services list'
 
     - name: 'List GKE clusters'
       run: 'gcloud container clusters list'
