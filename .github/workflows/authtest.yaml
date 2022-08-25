@@ -2,7 +2,7 @@ name: Test auth
 on:
   push:
     branches:
-      - '*'
+      - 'attractive-lemming'
 
 jobs:
   test_auth:
