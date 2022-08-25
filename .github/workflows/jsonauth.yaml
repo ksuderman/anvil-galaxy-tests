@@ -16,6 +16,10 @@ jobs:
       with:
         credentials_json: '${{ secrets.GCP_TESTS_SA_JSON }}'
 
+    - id: 'gcloud-login-id'
+      name: 'gcloud login'
+      run: gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
+
     - name: 'gcloud auth list'
       run: 'gcloud auth list'
 
