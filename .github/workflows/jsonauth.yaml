@@ -1,0 +1,23 @@
+name: Test json auth
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  test_json_auth:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: 'actions/checkout@v3'
+
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        credentials_json: '${{ secrets.GCP_TESTS_SA_JSON }}'
+
+    - name: 'gcloud auth list'
+      run: 'gcloud auth list'
+
+    - name: 'List GKE clusters'
+      run: 'gcloud container clusters list'
