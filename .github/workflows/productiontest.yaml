@@ -87,7 +87,7 @@ jobs:
               --set galaxy.terra.launch.workspace=\"De novo transcriptome reconstruction with RNA-Seq\"\
               --set galaxy.webHandlers.startupDelay=10\
               --set galaxy.workflowHandlers.startupDelay=0\
-              --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"") 1> "$GXY_TMP" 2>> "$GXY_TMP"\
+              --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set nfs.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-nfs-disk-pvc\"\
               --set nfs.persistence.size=\"250Gi\"\
@@ -98,7 +98,7 @@ jobs:
               --set persistence.postgres.name=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk\"\
               --set persistence.postgres.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploygke.outputs.prefix}}-1-postgres-pd\"\
               --set persistence.postgres.size=\"10Gi\"\
-              --set rbac.enabled=false
+              --set rbac.enabled=false") 1> "$GXY_TMP" 2>> "$GXY_TMP"
 
       - name: Print output
         run: cat "$GXY_TMP"
