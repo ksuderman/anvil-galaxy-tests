@@ -9,7 +9,7 @@ on:
       chunk:
         description: 'Chunk to run. Valid range [0:13]. Out of range inputs will be ignored.'
         required: true
-        default: 'daily'
+        default: '5'
 jobs:
   deploygke:
     env:
@@ -60,9 +60,9 @@ jobs:
       - name: Deploy GalaxyKubeMan 1
         continue-on-error: true
         run: >
-          (time sh -c "kubectl create ns ${{needs.deploygke.outputs.prefix}}-1; helm install -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
+          (time sh -c "helm install --create-namespace -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
               --wait\
-              --timeout 2800s\
+              --timeout 1000s\
               --version $GKM_VERSION\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"alex@fake.org\"\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=${{secrets.COMMON_PASSWORD}}\
@@ -81,10 +81,8 @@ jobs:
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.postgresql.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk-pvc\"\
-              --set galaxy.service.port=8000\
               --set galaxy.service.type=LoadBalancer\
-              --set galaxy.terra.launch.namespace=\"galaxy-anvil-edge\"\
-              --set galaxy.terra.launch.workspace=\"De novo transcriptome reconstruction with RNA-Seq\"\
+              --set galaxy.terra.launch.namespace=\"galaxy-anvil-prod\"\
               --set galaxy.webHandlers.startupDelay=10\
               --set galaxy.workflowHandlers.startupDelay=0\
               --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
