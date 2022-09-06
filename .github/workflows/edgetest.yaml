@@ -36,7 +36,7 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v0'
       - name: Create GKE cluster
-        run: gcloud container clusters create "${{steps.prefix.outputs.prefix}}" --cluster-version="$GKE_VERSION" --disk-size=50 --num-nodes=1 --machine-type=e2-standard-8 --zone "$GKE_ZONE"
+        run: gcloud container clusters create "${{steps.prefix.outputs.prefix}}" --cluster-version="$GKE_VERSION" --disk-size=100 --num-nodes=1 --machine-type=e2-standard-16 --zone "$GKE_ZONE"
 
   testgalaxy1:
     needs: deploygke
@@ -78,14 +78,14 @@ jobs:
               --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=${{secrets.COMMON_PASSWORD}}\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.single_user=\"tests@fake.org\"\
               --set galaxy.configs.\"job_conf\.yml\".runners.k8s.k8s_node_selector=\"cloud.google.com/gke-nodepool: default-pool\"\
-              --set galaxy.image.tag=\"22.05\"\
+              --set galaxy.image.tag=\"21.09\"\
               --set galaxy.jobHandlers.startupDelay=5\
               --set galaxy.jobs.maxLimits.cpu=5\
               --set galaxy.jobs.maxLimits.memory=50\
               --set galaxy.jobs.maxRequests.cpu=4\
               --set galaxy.jobs.maxRequests.memory=45\
               --set galaxy.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set galaxy.persistence.size=\"200Gi\"\
+              --set galaxy.persistence.size=\"250Gi\"\
               --set galaxy.persistence.storageClass=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set galaxy.postgresql.galaxyDatabasePassword=${{secrets.COMMON_PASSWORD}}\
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
