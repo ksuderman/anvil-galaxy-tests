@@ -45,6 +45,9 @@ jobs:
       GXY_TMP: /tmp/gxy
       GKM_VERSION: "2.0.0"
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
       - uses: 'actions/checkout@v3'
       - id: 'Auth'
@@ -148,6 +151,9 @@ jobs:
     env:
       GKE_ZONE: us-east1-b
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
       - uses: 'actions/checkout@v3'
       - id: 'Auth'
