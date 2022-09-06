@@ -85,10 +85,9 @@ jobs:
               --set galaxy.jobs.maxRequests.cpu=4\
               --set galaxy.jobs.maxRequests.memory=45\
               --set galaxy.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set galaxy.persistence.size=\"250Gi\"\
+              --set galaxy.persistence.size=\"240Gi\"\
               --set galaxy.persistence.storageClass=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set galaxy.postgresql.galaxyDatabasePassword=${{secrets.COMMON_PASSWORD}}\
-              --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.postgresql.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk-pvc\"\
               --set galaxy.service.port=8000\
@@ -97,7 +96,6 @@ jobs:
               --set galaxy.terra.launch.workspace=\"De novo transcriptome reconstruction with RNA-Seq\"\
               --set galaxy.webHandlers.startupDelay=10\
               --set galaxy.workflowHandlers.startupDelay=0\
-              --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set nfs.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-nfs-disk-pvc\"\
               --set nfs.persistence.size=\"250Gi\"\
