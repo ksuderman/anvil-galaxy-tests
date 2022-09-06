@@ -1,0 +1,170 @@
+name: auth testing
+on:
+  workflow_dispatch:
+
+env:
+  GKE_ZONE: us-east1-b
+  GKE_VERSION: "1.24"
+  GXY_TMP: /tmp/gxy
+  PREFIX: ks-auth
+  GKM_VERSION: "2.0.0"
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      name: "${{ steps.name.outputs.name }}"
+    steps:
+      - name: Generate a name
+        id: name
+        run: echo "::set-output name=name::$(echo $PREFIX-$(date +'%Y-%m-%d-%H-%M'))"
+
+  cluster:
+    runs-on: ubuntu-latest
+    needs:
+      - setup
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - uses: actions/checkout@v3
+      - id: auth
+        uses: 'google-github-actions/auth@v0'
+        with:
+          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/ks-github-pool/providers/ks-github-provider'
+          service_account: 'ks-github-tests@anvil-and-terra-development.iam.gserviceaccount.com'
+#          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+#          service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v0
+#        with:
+#          project_id: anvil-and-terra-development
+#          service_account_key: ${{ secrets.GCP_SA_KEY }}
+#          export_default_credentials: true
+      - run: gcloud info
+      - run: gcloud auth list
+      - run: gcloud compute instances list
+      - name: Create a cluster
+        run: |
+          gcloud container clusters create ${{ needs.setup.outputs.name }} --cluster-version="$GKE_VERSION" --disk-size=250 --num-nodes=1 --machine-type=n2-standard-16 --zone "$GKE_ZONE" --quiet
+          gcloud compute disks create "${{needs.setup.outputs.name}}-postgres-pd" --size 10Gi --zone "$GKE_ZONE"
+          gcloud compute disks create "${{needs.setup.outputs.name}}-nfs-pd" --size 250Gi --zone "$GKE_ZONE"
+  test:
+    needs: [setup, cluster]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - uses: actions/checkout@v3
+      - name: auth
+        uses: 'google-github-actions/auth@v0'
+        with:
+          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/ks-github-pool/providers/ks-github-provider'
+          service_account: 'ks-github-tests@anvil-and-terra-development.iam.gserviceaccount.com'
+#          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+#          service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
+
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v0
+#        with:
+#          project_id: anvil-and-terra-development
+#          service_account_key: ${{ secrets.GCP_SA_KEY }}
+#          export_default_credentials: true
+      - name: Get cluster kubeconfig
+        run: gcloud container clusters get-credentials "${{needs.setup.outputs.name}}" --zone "$GKE_ZONE" --project ${{ secrets.GCP_PROJECT_ID }}
+      - name: Install Kubectl
+        run: curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" && chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl && kubectl version
+      - name: Install Helm
+        run: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+      - name: Add anvil repository
+        run: helm repo add anvil https://github.com/cloudve/helm-charts/raw/anvil && helm repo update
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: python -m pip install Jinja2 pyyaml
+      - id: password
+        run: echo "::set-output name=value::$(cat /dev/urandom | tr -dc a-zA-Z0-9_ | head -c16)"
+      - name: Generate the values file
+        run: python .github/scripts/render_template.py -t auth-values.yml.j2 password=${{ steps.password.outputs.value }} name=${{ needs.setup.outputs.name }} > values.yml
+      - run: cat values.yml
+      - name: Deploy GalaxyKubeMan 1
+        continue-on-error: false
+        run: >
+          helm install --create-namespace -n ${{needs.setup.outputs.name}} ${{needs.setup.outputs.name}} anvil/galaxykubeman --wait --timeout 1000s --version 2.0.0 -f values.yml
+#        run: >
+#          helm install --create-namespace -n ${{needs.setup.outputs.name}} ${{needs.setup.outputs.name}} anvil/galaxykubeman\
+#              --wait\
+#              --timeout 1000s\
+#              --version $GKM_VERSION\
+#              --set galaxy.configs.galaxy\.yml.galaxy.admin_users="alex@fake.org"\
+#              --set galaxy.configs.galaxy\.yml.galaxy.master_api_key="galaxypassword"\
+#              --set galaxy.configs.galaxy\.yml.galaxy.single_user="alex@fake.org"\
+#              --set galaxy.configs.job_conf\.yml.runners.k8s.k8s_node_selector="cloud.google.com/gke-nodepool: default-pool"\
+#              --set galaxy.image.tag="21.09"\
+#              --set galaxy.jobHandlers.startupDelay=5\
+#              --set galaxy.jobs.maxLimits.cpu=5\
+#              --set galaxy.jobs.maxLimits.memory=50\
+#              --set galaxy.jobs.maxRequests.cpu=4\
+#              --set galaxy.jobs.maxRequests.memory=45\
+#              --set galaxy.nodeSelector.cloud\.google\.com\/gke-nodepool="default-pool"\
+#              --set galaxy.persistence.size="200Gi"\
+#              --set galaxy.persistence.storageClass="nfs-${{needs.setup.outputs.name}}"\
+#              --set galaxy.postgresql.galaxyDatabasePassword=${{secrets.COMMON_PASSWORD}}\
+#              --set galaxy.postgresql.master.nodeSelector.cloud\.google\.com\/gke-nodepool="default-pool"\
+#              --set galaxy.postgresql.master.nodeSelector.cloud\.google\.com\/gke-nodepool="default-pool"\
+#              --set galaxy.postgresql.persistence.existingClaim="${{needs.setup.outputs.name}}-postgres-disk-pvc"\
+#              --set galaxy.service.type=LoadBalancer\
+#              --set galaxy.terra.launch.namespace="galaxy-anvil-prod"\
+#              --set galaxy.webHandlers.startupDelay=10\
+#              --set galaxy.workflowHandlers.startupDelay=0\
+#              --set nfs.nodeSelector.cloud\.google\.com\/gke-nodepool="default-pool"\
+#              --set nfs.nodeSelector.cloud\.google\.com\/gke-nodepool="default-pool"\
+#              --set nfs.persistence.existingClaim="${{needs.setup.outputs.name}}-nfs-disk-pvc"\
+#              --set nfs.persistence.size="250Gi"\
+#              --set nfs.storageClass.name="nfs-${{needs.setup.outputs.name}}"\
+#              --set persistence.nfs.name="${{needs.setup.outputs.name}}-nfs-disk"\
+#              --set persistence.nfs.persistentVolume.extraSpec.gcePersistentDisk.pdName="${{needs.setup.outputs.name}}-nfs-pd"\
+#              --set persistence.nfs.size="250Gi"\
+#              --set persistence.postgres.name="${{needs.setup.outputs.name}}-postgres-disk"\
+#              --set persistence.postgres.persistentVolume.extraSpec.gcePersistentDisk.pdName="${{needs.setup.outputs.name}}-postgres-pd"\
+#              --set persistence.postgres.size="10Gi"\
+#              --set rbac.enabled=false
+#
+
+  cleanup:
+    if: always()
+    needs:
+      - setup
+      - cluster
+      - test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - name: auth
+        uses: 'google-github-actions/auth@v0'
+        with:
+          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/ks-github-pool/providers/ks-github-provider'
+          service_account: 'ks-github-tests@anvil-and-terra-development.iam.gserviceaccount.com'
+#          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+#          service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v0
+#        with:
+#          project_id: anvil-and-terra-development
+#          service_account_key: ${{ secrets.GCP_SA_KEY }}
+#          export_default_credentials: true
+      - name: Delete the GKE cluster
+        continue-on-error: true
+        run: gcloud container clusters delete ${{ needs.setup.outputs.name }} --zone "$GKE_ZONE" --quiet
+      - name: Delete the Postgres disk
+        continue-on-error: true
+        run: gcloud compute disks delete "${{needs.setup.outputs.name}}-postgres-pd" --zone "$GKE_ZONE" --quiet
+      - name: Delete the NFS disk
+        continue-on-error: true
+        run: gcloud compute disks delete "${{needs.setup.outputs.name}}-nfs-pd" --zone "$GKE_ZONE" --quiet
+#      - name: Delete the two GCP Disks for first Galaxy
+#        run: gcloud compute disks delete "${{needs.deploygke.outputs.prefix}}-1-postgres-pd" --zone "$GKE_ZONE" --quiet && gcloud compute disks delete "${{needs.deploygke.outputs.prefix}}-1-nfs-pd" --zone "$GKE_ZONE" --quiet
