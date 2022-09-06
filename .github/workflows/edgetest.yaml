@@ -9,7 +9,7 @@ on:
       chunk:
         description: 'Chunk to run. Valid range [0:13]. Out of range inputs will be ignored.'
         required: true
-        default: 'daily'
+        default: '3'
 jobs:
   deploygke:
     env:
@@ -18,20 +18,25 @@ jobs:
       GXY_TMP: /tmp/gxy
       PREFIX: gtests-edge
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     outputs:
       prefix: ${{ steps.prefix.outputs.prefix }}
     steps:
       - name: Set prefix with date
         id: prefix
-        run: echo "::set-output name=prefix::$(echo $PREFIX-$(date +'%Y-%m-%d-%H-%M-%S'))"
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
+        run: echo "::set-output name=prefix::$(echo $PREFIX-$(date +'%Y-%m-%d-%H-%M'))"
+      - uses: 'actions/checkout@v3'
+      - id: 'Auth'
+        uses: 'google-github-actions/auth@v0'
         with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
+          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+          service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
       - name: Create GKE cluster
-        run: gcloud container clusters create "${{steps.prefix.outputs.prefix}}" --cluster-version="$GKE_VERSION" --disk-size=100 --num-nodes=1 --machine-type=n1-highmem-8 --zone "$GKE_ZONE"
+        run: gcloud container clusters create "${{steps.prefix.outputs.prefix}}" --cluster-version="$GKE_VERSION" --disk-size=50 --num-nodes=1 --machine-type=e2-standard-8 --zone "$GKE_ZONE"
 
   testgalaxy1:
     needs: deploygke
@@ -41,12 +46,14 @@ jobs:
       GKM_VERSION: "2.0.0"
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
+      - uses: 'actions/checkout@v3'
+      - id: 'Auth'
+        uses: 'google-github-actions/auth@v0'
         with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
+          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+          service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
       - name: Get cluster kubeconfig
         run: gcloud container clusters get-credentials "${{needs.deploygke.outputs.prefix}}" --zone "$GKE_ZONE" --project ${{ secrets.GCP_PROJECT_ID }}
       - name: Create two GCP Disks
@@ -60,45 +67,45 @@ jobs:
       - name: Deploy GalaxyKubeMan 1
         continue-on-error: true
         run: >
-          (time sh -c "kubectl create ns ${{needs.deploygke.outputs.prefix}}-1; helm install -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
+          (time sh -c "helm install --create-namespace -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
               --wait\
-              --timeout 2800s\
+              --timeout 1000s\
               --version $GKM_VERSION\
-              --set galaxy.image.tag=\"21.09-auto\"\
-              --set nfs.storageClass.name=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
-              --set galaxy.persistence.storageClass=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
-              --set galaxy.service.type=LoadBalancer\
-              --set galaxy.service.port=8000\
-              --set rbac.enabled=false\
-              --set galaxy.terra.launch.workspace=\"De novo transcriptome reconstruction with RNA-Seq\"\
-              --set galaxy.terra.launch.namespace=\"galaxy-anvil-edge\"\
+              --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"tests@fake.org\"\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=${{secrets.COMMON_PASSWORD}}\
-              --set galaxy.configs.\"galaxy\.yml\".galaxy.single_user=\"alex@fake.org\"\
-              --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"alex@fake.org\"\
+              --set galaxy.configs.\"galaxy\.yml\".galaxy.single_user=\"tests@fake.org\"\
+              --set galaxy.configs.\"job_conf\.yml\".runners.k8s.k8s_node_selector=\"cloud.google.com/gke-nodepool: default-pool\"\
+              --set galaxy.image.tag=\"22.05\"\
+              --set galaxy.jobHandlers.startupDelay=5\
+              --set galaxy.jobs.maxLimits.cpu=5\
+              --set galaxy.jobs.maxLimits.memory=50\
+              --set galaxy.jobs.maxRequests.cpu=4\
+              --set galaxy.jobs.maxRequests.memory=45\
+              --set galaxy.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
+              --set galaxy.persistence.size=\"200Gi\"\
+              --set galaxy.persistence.storageClass=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
+              --set galaxy.postgresql.galaxyDatabasePassword=${{secrets.COMMON_PASSWORD}}\
+              --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
+              --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
+              --set galaxy.postgresql.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk-pvc\"\
+              --set galaxy.service.port=8000\
+              --set galaxy.service.type=LoadBalancer\
+              --set galaxy.terra.launch.namespace=\"galaxy-anvil-edge\"\
+              --set galaxy.terra.launch.workspace=\"De novo transcriptome reconstruction with RNA-Seq\"\
+              --set galaxy.webHandlers.startupDelay=10\
+              --set galaxy.workflowHandlers.startupDelay=0\
+              --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
+              --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
+              --set nfs.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-nfs-disk-pvc\"\
+              --set nfs.persistence.size=\"250Gi\"\
+              --set nfs.storageClass.name=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set persistence.nfs.name=\"${{needs.deploygke.outputs.prefix}}-1-nfs-disk\"\
               --set persistence.nfs.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploygke.outputs.prefix}}-1-nfs-pd\"\
               --set persistence.nfs.size=\"250Gi\"\
               --set persistence.postgres.name=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk\"\
               --set persistence.postgres.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploygke.outputs.prefix}}-1-postgres-pd\"\
               --set persistence.postgres.size=\"10Gi\"\
-              --set nfs.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-nfs-disk-pvc\"\
-              --set nfs.persistence.size=\"250Gi\"\
-              --set galaxy.postgresql.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk-pvc\"\
-              --set galaxy.persistence.size=\"200Gi\"\
-              --set galaxy.postgresql.galaxyDatabasePassword=${{secrets.COMMON_PASSWORD}}\
-              --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set galaxy.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set galaxy.configs.\"job_conf\.yml\".runners.k8s.k8s_node_selector=\"cloud.google.com/gke-nodepool: default-pool\"\
-              --set galaxy.webHandlers.startupDelay=10\
-              --set galaxy.jobHandlers.startupDelay=5\
-              --set galaxy.workflowHandlers.startupDelay=0\
-              --set galaxy.jobs.maxRequests.cpu=4\
-              --set galaxy.jobs.maxRequests.memory=45\
-              --set galaxy.jobs.maxLimits.cpu=5\
-              --set galaxy.jobs.maxLimits.memory=50\
-              --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"") 1> "$GXY_TMP" 2>> "$GXY_TMP"
+              --set rbac.enabled=false") 1> "$GXY_TMP" 2>> "$GXY_TMP"
 
       - name: Print output
         run: cat "$GXY_TMP"
@@ -142,12 +149,14 @@ jobs:
       GKE_ZONE: us-east1-b
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
+      - uses: 'actions/checkout@v3'
+      - id: 'Auth'
+        uses: 'google-github-actions/auth@v0'
         with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
+          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+          service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
       - name: Delete the GKE cluster
         continue-on-error: true
         run: gcloud container clusters delete "${{needs.deploygke.outputs.prefix}}" --zone "$GKE_ZONE" --quiet
