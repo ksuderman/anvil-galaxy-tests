@@ -18,20 +18,25 @@ jobs:
       GXY_TMP: /tmp/gxy
       PREFIX: gtests-prod
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     outputs:
       prefix: ${{ steps.prefix.outputs.prefix }}
     steps:
       - name: Set prefix with date
         id: prefix
         run: echo "::set-output name=prefix::$(echo $PREFIX-$(date +'%Y-%m-%d-%H-%M'))"
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
+      - uses: 'actions/checkout@v3'
+      - id: 'Auth'
+        uses: 'google-github-actions/auth@v0'
         with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
+          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+          service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
       - name: Create GKE cluster
-        run: gcloud container clusters create "${{steps.prefix.outputs.prefix}}" --cluster-version="$GKE_VERSION" --disk-size=50 --num-nodes=1 --machine-type=e2-standard-8 --zone "$GKE_ZONE"
+        run: gcloud container clusters create "${{steps.prefix.outputs.prefix}}" --cluster-version="$GKE_VERSION" --disk-size=100 --num-nodes=1 --machine-type=e2-standard-16 --zone "$GKE_ZONE"
 
   testgalaxy1:
     needs: deploygke
@@ -40,13 +45,18 @@ jobs:
       GXY_TMP: /tmp/gxy
       GKM_VERSION: "2.0.0"
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
+      - uses: 'actions/checkout@v3'
+      - id: 'Auth'
+        uses: 'google-github-actions/auth@v0'
         with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
+          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+          service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
       - name: Get cluster kubeconfig
         run: gcloud container clusters get-credentials "${{needs.deploygke.outputs.prefix}}" --zone "$GKE_ZONE" --project ${{ secrets.GCP_PROJECT_ID }}
       - name: Create two GCP Disks
@@ -56,7 +66,7 @@ jobs:
       - name: Install Helm
         run: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
       - name: Add anvil repository
-        run: helm repo add anvil https://github.com/cloudve/helm-charts/raw/anvil && helm repo update
+        run: helm repo add anvil https://github.com/cloudve/helm-charts/raw/anvil
       - name: Deploy GalaxyKubeMan 1
         continue-on-error: true
         run: >
@@ -64,9 +74,9 @@ jobs:
               --wait\
               --timeout 1000s\
               --version $GKM_VERSION\
-              --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"alex@fake.org\"\
+              --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"tests@fake.org\"\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=${{secrets.COMMON_PASSWORD}}\
-              --set galaxy.configs.\"galaxy\.yml\".galaxy.single_user=\"alex@fake.org\"\
+              --set galaxy.configs.\"galaxy\.yml\".galaxy.single_user=\"tests@fake.org\"\
               --set galaxy.configs.\"job_conf\.yml\".runners.k8s.k8s_node_selector=\"cloud.google.com/gke-nodepool: default-pool\"\
               --set galaxy.image.tag=\"21.09\"\
               --set galaxy.jobHandlers.startupDelay=5\
@@ -75,17 +85,14 @@ jobs:
               --set galaxy.jobs.maxRequests.cpu=4\
               --set galaxy.jobs.maxRequests.memory=45\
               --set galaxy.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set galaxy.persistence.size=\"200Gi\"\
+              --set galaxy.persistence.size=\"240Gi\"\
               --set galaxy.persistence.storageClass=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set galaxy.postgresql.galaxyDatabasePassword=${{secrets.COMMON_PASSWORD}}\
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.postgresql.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk-pvc\"\
               --set galaxy.service.type=LoadBalancer\
-              --set galaxy.terra.launch.namespace=\"galaxy-anvil-prod\"\
               --set galaxy.webHandlers.startupDelay=10\
               --set galaxy.workflowHandlers.startupDelay=0\
-              --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set nfs.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-nfs-disk-pvc\"\
               --set nfs.persistence.size=\"250Gi\"\
@@ -125,7 +132,7 @@ jobs:
       - name: Split tool tests
         run: python .github/scripts/subset_tools.py reports/anvil-production/tools.yaml reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1 ${{ github.event.inputs.chunk }}
       - name: Run tool tests
-        run: sleep 30 && shed-tools test -g ${{steps.gxyservice1.outputs.address}} -u "alex@fake.org" -a "${{steps.api1.outputs.key}}" --parallel_tests 4 -t reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/tools.yaml --test_json reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.json
+        run: sleep 30 && shed-tools test -g ${{steps.gxyservice1.outputs.address}} -u "tests@fake.org" -a "${{steps.api1.outputs.key}}" --parallel_tests 4 -t reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/tools.yaml --test_json reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.json
       - name: Create HTML report
         run: planemo test_reports reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.json --test_output_xunit reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.xunit --test_output reports/anvil-production/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.html
       - name: Update Readme
@@ -139,13 +146,18 @@ jobs:
     env:
       GKE_ZONE: us-east1-b
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
+      - uses: 'actions/checkout@v3'
+      - id: 'Auth'
+        uses: 'google-github-actions/auth@v0'
         with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
+          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+          service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
       - name: Delete the GKE cluster
         continue-on-error: true
         run: gcloud container clusters delete "${{needs.deploygke.outputs.prefix}}" --zone "$GKE_ZONE" --quiet
