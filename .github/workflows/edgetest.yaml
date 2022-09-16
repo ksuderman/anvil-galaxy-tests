@@ -1,4 +1,4 @@
-name: 21.09 edge Deployment and Tool Tests
+name: 22.05 edge Deployment and Tool Tests
 on:
   schedule:
     - cron: "0 10 * * *"
@@ -43,7 +43,7 @@ jobs:
     env:
       GKE_ZONE: us-east1-b
       GXY_TMP: /tmp/gxy
-      GKM_VERSION: "2.0.0"
+      GKM_VERSION: "2.1.0"
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -78,31 +78,19 @@ jobs:
               --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=${{secrets.COMMON_PASSWORD}}\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.single_user=\"tests@fake.org\"\
               --set galaxy.configs.\"job_conf\.yml\".runners.k8s.k8s_node_selector=\"cloud.google.com/gke-nodepool: default-pool\"\
-              --set galaxy.image.tag=\"21.09\"\
-              --set galaxy.jobHandlers.startupDelay=5\
-              --set galaxy.jobs.maxLimits.cpu=5\
-              --set galaxy.jobs.maxLimits.memory=50\
-              --set galaxy.jobs.maxRequests.cpu=4\
-              --set galaxy.jobs.maxRequests.memory=45\
               --set galaxy.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set galaxy.persistence.size=\"240Gi\"\
               --set galaxy.persistence.storageClass=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set galaxy.postgresql.galaxyDatabasePassword=${{secrets.COMMON_PASSWORD}}\
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.postgresql.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk-pvc\"\
               --set galaxy.service.type=LoadBalancer\
-              --set galaxy.webHandlers.startupDelay=10\
-              --set galaxy.workflowHandlers.startupDelay=0\
               --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set nfs.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-nfs-disk-pvc\"\
-              --set nfs.persistence.size=\"250Gi\"\
               --set nfs.storageClass.name=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set persistence.nfs.name=\"${{needs.deploygke.outputs.prefix}}-1-nfs-disk\"\
               --set persistence.nfs.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploygke.outputs.prefix}}-1-nfs-pd\"\
-              --set persistence.nfs.size=\"250Gi\"\
               --set persistence.postgres.name=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk\"\
               --set persistence.postgres.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploygke.outputs.prefix}}-1-postgres-pd\"\
-              --set persistence.postgres.size=\"10Gi\"\
               --set rbac.enabled=false") 1> "$GXY_TMP" 2>> "$GXY_TMP"
 
       - name: Print output
