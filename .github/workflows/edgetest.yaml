@@ -16,7 +16,7 @@ jobs:
       GKE_ZONE: us-east1-b
       GKE_VERSION: "1.24"
       GXY_TMP: /tmp/gxy
-      PREFIX: gtests-edge
+      PREFIX: gci-edge
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Set prefix with date
         id: prefix
-        run: echo "::set-output name=prefix::$(echo $PREFIX-$(date +'%Y-%m-%d-%H-%M'))"
+        run: echo "::set-output name=prefix::$(echo $PREFIX-$(date +'%y-%m-%d-%H-%M'))"
       - uses: 'actions/checkout@v3'
       - id: 'Auth'
         uses: 'google-github-actions/auth@v0'
@@ -67,6 +67,9 @@ jobs:
         run: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
       - name: Add anvil repository
         run: helm repo add anvil https://github.com/cloudve/helm-charts/raw/anvil
+      - name: Remove the default cluster storage class
+        run: >
+          kubectl patch storageclass standard-rwo -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
       - name: Deploy GalaxyKubeMan 1
         continue-on-error: true
         run: >
