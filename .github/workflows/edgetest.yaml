@@ -67,9 +67,6 @@ jobs:
         run: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
       - name: Add anvil repository
         run: helm repo add anvil https://github.com/cloudve/helm-charts/raw/anvil
-      - name: Remove the default cluster storage class
-        run: >
-          kubectl patch storageclass standard-rwo -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
       - name: Deploy GalaxyKubeMan 1
         continue-on-error: true
         run: >
