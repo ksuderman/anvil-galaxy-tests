@@ -115,6 +115,8 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
+      - name: Install required system packages
+        run: sudo apt-get install -y python3-h5py
       - name: Install dependencies
         run: python -m pip install planemo ephemeris pysam "galaxy-tool-util>=21.1.0.dev6" bioblend Jinja2 matplotlib
       - uses: actions/checkout@v2
