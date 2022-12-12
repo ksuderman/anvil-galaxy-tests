@@ -44,6 +44,7 @@ jobs:
       GKE_ZONE: us-east1-b
       GXY_TMP: /tmp/gxy
       GKM_VERSION: "2.0.0"
+      USE_GKE_GCLOUD_AUTH_PLUGIN: True
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -63,6 +64,8 @@ jobs:
         run: gcloud compute disks create "${{needs.deploygke.outputs.prefix}}-1-postgres-pd" --size 10Gi --zone "$GKE_ZONE" && gcloud compute disks create "${{needs.deploygke.outputs.prefix}}-1-nfs-pd" --size 250Gi --zone "$GKE_ZONE"
       - name: Setup gcloud auth plugin for kubectl
         run: gcloud components install gke-gcloud-auth-plugin
+      - name: Fetch gcloud credentials for kubectl
+        run: gcloud container clusters get-credentials "${{needs.deploygke.outputs.prefix}}"
       - name: Install Kubectl
         run: curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" && chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl && kubectl version
       - name: Install Helm
