@@ -65,7 +65,7 @@ jobs:
       - name: Setup gcloud auth plugin for kubectl
         run: gcloud components install gke-gcloud-auth-plugin
       - name: Fetch gcloud credentials for kubectl
-        run: gcloud container clusters get-credentials "${{needs.deploygke.outputs.prefix}}"
+        run: gcloud container clusters get-credentials "${{needs.deploygke.outputs.prefix}}" --zone "$GKE_ZONE"
       - name: Install Kubectl
         run: curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" && chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl && kubectl version
       - name: Install Helm
