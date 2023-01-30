@@ -43,7 +43,7 @@ jobs:
     env:
       GKE_ZONE: us-east1-b
       GXY_TMP: /tmp/gxy
-      GKM_VERSION: "2.1.0"
+      GKM_VERSION: "2.4.4"
       USE_GKE_GCLOUD_AUTH_PLUGIN: True
     runs-on: ubuntu-latest
     permissions:
@@ -77,8 +77,10 @@ jobs:
         run: >
           (time sh -c "helm install --create-namespace -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
               --wait\
-              --timeout 1000s\
+              --timeout 600s\
               --version $GKM_VERSION\
+              --set galaxy.image.version=22.05\
+              --set galaxy.service.type=LoadBalancer\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"tests@fake.org\"\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=${{secrets.COMMON_PASSWORD}}\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.single_user=\"tests@fake.org\"\
@@ -88,7 +90,10 @@ jobs:
               --set galaxy.postgresql.galaxyDatabasePassword=${{secrets.COMMON_PASSWORD}}\
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.postgresql.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk-pvc\"\
-              --set galaxy.service.type=LoadBalancer\
+              --set galaxy.rabbitmq.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
+              --set galaxy.ingress.ingressClassName=\"\"\
+              --set galaxy.ingress.tls=[]\
+              --set galaxy.tusd.ingress.ingressClassName=\"\"\
               --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set nfs.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-nfs-disk-pvc\"\
               --set nfs.storageClass.name=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
@@ -100,6 +105,10 @@ jobs:
 
       - name: Print output
         run: cat "$GXY_TMP"
+      - name: Get pods, pvc, and pv, sc
+        run: kubectl get pods -n ${{needs.deploygke.outputs.prefix}}-1; kubectl get pvc -n ${{needs.deploygke.outputs.prefix}}-1; kubectl get pv -n ${{needs.deploygke.outputs.prefix}}-1; kubectl get sc -n ${{needs.deploygke.outputs.prefix}}-1
+      - name: Get events
+        run: kubectl get events -n ${{needs.deploygke.outputs.prefix}}-1
       - uses: actions/setup-python@v4
         with:
           python-version: '3.x'
