@@ -77,7 +77,8 @@ jobs:
         run: >
           (time sh -c "helm install --create-namespace -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
               --wait\
-              --timeout 600s\
+              --wait-for-jobs\
+              --timeout 720s\
               --version $GKM_VERSION\
               --set galaxy.image.version=22.05\
               --set galaxy.service.type=LoadBalancer\
