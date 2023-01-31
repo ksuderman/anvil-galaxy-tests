@@ -92,6 +92,7 @@ jobs:
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.postgresql.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk-pvc\"\
               --set galaxy.rabbitmq.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
+              --set galaxy.rabbitmq.persistence.storageClassName=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set galaxy.ingress.ingressClassName=\"\"\
               --set galaxy.tusd.ingress.ingressClassName=\"\"\
               --set cvmfs.cvmfscsi.cache.alien.pvc.storageClass=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
