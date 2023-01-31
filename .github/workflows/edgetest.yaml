@@ -72,7 +72,7 @@ jobs:
         run: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
       - name: Add anvil repository
         run: helm repo add anvil https://github.com/cloudve/helm-charts/raw/anvil
-      - name: Deploy GalaxyKubeMan 1
+      - name: Deploy GalaxyKubeMan
         continue-on-error: true
         run: >
           (time sh -c "helm install --create-namespace -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
@@ -92,16 +92,15 @@ jobs:
               --set galaxy.postgresql.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk-pvc\"\
               --set galaxy.rabbitmq.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.ingress.ingressClassName=\"\"\
-              --set galaxy.ingress.tls=[]\
               --set galaxy.tusd.ingress.ingressClassName=\"\"\
+              --set cvmfs.cvmfscsi.cache.alien.pvc.storageClass=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set nfs.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-nfs-disk-pvc\"\
               --set nfs.storageClass.name=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set persistence.nfs.name=\"${{needs.deploygke.outputs.prefix}}-1-nfs-disk\"\
               --set persistence.nfs.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploygke.outputs.prefix}}-1-nfs-pd\"\
               --set persistence.postgres.name=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk\"\
-              --set persistence.postgres.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploygke.outputs.prefix}}-1-postgres-pd\"\
-              --set rbac.enabled=false") 1> "$GXY_TMP" 2>> "$GXY_TMP"
+              --set persistence.postgres.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploygke.outputs.prefix}}-1-postgres-pd\"") 1> "$GXY_TMP" 2>> "$GXY_TMP"
 
       - name: Print output
         run: cat "$GXY_TMP"
@@ -116,7 +115,7 @@ jobs:
         run: sudo apt-get install -y python3-h5py pkg-config libhdf5-dev
       - name: Install dependencies
         run: python -m pip install planemo ephemeris pysam "galaxy-tool-util>=21.1.0.dev6" bioblend Jinja2 matplotlib
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           persist-credentials: false
       - name: Add report from this run
