@@ -91,7 +91,7 @@ jobs:
               --set galaxy.postgresql.galaxyDatabasePassword=${{secrets.COMMON_PASSWORD}}\
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.postgresql.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk-pvc\"\
-              --set galaxy.rabbitmq.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
+              --set galaxy.rabbitmq.nodeSelector.'cloud\.google\.com\/gke-nodepool'=\"default-pool\"\
               --set galaxy.rabbitmq.persistence.storageClassName=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set galaxy.ingress.ingressClassName=\"\"\
               --set galaxy.tusd.ingress.ingressClassName=\"\"\
@@ -106,6 +106,8 @@ jobs:
 
       - name: Print output
         run: cat "$GXY_TMP"
+      - name: Helm get values
+        run: helm get values -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1
       - name: Get pods, pvc, and pv, sc
         run: kubectl get pods -n ${{needs.deploygke.outputs.prefix}}-1; kubectl get pvc -n ${{needs.deploygke.outputs.prefix}}-1; kubectl get pv -n ${{needs.deploygke.outputs.prefix}}-1; kubectl get sc -n ${{needs.deploygke.outputs.prefix}}-1
       - name: Get events
