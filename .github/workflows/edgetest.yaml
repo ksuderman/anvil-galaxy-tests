@@ -16,7 +16,7 @@ jobs:
       GKE_ZONE: us-east1-b
       GKE_VERSION: "1.24"
       GXY_TMP: /tmp/gxy
-      PREFIX: gci-edge
+      PREFIX: edge
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Set prefix with date
         id: prefix
-        run: echo "prefix=$(echo $PREFIX-$(date +'%y-%m-%d-%H-%M'))" >> $GITHUB_OUTPUT
+        run: echo "prefix=$(echo $PREFIX-$(date +'%m-%d-%H-%M'))" >> $GITHUB_OUTPUT
       - uses: 'actions/checkout@v3'
       - id: 'Auth'
         uses: 'google-github-actions/auth@v0'
@@ -78,7 +78,7 @@ jobs:
           (time sh -c "helm install --create-namespace -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
               --wait\
               --wait-for-jobs\
-              --timeout 7200s\
+              --timeout 720s\
               --version $GKM_VERSION\
               --set galaxy.image.version=22.05\
               --set galaxy.service.type=LoadBalancer\
@@ -91,7 +91,7 @@ jobs:
               --set galaxy.postgresql.galaxyDatabasePassword=${{secrets.COMMON_PASSWORD}}\
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.postgresql.persistence.existingClaim=\"${{needs.deploygke.outputs.prefix}}-1-postgres-disk-pvc\"\
-              --set galaxy.rabbitmq.nodeSelector.\"'cloud\.google\.com\/gke-nodepool'\"=\"default-pool\"\
+              --set galaxy.rabbitmq.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.rabbitmq.persistence.storageClassName=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set galaxy.ingress.ingressClassName=\"\"\
               --set galaxy.tusd.ingress.ingressClassName=\"\"\
