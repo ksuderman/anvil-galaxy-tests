@@ -273,18 +273,19 @@ tools:
   - d94aff5ee623
   tool_panel_section_id: fastq_quality_control
   tool_panel_section_label: FASTQ Quality Control
-- name: sra_tools
-  owner: iuc
-  revisions:
-  - 83c7d564b128
-  tool_panel_section_id: get_data
-  tool_panel_section_label: Get Data
-- name: ncbi_acc_download
-  owner: iuc
-  revisions:
-  - 1c58de56d587
-  tool_panel_section_id: get_data
-  tool_panel_section_label: Get Data
+# Tests time out (after 6hrs)
+# - name: sra_tools
+#   owner: iuc
+#   revisions:
+#   - 83c7d564b128
+#   tool_panel_section_id: get_data
+#   tool_panel_section_label: Get Data
+# - name: ncbi_acc_download
+#   owner: iuc
+#   revisions:
+#   - 1c58de56d587
+#   tool_panel_section_id: get_data
+#   tool_panel_section_label: Get Data
 - name: pygenometracks
   owner: iuc
   revisions:
@@ -826,7 +827,7 @@ tools:
 - name: anndata_import
   owner: iuc
   revisions:
-  - 55e35e9203cf
+  # - 55e35e9203cf - Tests time out (after 6hrs)
   - fb9e030ffae4
   tool_panel_section_id: single_cell
   tool_panel_section_label: Single-cell

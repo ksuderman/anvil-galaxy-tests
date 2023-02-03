@@ -139,7 +139,7 @@ jobs:
       - name: Split tool tests
         run: python .github/scripts/subset_tools.py reports/anvil-edge/tools.yaml reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1 ${{ github.event.inputs.chunk }}
       - name: Run tool tests
-        run: sleep 30 && shed-tools test -g ${{steps.gxyservice1.outputs.address}} -u "tests@fake.org" -a "${{steps.api1.outputs.key}}" --parallel_tests 4 -t reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1/tools.yaml --test_json reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.json
+        run: sleep 30 && shed-tools test -g ${{steps.gxyservice1.outputs.address}} -u "tests@fake.org" -a "${{steps.api1.outputs.key}}" --parallel_tests 6 -t reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1/tools.yaml --test_json reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.json
       - name: Create HTML report
         run: planemo test_reports reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.json --test_output_xunit reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.xunit --test_output reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.html
       - name: Update Readme
