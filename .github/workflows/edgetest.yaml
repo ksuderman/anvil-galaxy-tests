@@ -86,7 +86,7 @@ jobs:
               --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=${{secrets.COMMON_PASSWORD}}\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.single_user=\"tests@fake.org\"\
               --set galaxy.configs.\"job_conf\.yml\".runners.k8s.k8s_node_selector=\"cloud.google.com/gke-nodepool: default-pool\"\
-              --set galaxy.configs.\"job_conf\.yml\".execution.environments.tpv_dispatcher.tpv_config_files={https://gist.githubusercontent.com/afgane/68d1dbbe0af2468ba347dc74b6d3f7fa/raw/20edda50161bdcb74ff38935e7f76d79bfdaf303/tvp_rules_tests.yml}\
+              --set galaxy.configs.\"job_conf\.yml\".execution.environments.tpv_dispatcher.tpv_config_files[2]=https://gist.githubusercontent.com/afgane/68d1dbbe0af2468ba347dc74b6d3f7fa/raw/20edda50161bdcb74ff38935e7f76d79bfdaf303/tvp_rules_tests.yml\
               --set galaxy.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.persistence.storageClass=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set galaxy.postgresql.galaxyDatabasePassword=${{secrets.COMMON_PASSWORD}}\
