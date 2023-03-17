@@ -1,4 +1,4 @@
-name: 22.05 edge Deployment and Tool Tests
+name: Edge Deployment and Tool Tests
 on:
   schedule:
     - cron: "0 10 * * *"
@@ -46,7 +46,7 @@ jobs:
     env:
       GKE_ZONE: us-east1-b
       GXY_TMP: /tmp/gxy
-      GKM_VERSION: "2.4.4"
+      GKM_VERSION: "2.5.1"
       USE_GKE_GCLOUD_AUTH_PLUGIN: True
     runs-on: ubuntu-latest
     permissions:
