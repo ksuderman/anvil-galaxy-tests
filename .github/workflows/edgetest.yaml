@@ -41,12 +41,12 @@ jobs:
         run: gcloud container clusters create "${{steps.prefix.outputs.prefix}}" --cluster-version="$GKE_VERSION" --disk-size=100 --num-nodes=1 --machine-type=e2-custom-20-81920 --zone "$GKE_ZONE"
 
   testgalaxy1:
-    timeout-minutes: 90
+    timeout-minutes: 120
     needs: deploygke
     env:
       GKE_ZONE: us-east1-b
       GXY_TMP: /tmp/gxy
-      GKM_VERSION: "2.5.1"
+      GKM_VERSION: "2.6.0"
       USE_GKE_GCLOUD_AUTH_PLUGIN: True
     runs-on: ubuntu-latest
     permissions:
@@ -83,7 +83,6 @@ jobs:
               --wait-for-jobs\
               --timeout 720s\
               --version $GKM_VERSION\
-              --set galaxy.image.version=22.05\
               --set galaxy.service.type=LoadBalancer\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"tests@fake.org\"\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=${{secrets.COMMON_PASSWORD}}\
