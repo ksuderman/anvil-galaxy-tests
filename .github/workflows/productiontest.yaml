@@ -1,8 +1,9 @@
-name: 21.09 production Deployment and Tool Tests for
+name: Production Deployment and Tool Tests
 on:
-  schedule:
-    - cron: "0 4 * * *"
-    - cron: "0 16 * * *"
+  # 2023-05-23 - EA: pause production runs until intermittent run stalls are resolved
+  # schedule:
+  #   - cron: "0 0 * * *"
+  #   - cron: "0 12 * * *"
 
   workflow_dispatch:
     inputs:

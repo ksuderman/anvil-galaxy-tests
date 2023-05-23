@@ -1,8 +1,8 @@
 name: Edge Deployment and Tool Tests
 on:
   schedule:
-    - cron: "0 10 * * *"
-    - cron: "0 22 * * *"
+    - cron: "0 6 * * *"
+    - cron: "0 18 * * *"
 
   workflow_dispatch:
     inputs:
@@ -46,7 +46,7 @@ jobs:
     env:
       GKE_ZONE: us-east1-b
       GXY_TMP: /tmp/gxy
-      GKM_VERSION: "2.6.0"
+      GKM_VERSION: "2.7.0"
       USE_GKE_GCLOUD_AUTH_PLUGIN: True
     runs-on: ubuntu-latest
     permissions:
