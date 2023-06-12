@@ -41,12 +41,6 @@ jobs:
           echo "dir=$DIR" >> $GITHUB_OUTPUT
       - name: Configure ABM
         run: |
-          mkdir ~/.abm
-          cat << EOF > ~/.abm/profile
-          galaxy:
-            url: ${{steps.galaxy.outputs.url}}
-            kube: /dev/null
-          EOF
           key=$(abm galaxy user key admin)
           abm config key galaxy $key
       - name: Split tool tests (workflow_dispatch)
