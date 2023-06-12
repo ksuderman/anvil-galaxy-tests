@@ -30,8 +30,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           persist-credentials: false
-      - name: Add report from this run
-        run: bash ./.github/scripts/report_deployment.sh "$GXY_TMP" anvil-edge ${{ secrets.GIT_TOKEN }}
       - name: Get Galaxy IP and port
         id: galaxy
         run: echo "url="http://34.23.48.152:8000/galaxy/" >> $GITHUB_OUTPUT
