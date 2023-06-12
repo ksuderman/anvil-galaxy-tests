@@ -41,7 +41,10 @@ jobs:
           echo "dir=$DIR" >> $GITHUB_OUTPUT
       - name: Configure ABM
         run: |
+          abm version
+          abm config show galaxy
           key=$(abm galaxy user key admin)
+          echo "Key is $key"
           abm config key galaxy $key
       - name: Split tool tests (workflow_dispatch)
         if: ${{ github.event_name == 'workflow_dispatch' }}
