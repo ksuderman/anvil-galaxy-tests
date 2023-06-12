@@ -42,6 +42,8 @@ jobs:
       - name: Configure ABM
         run: |
           abm version
+          ls ~/.abm
+          cat ~/.abm/profile.yml
           abm config show galaxy
           key=$(abm galaxy user key admin)
           echo "Key is $key"
