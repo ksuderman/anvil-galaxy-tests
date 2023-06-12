@@ -1,0 +1,73 @@
+name: Edge Deployment and Tool Tests
+on:
+  workflow_dispatch:
+    inputs:
+      chunk:
+        description: 'Chunk to run. Valid range [0:13]. Out of range inputs will be ignored.'
+        required: true
+        default: '3'
+jobs:
+  testgalaxy1:
+    timeout-minutes: 120
+    env:
+      GKE_ZONE: us-east1-b
+      GXY_TMP: /tmp/gxy
+      GKM_VERSION: "2.7.0"
+      USE_GKE_GCLOUD_AUTH_PLUGIN: True
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - uses: 'actions/checkout@v3'
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install required system packages
+        run: sudo apt-get update && sudo apt-get install -y python3-h5py pkg-config libhdf5-dev
+      - name: Install dependencies
+        run: python -m pip install planemo ephemeris pysam "galaxy-tool-util>=21.1.0.dev6" bioblend Jinja2 matplotlib gxabm
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      - name: Add report from this run
+        run: bash ./.github/scripts/report_deployment.sh "$GXY_TMP" anvil-edge ${{ secrets.GIT_TOKEN }}
+      - name: Get Galaxy IP and port
+        id: galaxy
+        run: echo "url="http://34.23.48.152:8000/galaxy/" >> $GITHUB_OUTPUT
+      - name: Create reports dir for this date
+        id: reports
+        run: |
+          DIR=reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1
+          mkdir -p $DIR
+          echo "dir=$DIR" >> $GITHUB_OUTPUT
+      - name: Configure ABM
+        run: |
+          mkdir ~/.abm
+          cat << EOF > ~/.abm/profile
+          galaxy:
+            url: ${{steps.galaxy.outputs.url}}
+            kube: /dev/null
+          EOF
+          key=$(abm galaxy user key admin)
+          abm config key galaxy $key
+      - name: Split tool tests (workflow_dispatch)
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: python .github/scripts/get_chunk.py --chunk ${{ github.event.inputs.chunk }} reports/anvil-edge/tools.yaml > ${{ steps.reports.outputs.dir }}/chunk.txt
+      - name: Split tool tests (cron job)
+        if: ${{ github.event_name != 'workflow_dispatch }}
+        run: python .github/scripts/get_chunk.py reports/anvil-edge/tools.yaml > ${{ steps.reports.outputs.dir }}/chunk.txt
+      - name: Generate a history name
+        id: history
+        run: echo "history_name=anvil-test-$(date '+%F-%H-%M')" >> $GITHUB_OUTPUT
+      - name: Run tool tests
+        run: sleep 30 && .github/scripts/run-galaxy-tests.sh ${{ steps.history.outputs.history_name }} ${{ steps.reports.outputs.dir }}
+      - name: Write job results
+        run: abm galaxy jobs list --history ${{ steps.history.outputs.history_name }} > ${{ steps.reports.outputs.dir }}/jobs.txt
+      - name: Create HTML report
+        run: planemo test_reports ${{ steps.reports.outputs.dir }}/results.json --test_output_xunit ${{ steps.reports.outputs.dir }}/results.xunit --test_output ${{ steps.reports.outputs.dir }}/results.html
+      - name: Update Readme
+        run: python .github/scripts/update_readme.py ${{ steps.reports.outputs.dir }}/chunk.json reports/anvil-edge/tool-tests/chunks.json reports/anvil-edge/README.md
+      - name: Add updated README from this run
+        run: bash ./.github/scripts/report_tests.sh ${{ secrets.GIT_TOKEN }} "Updating anvil-edge README for ${{needs.deploygke.outputs.prefix}}-1" reports/anvil-edge
+
