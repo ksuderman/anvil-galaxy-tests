@@ -32,7 +32,7 @@ jobs:
           persist-credentials: false
       - name: Get Galaxy IP and port
         id: galaxy
-        run: echo "url="http://34.23.48.152:8000/galaxy/" >> $GITHUB_OUTPUT
+        run: echo "url=http://34.23.48.152:8000/galaxy/" >> $GITHUB_OUTPUT
       - name: Create reports dir for this date
         id: reports
         run: |
