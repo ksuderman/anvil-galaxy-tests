@@ -1,4 +1,4 @@
-name: Edge Deployment and Tool Tests
+name: Test the test
 on:
   workflow_dispatch:
     inputs:
