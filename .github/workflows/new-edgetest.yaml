@@ -145,10 +145,9 @@ jobs:
         run: |
           abm version
           cp -R .abm ~/.abm
-          cat ~/.abm/profile.yml
           key=$(abm galaxy user key admin)
-          echo "Key is $key"
           abm config key galaxy $key
+          abm config url galaxy ${{ steps.galaxy.outputs.url }}
           echo "key=$key" >> $GITHUB_OUTPUT
       - name: Split tool tests (workflow_dispatch)
         if: ${{ github.event_name == 'workflow_dispatch' }}
