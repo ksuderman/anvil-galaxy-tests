@@ -1,8 +1,9 @@
 name: Edge Deployment and Tool Tests
 on:
-  schedule:
-    - cron: "0 6 * * *"
-    - cron: "0 18 * * *"
+# 2023-06-13 - KS: disable these tests while testing replacement.  This file
+# should be deleted.
+#    - cron: "0 6 * * *"
+#    - cron: "0 18 * * *"
 
   workflow_dispatch:
     inputs:
