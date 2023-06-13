@@ -57,4 +57,4 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         print("Error: the path to the tools.yml file was not provided")
         sys.exit(1)
-    run(sys.argv[1])
+    run(sys.argv)
