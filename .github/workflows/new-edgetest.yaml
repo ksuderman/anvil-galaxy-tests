@@ -148,6 +148,7 @@ jobs:
           key=$(abm galaxy user key admin)
           abm config key galaxy $key
           abm config url galaxy ${{ steps.galaxy.outputs.url }}
+          abm config show galaxy
           echo "key=$key" >> $GITHUB_OUTPUT
       - name: Split tool tests (workflow_dispatch)
         if: ${{ github.event_name == 'workflow_dispatch' }}
