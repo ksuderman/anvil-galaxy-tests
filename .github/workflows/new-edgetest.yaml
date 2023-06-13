@@ -1,9 +1,8 @@
 name: Edge Deployment and Tool Tests
 on:
-# 2023-06-13 - KS: disable these tests while testing replacement.  This file
-# should be deleted.
-#    - cron: "0 6 * * *"
-#    - cron: "0 18 * * *"
+  schedule:
+    - cron: "0 6 * * *"
+    - cron: "0 18 * * *"
 
   workflow_dispatch:
     inputs:
@@ -122,32 +121,55 @@ jobs:
       - name: Install required system packages
         run: sudo apt-get update && sudo apt-get install -y python3-h5py pkg-config libhdf5-dev
       - name: Install dependencies
-        run: python -m pip install planemo ephemeris pysam "galaxy-tool-util>=21.1.0.dev6" bioblend Jinja2 matplotlib
+        run: python -m pip install planemo ephemeris pysam "galaxy-tool-util>=21.1.0.dev6" bioblend Jinja2 matplotlib gxabm
       - uses: actions/checkout@v3
         with:
           persist-credentials: false
       - name: Add report from this run
         run: bash ./.github/scripts/report_deployment.sh "$GXY_TMP" anvil-edge ${{ secrets.GIT_TOKEN }}
       - name: Get Galaxy IP and port
-        id: gxyservice1
-        run: echo "address=$(echo \"http://$(kubectl get svc -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy-nginx -o jsonpath='{.status.loadBalancer.ingress[0].ip}' | sed -e 's/\"//g'):$(kubectl get svc -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy-nginx -o jsonpath='{.spec.ports[0].port}')$(kubectl get ingress -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy -o jsonpath='{.spec.rules[0].http.paths[0].path}')/\")" >> $GITHUB_OUTPUT
+        id: galaxy
+        run: echo "url=$(echo \"http://$(kubectl get svc -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy-nginx -o jsonpath='{.status.loadBalancer.ingress[0].ip}' | sed -e 's/\"//g'):$(kubectl get svc -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy-nginx -o jsonpath='{.spec.ports[0].port}')$(kubectl get ingress -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy -o jsonpath='{.spec.rules[0].http.paths[0].path}')/\")" >> $GITHUB_OUTPUT
       - name: Create remote single user
-        run: curl ${{steps.gxyservice1.outputs.address}}
+        run: curl ${{steps.galaxy.outputs.url}}
       - name: Create reports dir for this date
-        run: mkdir -p reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1
+        id: reports
+        run: |
+          DIR=reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1
+          mkdir -p $DIR
+          echo "dir=$DIR" >> $GITHUB_OUTPUT
       # - name: Get tool list
       #   run: cp production/anvil/tools.yaml reports/anvil-edge/tools.yaml
-      - name: Create and get API key
-        run: echo "key=$(python .github/scripts/create_api_key.py ${{steps.gxyservice1.outputs.address}} ${{secrets.COMMON_PASSWORD}})" >> $GITHUB_OUTPUT
-        id: api1
-      - name: Split tool tests
-        run: python .github/scripts/subset_tools.py reports/anvil-edge/tools.yaml reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1 ${{ github.event.inputs.chunk }}
+      - name: Configure ABM
+        id: key
+        run: |
+          abm version
+          cp -R .abm ~/.abm
+          cat ~/.abm/profile.yml
+          key=$(abm galaxy user key admin)
+          echo "Key is $key"
+          abm config key galaxy $key
+          echo "key=$key" >> $GITHUB_OUTPUT
+      - name: Split tool tests (workflow_dispatch)
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: python .github/scripts/get_chunk.py --chunk ${{ github.event.inputs.chunk }} -o ${{ steps.reports.outputs.dir }} reports/anvil-edge/tools.yaml
+      - name: Split tool tests (cron job)
+        if: ${{ github.event_name }} != 'workflow_dispatch'
+        run: python .github/scripts/get_chunk.py reports/anvil-edge/tools.yaml -o ${{ steps.reports.outputs.dir }}
+      - name: Generate a history name
+        id: history
+        run: echo "history_name=anvil-test-$(date '+%F-%H-%M')" >> $GITHUB_OUTPUT
       - name: Run tool tests
-        run: sleep 30 && shed-tools test -g ${{steps.gxyservice1.outputs.address}} -u "tests@fake.org" -a "${{steps.api1.outputs.key}}" --parallel_tests 2 --verbose -t reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1/tools.yaml --test_json reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.json
+        env:
+          GALAXY_URL: ${{ steps.galaxy.outputs.url }}
+          GALAXY_KEY: ${{ steps.key.outputs.key }}
+        run: sleep 30 && .github/scripts/run-galaxy-tests.sh ${{ steps.history.outputs.history_name }} ${{ steps.reports.outputs.dir }}
+      - name: Write job results
+        run: abm galaxy jobs list --history ${{ steps.history.outputs.history_name }} > ${{ steps.reports.outputs.dir }}/jobs.txt
       - name: Create HTML report
-        run: planemo test_reports reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.json --test_output_xunit reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.xunit --test_output reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1/results.html
+        run: planemo test_reports ${{ steps.reports.outputs.dir }}/results.json --test_output_xunit ${{ steps.reports.outputs.dir }}/results.xunit --test_output ${{ steps.reports.outputs.dir }}/results.html
       - name: Update Readme
-        run: python .github/scripts/update_readme.py reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1/chunk.json reports/anvil-edge/tool-tests/chunks.json reports/anvil-edge/README.md
+        run: python .github/scripts/update_readme.py ${{ steps.reports.outputs.dir }}/chunk.json reports/anvil-edge/tool-tests/chunks.json reports/anvil-edge/README.md
       - name: Add updated README from this run
         run: bash ./.github/scripts/report_tests.sh ${{ secrets.GIT_TOKEN }} "Updating anvil-edge README for ${{needs.deploygke.outputs.prefix}}-1" reports/anvil-edge
 
