@@ -72,8 +72,8 @@ def run(args: list[str]):
 
     with open(f'{outdir}/chunk.json', 'w') as f:
         f.write(json.dumps(chunk_data, indent=4))
-
     write_tools(tools, f"{outdir}/chunk.txt")
+    print(f"Wrote chunk {chunk}")
 
 
 
