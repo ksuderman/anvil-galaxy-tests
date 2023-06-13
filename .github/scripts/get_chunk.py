@@ -32,7 +32,7 @@ def print_tools(tools: dict) -> None:
 def run(args: list[str]):
     tools_file = None
     chunk = None
-    while len(args > 0):
+    while len(args) > 0:
         arg = args.pop(0)
         if arg in ['-c', '--chunk']:
             chunk = int(args.pop(0))
