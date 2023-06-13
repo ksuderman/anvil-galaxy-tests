@@ -14,6 +14,7 @@ jobs:
       GXY_TMP: /tmp/gxy
       GKM_VERSION: "2.7.0"
       USE_GKE_GCLOUD_AUTH_PLUGIN: True
+      PREFIX: edge
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -33,10 +34,13 @@ jobs:
       - name: Get Galaxy IP and port
         id: galaxy
         run: echo "url=http://34.23.48.152:8000/galaxy/" >> $GITHUB_OUTPUT
+      - name: Set prefix with date
+        id: prefix
+        run: echo "prefix=$(echo $PREFIX-$(date +'%m-%d-%H-%M'))" >> $GITHUB_OUTPUT
       - name: Create reports dir for this date
         id: reports
         run: |
-          DIR=reports/anvil-edge/tool-tests/${{needs.deploygke.outputs.prefix}}-1
+          DIR=reports/anvil-edge/tool-tests/${{steps.prefix.outputs.prefix}}-1
           mkdir -p $DIR
           echo "dir=$DIR" >> $GITHUB_OUTPUT
       - name: Configure ABM
