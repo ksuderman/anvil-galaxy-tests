@@ -45,6 +45,7 @@ def run(args: list[str]):
         else:
             tools_file = arg
 
+    today = datetime.today()
     if tools_file is None:
         print("ERROR: tool.yml file not provided.")
         return
@@ -52,7 +53,6 @@ def run(args: list[str]):
         print("ERROR: output directory not provided")
         return
     if chunk is None:
-        today = datetime.today()
         day = today.weekday()
         ampm = 0 if today.strftime('%p') == 'AM' else 1
         chunk = day * RUNS_PER_DAY + ampm
