@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -u
 
-if [[ $# != 2 ]] ; then
-  echo "USAGE: $0 /path/to/output/directory"
-  exit 1
-fi
+#if [[ $# != 2 ]] ; then
+#  echo "USAGE: $0 /path/to/output/directory"
+#  exit 1
+#fi
 
 HISTORY=$1
 OUTDIR=$2

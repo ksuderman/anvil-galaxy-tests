@@ -44,6 +44,7 @@ jobs:
           mkdir -p $DIR
           echo "dir=$DIR" >> $GITHUB_OUTPUT
       - name: Configure ABM
+        id: key
         run: |
           abm version
           cp -R .abm ~/.abm
@@ -51,6 +52,7 @@ jobs:
           key=$(abm galaxy user key admin)
           echo "Key is $key"
           abm config key galaxy $key
+          echo "key=$key" >> $GITHUB_OUTPUT
       - name: Split tool tests (workflow_dispatch)
         if: ${{ github.event_name == 'workflow_dispatch' }}
         run: python .github/scripts/get_chunk.py --chunk ${{ github.event.inputs.chunk }} reports/anvil-edge/tools.yaml > ${{ steps.reports.outputs.dir }}/chunk.txt
@@ -61,6 +63,9 @@ jobs:
         id: history
         run: echo "history_name=anvil-test-$(date '+%F-%H-%M')" >> $GITHUB_OUTPUT
       - name: Run tool tests
+        env:
+          GALAXY_URL: ${{ steps.galaxy.outputs.url }}
+          GALAXY_KEY: $${ steps.key.outputs.key }}
         run: sleep 30 && .github/scripts/run-galaxy-tests.sh ${{ steps.history.outputs.history_name }} ${{ steps.reports.outputs.dir }}
       - name: Write job results
         run: abm galaxy jobs list --history ${{ steps.history.outputs.history_name }} > ${{ steps.reports.outputs.dir }}/jobs.txt
