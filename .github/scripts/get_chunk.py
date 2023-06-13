@@ -7,6 +7,8 @@ from datetime import datetime
 RUNS_PER_DAY = 2
 NCHUNKS = 7 * RUNS_PER_DAY
 
+github_base = "https://github.com/anvilproject/galaxy-tests/blob/main"
+preview_base = "https://htmlpreview.github.io/?{}".format(github_base)
 
 def load_tools(tools_file: str) -> list[dict]:
     with open(tools_file) as f:
@@ -21,26 +23,33 @@ def get_chunk(chunk:int, tools: list[dict]) -> dict:
     }
 
 
-def print_tools(tools: dict) -> None:
-    for tool in tools['tools']:
-        for rev in tool['revisions']:
-            # Save the parameters needed by galaxy-tool-test to simplify
-            # things later.
-            print(f"-t {tool['name']} --tool-version {rev}")
+def write_tools(tools: dict, filepath:str) -> None:
+    with open(filepath, 'w', encoding='UTF-8') as f:
+        for tool in tools['tools']:
+            for rev in tool['revisions']:
+                # Save the parameters needed by galaxy-tool-test to simplify
+                # things later.
+                f.write(f"-t {tool['name']} --tool-version {rev}\n")
 
 
 def run(args: list[str]):
     tools_file = None
     chunk = None
+    outdir = None
     while len(args) > 0:
         arg = args.pop(0)
         if arg in ['-c', '--chunk']:
             chunk = int(args.pop(0))
+        elif arg in ['-o', '--output']:
+            outdir = args.pop(0)
         else:
             tools_file = arg
 
     if tools_file is None:
-        print(f"ERROR: tool.yml file not provided.")
+        print("ERROR: tool.yml file not provided.")
+        return
+    if outdir is None:
+        print("ERROR: output directory not provided")
         return
     if chunk is None:
         today = datetime.today()
@@ -50,11 +59,26 @@ def run(args: list[str]):
 
     tools = load_tools(tools_file)
     tools = get_chunk(chunk, tools)
-    print_tools(tools)
+    with open(f"{outdir}/tools.yml", 'w', encoding='UTF-8') as f:
+        yaml.safe_dump(tools, f)
+
+    chunk_data = {
+        str(chunk): {
+            "run1": f"{preview_base}/{outdir}/results.html",
+            "date1": today.strftime("%a %b %d %H:%M:%S %Y"),
+            "tools": f"{github_base}/{outdir}/tools.yml"
+        }
+    }
+
+    with open(f'{outdir}/chunk.json', 'w') as f:
+        f.write(json.dumps(chunk_data, indent=4))
+
+    write_tools(tools, f"{outdir}/chunk.txt")
+
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 3:
         print("Error: the path to the tools.yml file was not provided")
         sys.exit(1)
     run(sys.argv)
