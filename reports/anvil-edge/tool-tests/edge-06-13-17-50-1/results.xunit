@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Results (powered by Planemo)"
+           tests="89"
+           errors="5"
+           failures="4"
+           skip="0">
+    
+    <testcase classname="bamtools (Test #1)" name="0" time="26.732369422912598">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            Pileup::Run() : Data not sorted correctly!Pileup::Run() : Data not sorted correctly!Pileup::Run() : Data not sorted correctly!
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bamtools (Test #2)" name="1" time="24.171300888061523">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bamtools (Test #3)" name="2" time="25.790003776550293">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            Pileup::Run() : Data not sorted correctly!Pileup::Run() : Data not sorted correctly!Pileup::Run() : Data not sorted correctly!
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bamtools (Test #4)" name="3" time="25.788053035736084">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bcftools_annotate (Test #1)" name="0" time="29.505955457687378">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bcftools_annotate (Test #2)" name="1" time="31.982712507247925">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bcftools_annotate (Test #3)" name="2" time="27.1578688621521">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bcftools_annotate (Test #4)" name="3" time="26.52737545967102">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bcftools_annotate (Test #5)" name="4" time="25.621577501296997">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bcftools_annotate (Test #6)" name="5" time="28.62771224975586">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bcftools_annotate (Test #7)" name="6" time="26.988710641860962">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bcftools_annotate (Test #8)" name="7" time="25.139212131500244">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bcftools_concat (Test #1)" name="0" time="27.726468801498413">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            Checking the headers and starting positions of 2 files
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bcftools_concat (Test #2)" name="1" time="27.300581455230713">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            Checking the headers of 2 files.Done, the headers are compatible.Concatenating input0.vcf.gz0.000863 secondsConcatenating input1.vcf.gz0.000563 seconds[W::vcf_parse] INFO 'XX' is not defined in the header, assuming Type=String[W::vcf_parse] FILTER 'Fail' is not defined in the header
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bcftools_concat (Test #3)" name="2" time="27.243970155715942">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            Checking the headers and starting positions of 2 files
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="bcftools_concat (Test #4)" name="3" time="28.259541034698486">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            Checking the headers and starting positions of 2 files
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="column_order_header_sort (Test #1)" name="0" time="22.9211323261261">
+        
+            
+                <error type="error" message="Tool exit code: 0"><![CDATA[
+                    { "inputs": {  "input_tabular": {   "id": "872ce39a215604f4",   "src": "hda"  },  "key_column": "1" }, "job": {  "command_line": "python \u0027/cvmfs/cloud.galaxyproject.org/tools/toolshed.g2.bx.psu.edu/repos/iuc/column_order_header_sort/6ae9724caf4d/column_order_header_sort/column_order_header_sort.py\u0027 \u0027/galaxy/server/database/objects/4/f/3/dataset_4f3aad42-3279-4e48-b1ec-c4390885e6a7.dat\u0027 \u0027/galaxy/server/database/objects/e/2/c/dataset_e2ca8cc3-6e3c-4a41-9784-3b126ccdd709.dat\u0027 \u0027\t\u0027 \u00271\u0027",  "command_version": "",  "create_time": "2023-06-13T18:21:44.164140",  "dependencies": [],  "exit_code": 0,  "external_id": "gxy-galaxy-galaxy-j5klw",  "galaxy_version": "23.0",  "history_id": "b7c70fb70b831b26",  "id": "f8b72bb9975bc985",  "inputs": {   "input_tabular": {    "id": "872ce39a215604f4",    "src": "hda",    "uuid": "4f3aad42-3279-4e48-b1ec-c4390885e6a7"   }  },  "job_messages": [],  "job_metrics": [   {    "name": "uname",    "plugin": "uname",    "raw_value": "Linux gxy-galaxy-galaxy-j5klw-p44vk 5.10.162+ #1 SMP Thu Mar 16 14:55:19 UTC 2023 x86_64 GNU/Linux\n",    "title": "Operating System",    "value": "Linux gxy-galaxy-galaxy-j5klw-p44vk 5.10.162+ #1 SMP Thu Mar 16 14:55:19 UTC 2023 x86_64 GNU/Linux\n"   },   {    "name": "swaptotal",    "plugin": "meminfo",    "raw_value": "0E-7",    "title": "Total System Swap",    "value": "0 bytes"   },   {    "name": "memtotal",    "plugin": "meminfo",    "raw_value": "132016184.0000000",    "title": "Total System Memory",    "value": "122.9 GB"   },   {    "name": "processor_count",    "plugin": "cpuinfo",    "raw_value": "32.0000000",    "title": "Processor Count",    "value": "32"   },   {    "name": "memory.soft_limit_in_bytes",    "plugin": "cgroup",    "raw_value": "9223372036854771712.0000000",    "title": "Memory softlimit on cgroup",    "value": "8.0 EB"   },   {    "name": "memory.oom_control.under_oom",    "plugin": "cgroup",    "raw_value": "0E-7",    "title": "Was OOM Killer active?",    "value": "No"   },   {    "name": "memory.oom_control.oom_kill_disable",    "plugin": "cgroup",    "raw_value": "0E-7",    "title": "OOM Control enabled",    "value": "Yes"   },   {    "name": "memory.memsw.max_usage_in_bytes",    "plugin": "cgroup",    "raw_value": "8601600.0000000",    "title": "Max memory usage (MEM+SWP)",    "value": "8.2 MB"   },   {    "name": "memory.memsw.limit_in_bytes",    "plugin": "cgroup",    "raw_value": "4080218112.0000000",    "title": "Memory limit on cgroup (MEM+SWP)",    "value": "3.8 GB"   },   {    "name": "memory.max_usage_in_bytes",    "plugin": "cgroup",    "raw_value": "8601600.0000000",    "title": "Max memory usage (MEM)",    "value": "8.2 MB"   },   {    "name": "memory.limit_in_bytes",    "plugin": "cgroup",    "raw_value": "4080218112.0000000",    "title": "Memory limit on cgroup (MEM)",    "value": "3.8 GB"   },   {    "name": "memory.failcnt",    "plugin": "cgroup",    "raw_value": "0E-7",    "title": "Failed to allocate memory count",    "value": 0.0   },   {    "name": "cpuacct.usage",    "plugin": "cgroup",    "raw_value": "109515276.0000000",    "title": "CPU Time",    "value": "0.109515276 seconds"   },   {    "name": "runtime_seconds",    "plugin": "core",    "raw_value": "0E-7",    "title": "Job Runtime (Wall Clock)",    "value": "0 seconds"   },   {    "name": "end_epoch",    "plugin": "core",    "raw_value": "1686680505.0000000",    "title": "Job End Time",    "value": "2023-06-13 18:21:45"   },   {    "name": "start_epoch",    "plugin": "core",    "raw_value": "1686680505.0000000",    "title": "Job Start Time",    "value": "2023-06-13 18:21:45"   },   {    "name": "galaxy_memory_mb",    "plugin": "core",    "raw_value": "4080.0000000",    "title": "Memory Allocated (MB)",    "value": "4080"   },   {    "name": "galaxy_slots",    "plugin": "core",    "raw_value": "1.0000000",    "title": "Cores Allocated",    "value": "1"   }  ],  "job_stderr": "",  "job_stdout": "",  "model_class": "Job",  "output_collections": {},  "outputs": {   "output_tabular": {    "id": "016eab28b635f63d",    "src": "hda",    "uuid": "e2ca8cc3-6e3c-4a41-9784-3b126ccdd709"   }  },  "params": {   "__input_ext": "\"tabular\"",   "chromInfo": "\"/cvmfs/data.galaxyproject.org/managed/len/ucsc/?.len\"",   "dbkey": "\"?\"",   "key_column": "\"1\""  },  "state": "ok",  "stderr": "",  "stdout": "",  "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/column_order_header_sort/column_order_header_sort/0.0.1",  "tool_stderr": "",  "tool_stdout": "",  "traceback": null,  "update_time": "2023-06-13T18:21:54.215214",  "user_email": "admin@cloudve.org" }, "output_problems": [  "Output output_tabular:  different than expected, difference (using diff):\n( /tmp/tmpbus8tfehout_1.tabular v. /tmp/tmpqfx0s2djout_1.tabular )\n--- local_file\n+++ history_data\n@@ -1,4 +1,4 @@\n #KEY\ta\tb\tc\n one\t1-3\t1-1\t1-2\n two\t1-6\t1-4\t1-5\n-three\t1-9\t1-7\t1-8+three\t1-9\t1-7\t1-8\n" ], "status": "failure", "test_index": 0, "time_seconds": 22.9211323261261, "tool_id": "column_order_header_sort", "tool_version": "0.0.1"}
+                ]]></error>
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="deeptools_compute_gc_bias (Test #1)" name="0" time="28.215380430221558">
+        
+            
+            <system-out><![CDATA[
+            2bit: /galaxy/server/database/objects/4/c/1/dataset_4c18a4ea-94d2-4e3a-b624-4d5cb231e469.datbam: local_bamInput.bamfilter_out: Noneextra_sampling_file: Nonegenome_size: 10050total_reads: 12589reads_per_bp: 1.252636815920398max_reads: 1553.0min_reads: 82.0computing frequenciesstepSize: 1005
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #1)" name="0" time="27.022457599639893">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 2 of 2 reads (100.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #2)" name="1" time="25.042469024658203">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 0 of 2 reads (0.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #11)" name="10" time="24.27515959739685">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 1 of 2 reads (50.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #12)" name="11" time="24.850431203842163">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 2 of 2 reads (100.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #13)" name="12" time="26.489952564239502">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 2 of 2 reads (100.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #14)" name="13" time="8.293462753295898">
+        
+            <error type="error" message="Input staging problem: Job in error state.. tool_id: upload1, exit_code: None, stderr: ."><![CDATA[
+                { "execution_problem": "Input staging problem: Job in error state.. tool_id: upload1, exit_code: None, stderr: .", "status": "error", "test_index": 13, "time_seconds": 8.293462753295898, "tool_id": "fastq_manipulation", "tool_version": "1.1.5"}
+            ]]></error>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #15)" name="14" time="24.391082525253296">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 2 of 2 reads (100.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #3)" name="2" time="25.695114850997925">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 2 of 2 reads (100.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #4)" name="3" time="24.836878299713135">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 0 of 2 reads (0.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #5)" name="4" time="25.471012115478516">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 2 of 2 reads (100.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #6)" name="5" time="25.352131843566895">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 2 of 2 reads (100.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #7)" name="6" time="25.396569967269897">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 2 of 2 reads (100.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #8)" name="7" time="24.964030265808105">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 4 of 4 reads (100.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #9)" name="8" time="24.546260356903076">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 4 of 4 reads (100.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="fastq_manipulation (Test #10)" name="9" time="24.273189306259155">
+        
+            
+            <system-out><![CDATA[
+            Manipulated 1 of 2 reads (50.00%).
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="kallisto_quant (Test #1)" name="0" time="31.115052461624146">
+        
+            
+            <system-out><![CDATA[
+            {"n_targets": 1,"n_bootstraps": 0,"n_processed": 100,"n_pseudoaligned": 100,"n_unique": 100,"p_pseudoaligned": 100.0,"p_unique": 100.0,"kallisto_version": "0.46.0","index_version": 10,"start_time": "Tue Jun 13 18:05:18 2023","call": "kallisto quant -i reference.kallisto --bootstrap-samples 0 --seed 42 --threads 8 -o . /galaxy/server/database/objects/f/3/6/dataset_f360eef3-265d-4e1e-afaf-b77c1286e8cd.dat /galaxy/server/database/objects/d/c/e/dataset_dcec27d7-689c-4e1e-b1f9-f3591f499950.dat"}
+            ]]></system-out>
+            <system-err><![CDATA[
+            [build] loading fasta file reference.fa[build] k-mer length: 31[build] counting k-mers ... done.[build] building target de Bruijn graph ...  done [build] creating equivalence classes ...  done[build] target de Bruijn graph has 1 contigs and contains 16269 k-mers [quant] fragment length distribution will be estimated from the data[index] k-mer length: 31[index] number of targets: 1[index] number of k-mers: 16,269[index] number of equivalence classes: 1[quant] running in paired-end mode[quant] will process pair 1: /galaxy/server/database/objects/f/3/6/dataset_f360eef3-265d-4e1e-afaf-b77c1286e8cd.dat                             /galaxy/server/database/objects/d/c/e/dataset_dcec27d7-689c-4e1e-b1f9-f3591f499950.dat[quant] finding pseudoalignments for the reads ... done[quant] processed 100 reads, 100 reads pseudoaligned[quant] estimated average fragment length: 499.12[   em] quantifying the abundances ... done[   em] the Expectation-Maximization algorithm ran for 52 rounds
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="kallisto_quant (Test #2)" name="1" time="28.919981241226196">
+        
+            
+            <system-out><![CDATA[
+            {"n_targets": 1,"n_bootstraps": 0,"n_processed": 100,"n_pseudoaligned": 37,"n_unique": 37,"p_pseudoaligned": 37.0,"p_unique": 37.0,"kallisto_version": "0.46.0","index_version": 10,"start_time": "Tue Jun 13 18:05:47 2023","call": "kallisto quant -i reference.kallisto --bootstrap-samples 0 --seed 42 --fr-stranded --threads 8 -o . /galaxy/server/database/objects/5/5/6/dataset_5562dbc9-3468-4ec7-9e05-4e08316f8f41.dat /galaxy/server/database/objects/9/1/8/dataset_91841c0a-fb69-4c39-b65f-92131ddfb466.dat"}
+            ]]></system-out>
+            <system-err><![CDATA[
+            [build] loading fasta file reference.fa[build] k-mer length: 31[build] counting k-mers ... done.[build] building target de Bruijn graph ...  done [build] creating equivalence classes ...  done[build] target de Bruijn graph has 1 contigs and contains 16269 k-mers [quant] fragment length distribution will be estimated from the data[index] k-mer length: 31[index] number of targets: 1[index] number of k-mers: 16,269[index] number of equivalence classes: 1[quant] running in paired-end mode[quant] will process pair 1: /galaxy/server/database/objects/5/5/6/dataset_5562dbc9-3468-4ec7-9e05-4e08316f8f41.dat                             /galaxy/server/database/objects/9/1/8/dataset_91841c0a-fb69-4c39-b65f-92131ddfb466.dat[quant] finding pseudoalignments for the reads ... done[quant] processed 100 reads, 37 reads pseudoaligned[quant] estimated average fragment length: 495.838[   em] quantifying the abundances ... done[   em] the Expectation-Maximization algorithm ran for 52 rounds
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="kallisto_quant (Test #3)" name="2" time="30.000408411026">
+        
+            
+            <system-out><![CDATA[
+            {"n_targets": 1,"n_bootstraps": 0,"n_processed": 100,"n_pseudoaligned": 100,"n_unique": 100,"p_pseudoaligned": 100.0,"p_unique": 100.0,"kallisto_version": "0.46.0","index_version": 10,"start_time": "Tue Jun 13 18:06:17 2023","call": "kallisto quant -i reference.kallisto --bootstrap-samples 0 --seed 42 --threads 8 -o . /galaxy/server/database/objects/0/f/7/dataset_0f7917a2-677e-4a1c-b378-534dd2b24d17.dat /galaxy/server/database/objects/5/c/4/dataset_5c46e4cf-0ca6-41ee-940d-c4712238068e.dat"}
+            ]]></system-out>
+            <system-err><![CDATA[
+            [build] loading fasta file reference.fa[build] k-mer length: 31[build] counting k-mers ... done.[build] building target de Bruijn graph ...  done [build] creating equivalence classes ...  done[build] target de Bruijn graph has 1 contigs and contains 16269 k-mers [quant] fragment length distribution will be estimated from the data[index] k-mer length: 31[index] number of targets: 1[index] number of k-mers: 16,269[index] number of equivalence classes: 1[quant] running in paired-end mode[quant] will process pair 1: /galaxy/server/database/objects/0/f/7/dataset_0f7917a2-677e-4a1c-b378-534dd2b24d17.dat                             /galaxy/server/database/objects/5/c/4/dataset_5c46e4cf-0ca6-41ee-940d-c4712238068e.dat[quant] finding pseudoalignments for the reads ... done[quant] processed 100 reads, 100 reads pseudoaligned[quant] estimated average fragment length: 499.12[   em] quantifying the abundances ... done[   em] the Expectation-Maximization algorithm ran for 52 rounds
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="kallisto_quant (Test #4)" name="3" time="22.38311767578125">
+        
+            
+                <error type="error" message="Tool exit code: None"><![CDATA[
+                    { "inputs": {  "reference_transcriptome|reference": {   "id": "c970391b4ca55202",   "src": "hda"  },  "reference_transcriptome|reference_transcriptome_source": "history",  "single_paired|reads": {   "id": "22eb108ecf0979e6",   "src": "hda"  },  "single_paired|single_paired_selector": "single" }, "job": {  "command_line": "ln -s \u0027/galaxy/server/database/objects/1/8/4/dataset_184f4f3d-c7fe-4b4c-9e25-aa9d28c9fc39.dat\u0027 reference.fa \u0026\u0026 kallisto index reference.fa -i reference.kallisto \u0026\u0026 kallisto quant -i \u0027reference.kallisto\u0027 --bootstrap-samples 0 --seed 42 --threads ${GALAXY_SLOTS:-1} -o . --single --fragment-length 200 --sd 20 \u0027/galaxy/server/database/objects/1/d/1/dataset_1d1988d5-d48c-4bbd-94af-f3318217c2c5.dat\u0027 \u0026\u0026 cat run_info.json",  "command_version": null,  "create_time": "2023-06-13T18:06:42.920004",  "dependencies": [],  "exit_code": null,  "external_id": "gxy-galaxy-galaxy-xkv7r",  "galaxy_version": "23.0",  "history_id": "b7c70fb70b831b26",  "id": "022cd9e90bb8e44f",  "inputs": {   "reads": {    "id": "22eb108ecf0979e6",    "src": "hda",    "uuid": "1d1988d5-d48c-4bbd-94af-f3318217c2c5"   },   "reference": {    "id": "c970391b4ca55202",    "src": "hda",    "uuid": "184f4f3d-c7fe-4b4c-9e25-aa9d28c9fc39"   }  },  "job_messages": null,  "job_metrics": [],  "job_stderr": null,  "job_stdout": null,  "model_class": "Job",  "output_collections": {},  "outputs": {   "abundance_h5": {    "id": "6fad71fe44d362a2",    "src": "hda",    "uuid": "71ae6aba-e55d-4c36-8d21-ef3bae7eccff"   },   "abundance_tab": {    "id": "60499b790ee3a40a",    "src": "hda",    "uuid": "8da3c22d-08be-44b2-ba85-701be61ba60a"   }  },  "params": {   "__input_ext": "\"fasta\"",   "bias": "false",   "bootstrap_samples": "\"0\"",   "chromInfo": "\"/cvmfs/data.galaxyproject.org/managed/len/ucsc/?.len\"",   "dbkey": "\"?\"",   "fusion": "false",   "lib_type": "\"\"",   "pseudobam": "false",   "reference_transcriptome": "{\"__current_case__\": 1, \"reference\": {\"values\": [{\"id\": 2051, \"src\": \"hda\"}]}, \"reference_transcriptome_source\": \"history\"}",   "seed": "\"42\"",   "single_paired": "{\"__current_case__\": 0, \"fragment_length\": \"200\", \"reads\": {\"values\": [{\"id\": 2052, \"src\": \"hda\"}]}, \"sd\": \"20\", \"single_paired_selector\": \"single\"}"  },  "state": "error",  "stderr": "",  "stdout": "",  "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/kallisto_quant/kallisto_quant/0.46.0.4",  "tool_stderr": "",  "tool_stdout": "",  "traceback": null,  "update_time": "2023-06-13T18:06:48.559223",  "user_email": "admin@cloudve.org" }, "output_problems": [  "Job in error state.. tool_id: toolshed.g2.bx.psu.edu/repos/iuc/kallisto_quant/kallisto_quant/0.46.0.4, exit_code: None, stderr: .",  "Job in error state.. tool_id: toolshed.g2.bx.psu.edu/repos/iuc/kallisto_quant/kallisto_quant/0.46.0.4, exit_code: None, stderr: ." ], "status": "failure", "test_index": 3, "time_seconds": 22.38311767578125, "tool_id": "kallisto_quant", "tool_version": "0.46.0.4"}
+                ]]></error>
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="kallisto_quant (Test #5)" name="4" time="29.495418071746826">
+        
+            
+                <error type="error" message="Tool exit code: 0"><![CDATA[
+                    { "inputs": {  "pseudobam": true,  "reference_transcriptome|reference": {   "id": "e7cc7190d006b003",   "src": "hda"  },  "reference_transcriptome|reference_transcriptome_source": "history",  "single_paired|collection|collection_selector": "datasets",  "single_paired|collection|forward": {   "id": "2a33c7c0223f2a43",   "src": "hda"  },  "single_paired|collection|reverse": {   "id": "3ec8e99c4604089c",   "src": "hda"  },  "single_paired|single_paired_selector": "paired" }, "job": {  "command_line": "ln -s \u0027/galaxy/server/database/objects/a/0/d/dataset_a0df746f-26d1-40de-9fca-f6150e40d6b4.dat\u0027 reference.fa \u0026\u0026 kallisto index reference.fa -i reference.kallisto \u0026\u0026 kallisto quant -i \u0027reference.kallisto\u0027 --bootstrap-samples 0 --seed 42   --pseudobam -o . \u0027/galaxy/server/database/objects/e/d/d/dataset_edd9ba8c-1e24-49e3-983c-e46b250176b5.dat\u0027 \u0027/galaxy/server/database/objects/b/f/7/dataset_bf753bf6-61d4-4088-936b-b647a6aedfd5.dat\u0027 | samtools sort -O bam -@ ${GALAXY_SLOTS:-1} -T \"${TMPDIR:-.}\" -o \u0027/galaxy/server/database/objects/e/c/b/dataset_ecb004a5-9157-4919-87bd-083095d637e7.dat\u0027 - \u0026\u0026 cat run_info.json",  "command_version": "",  "create_time": "2023-06-13T18:07:07.628539",  "dependencies": [],  "exit_code": 0,  "external_id": "gxy-galaxy-galaxy-rdcnx",  "galaxy_version": "23.0",  "history_id": "b7c70fb70b831b26",  "id": "49e90c1455acb9c6",  "inputs": {   "reference": {    "id": "e7cc7190d006b003",    "src": "hda",    "uuid": "a0df746f-26d1-40de-9fca-f6150e40d6b4"   },   "single_paired|forward": {    "id": "2a33c7c0223f2a43",    "src": "hda",    "uuid": "edd9ba8c-1e24-49e3-983c-e46b250176b5"   },   "single_paired|reverse": {    "id": "3ec8e99c4604089c",    "src": "hda",    "uuid": "bf753bf6-61d4-4088-936b-b647a6aedfd5"   }  },  "job_messages": [],  "job_metrics": [   {    "name": "uname",    "plugin": "uname",    "raw_value": "Linux gxy-galaxy-galaxy-rdcnx-dv44f 5.10.162+ #1 SMP Thu Mar 16 14:55:19 UTC 2023 x86_64 GNU/Linux\n",    "title": "Operating System",    "value": "Linux gxy-galaxy-galaxy-rdcnx-dv44f 5.10.162+ #1 SMP Thu Mar 16 14:55:19 UTC 2023 x86_64 GNU/Linux\n"   },   {    "name": "swaptotal",    "plugin": "meminfo",    "raw_value": "0E-7",    "title": "Total System Swap",    "value": "0 bytes"   },   {    "name": "memtotal",    "plugin": "meminfo",    "raw_value": "132016184.0000000",    "title": "Total System Memory",    "value": "122.9 GB"   },   {    "name": "processor_count",    "plugin": "cpuinfo",    "raw_value": "32.0000000",    "title": "Processor Count",    "value": "32"   },   {    "name": "memory.soft_limit_in_bytes",    "plugin": "cgroup",    "raw_value": "9223372036854771712.0000000",    "title": "Memory softlimit on cgroup",    "value": "8.0 EB"   },   {    "name": "memory.oom_control.under_oom",    "plugin": "cgroup",    "raw_value": "0E-7",    "title": "Was OOM Killer active?",    "value": "No"   },   {    "name": "memory.oom_control.oom_kill_disable",    "plugin": "cgroup",    "raw_value": "0E-7",    "title": "OOM Control enabled",    "value": "Yes"   },   {    "name": "memory.memsw.max_usage_in_bytes",    "plugin": "cgroup",    "raw_value": "16138240.0000000",    "title": "Max memory usage (MEM+SWP)",    "value": "15.4 MB"   },   {    "name": "memory.memsw.limit_in_bytes",    "plugin": "cgroup",    "raw_value": "21474836480.0000000",    "title": "Memory limit on cgroup (MEM+SWP)",    "value": "20.0 GB"   },   {    "name": "memory.max_usage_in_bytes",    "plugin": "cgroup",    "raw_value": "16138240.0000000",    "title": "Max memory usage (MEM)",    "value": "15.4 MB"   },   {    "name": "memory.limit_in_bytes",    "plugin": "cgroup",    "raw_value": "21474836480.0000000",    "title": "Memory limit on cgroup (MEM)",    "value": "20.0 GB"   },   {    "name": "memory.failcnt",    "plugin": "cgroup",    "raw_value": "0E-7",    "title": "Failed to allocate memory count",    "value": 0.0   },   {    "name": "cpuacct.usage",    "plugin": "cgroup",    "raw_value": "125250601.0000000",    "title": "CPU Time",    "value": "0.125250601 seconds"   },   {    "name": "runtime_seconds",    "plugin": "core",    "raw_value": "0E-7",    "title": "Job Runtime (Wall Clock)",    "value": "0 seconds"   },   {    "name": "end_epoch",    "plugin": "core",    "raw_value": "1686679628.0000000",    "title": "Job End Time",    "value": "2023-06-13 18:07:08"   },   {    "name": "start_epoch",    "plugin": "core",    "raw_value": "1686679628.0000000",    "title": "Job Start Time",    "value": "2023-06-13 18:07:08"   },   {    "name": "galaxy_memory_mb",    "plugin": "core",    "raw_value": "21474.0000000",    "title": "Memory Allocated (MB)",    "value": "21474"   },   {    "name": "galaxy_slots",    "plugin": "core",    "raw_value": "8.0000000",    "title": "Cores Allocated",    "value": "8"   }  ],  "job_stderr": "",  "job_stdout": "",  "model_class": "Job",  "output_collections": {},  "outputs": {   "abundance_h5": {    "id": "31e6510bfaa33e85",    "src": "hda",    "uuid": "668646d5-ca07-4ac2-9dfa-3f710e42a9c8"   },   "abundance_tab": {    "id": "be0eda9aa54e7add",    "src": "hda",    "uuid": "3a8d8fd4-cebe-4911-a1f7-8f6d70422fee"   },   "pseudobam_output": {    "id": "c9665147407d0bf9",    "src": "hda",    "uuid": "ecb004a5-9157-4919-87bd-083095d637e7"   }  },  "params": {   "__input_ext": "\"fasta\"",   "bias": "false",   "bootstrap_samples": "\"0\"",   "chromInfo": "\"/cvmfs/data.galaxyproject.org/managed/len/ucsc/?.len\"",   "dbkey": "\"?\"",   "fusion": "false",   "lib_type": "\"\"",   "pseudobam": "true",   "reference_transcriptome": "{\"__current_case__\": 1, \"reference\": {\"values\": [{\"id\": 2055, \"src\": \"hda\"}]}, \"reference_transcriptome_source\": \"history\"}",   "seed": "\"42\"",   "single_paired": "{\"__current_case__\": 1, \"collection\": {\"__current_case__\": 0, \"collection_selector\": \"datasets\", \"forward\": {\"values\": [{\"id\": 2056, \"src\": \"hda\"}]}, \"reverse\": {\"values\": [{\"id\": 2057, \"src\": \"hda\"}]}}, \"single_paired_selector\": \"paired\"}"  },  "state": "ok",  "stderr": "\n[build] loading fasta file reference.fa\n[build] k-mer length: 31\n[build] counting k-mers ... done.\n[build] building target de Bruijn graph ...  done \n[build] creating equivalence classes ...  done\n[build] target de Bruijn graph has 15 contigs and contains 16670 k-mers \n\n\n[quant] fragment length distribution will be estimated from the data\n[index] k-mer length: 31\n[index] number of targets: 1\n[index] number of k-mers: 16,670\n[index] number of equivalence classes: 1\n[quant] running in paired-end mode\n[quant] will process pair 1: /galaxy/server/database/objects/e/d/d/dataset_edd9ba8c-1e24-49e3-983c-e46b250176b5.dat\n                             /galaxy/server/database/objects/b/f/7/dataset_bf753bf6-61d4-4088-936b-b647a6aedfd5.dat\n[quant] finding pseudoalignments for the reads ... done\n[quant] processed 200 reads, 200 reads pseudoaligned\n[quant] estimated average fragment length: 500.01\n[   em] quantifying the abundances ... done\n[   em] the Expectation-Maximization algorithm ran for 52 rounds\n[  bam] writing pseudoalignments to BAM format .. done\n\n",  "stdout": "{\n\t\"n_targets\": 1,\n\t\"n_bootstraps\": 0,\n\t\"n_processed\": 200,\n\t\"n_pseudoaligned\": 200,\n\t\"n_unique\": 200,\n\t\"p_pseudoaligned\": 100.0,\n\t\"p_unique\": 100.0,\n\t\"kallisto_version\": \"0.46.0\",\n\t\"index_version\": 10,\n\t\"start_time\": \"Tue Jun 13 18:07:08 2023\",\n\t\"call\": \"kallisto quant -i reference.kallisto --bootstrap-samples 0 --seed 42 --pseudobam -o . /galaxy/server/database/objects/e/d/d/dataset_edd9ba8c-1e24-49e3-983c-e46b250176b5.dat /galaxy/server/database/objects/b/f/7/dataset_bf753bf6-61d4-4088-936b-b647a6aedfd5.dat\"\n}\n",  "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/kallisto_quant/kallisto_quant/0.46.0.4",  "tool_stderr": "\n[build] loading fasta file reference.fa\n[build] k-mer length: 31\n[build] counting k-mers ... done.\n[build] building target de Bruijn graph ...  done \n[build] creating equivalence classes ...  done\n[build] target de Bruijn graph has 15 contigs and contains 16670 k-mers \n\n\n[quant] fragment length distribution will be estimated from the data\n[index] k-mer length: 31\n[index] number of targets: 1\n[index] number of k-mers: 16,670\n[index] number of equivalence classes: 1\n[quant] running in paired-end mode\n[quant] will process pair 1: /galaxy/server/database/objects/e/d/d/dataset_edd9ba8c-1e24-49e3-983c-e46b250176b5.dat\n                             /galaxy/server/database/objects/b/f/7/dataset_bf753bf6-61d4-4088-936b-b647a6aedfd5.dat\n[quant] finding pseudoalignments for the reads ... done\n[quant] processed 200 reads, 200 reads pseudoaligned\n[quant] estimated average fragment length: 500.01\n[   em] quantifying the abundances ... done\n[   em] the Expectation-Maximization algorithm ran for 52 rounds\n[  bam] writing pseudoalignments to BAM format .. done\n\n",  "tool_stdout": "{\n\t\"n_targets\": 1,\n\t\"n_bootstraps\": 0,\n\t\"n_processed\": 200,\n\t\"n_pseudoaligned\": 200,\n\t\"n_unique\": 200,\n\t\"p_pseudoaligned\": 100.0,\n\t\"p_unique\": 100.0,\n\t\"kallisto_version\": \"0.46.0\",\n\t\"index_version\": 10,\n\t\"start_time\": \"Tue Jun 13 18:07:08 2023\",\n\t\"call\": \"kallisto quant -i reference.kallisto --bootstrap-samples 0 --seed 42 --pseudobam -o . /galaxy/server/database/objects/e/d/d/dataset_edd9ba8c-1e24-49e3-983c-e46b250176b5.dat /galaxy/server/database/objects/b/f/7/dataset_bf753bf6-61d4-4088-936b-b647a6aedfd5.dat\"\n}\n",  "traceback": null,  "update_time": "2023-06-13T18:07:17.764684",  "user_email": "admin@cloudve.org" }, "output_problems": [  "Output pseudobam_output:  different than expected, difference (using diff):\n( /tmp/local_bam_converted_to_sam_x0l3yaav.sam v. /tmp/history_bam_converted_to_sam_relkhxym.sam )\n--- local_file\n+++ history_data\n@@ -1,403 +1 @@\n-@HD\tVN:1.0\tSO:coordinate\n-@SQ\tSN:chrM\tLN:17009\n-@PG\tID:kallisto\tPN:kallisto\tVN:0.43.1\n-chrM_111_723_3:2:0_4:1:0_c3\t99\tchrM\t111\t255\t200M\t=\t524\t613\tCCTGACTCAGTCAAATATGTGGTTGCTGGGCTTATTCTCTATGCGGGTTCTCCACACGCACAGACAGTCAGGGTGCTATTCAGTCAATGGTCACAGGACATATACTTAAATTCCTATTGTTCCACAGGACACGGGATGCGCGCACCCAGGTTTGCGTGCACACGTGTACACGTACACACGTAGACACGTACACACGTACA\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_513_1000_4:1:0_4:2:0_60\t99\tchrM\t409\t255\t200M\t=\t801\t592\tCGTACACACGTGTACACGTACACACGTACACACGTACACACGTACACACTTATCCACGCGAACGCTTTAATTTAAGTAAATAACTCGCTTAATCAAACCCCCCTTACCCCCCGTTAACCTTATTTCTAATAATACGTGCCTATTTATGTCTTGCCCAACCCCACAAACAAGACTAGACCGTACCTAAATATAAGGCCTAA\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_518_1106_2:1:0_5:2:0_44\t99\tchrM\t518\t255\t200M\t=\t907\t589\tACACGTGTACACGTACACACTTACACACGTACACACGTACACACTTATACACGCGAACGCTTTAATTTAAGTAAATAACTAGCTTAATCAAACCCCCCTTACCCCCCGTAAACCTTATTTATAATAATACGTGCCTATTTATGTCTTGCCAAACCCCACAAACAAGACTAGACCGTACCTAAATATAAGGCCTAAGAAAA\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_111_723_3:2:0_4:1:0_c3\t147\tchrM\t524\t255\t200M\t=\t111\t-613\tGTACACGTACACACGTACACACGTACACACGTACACACTTATACACCCGAACGCTTTATTTTAAGTAAATAACTAGCTTAATCAAACCCCCCTTACCCCCCGTTAACCTTATTTATAATAATACGTGCCTATTTATGTCTTGCCAAACCCCACAAACAAGACTAGACCGTACCTAAATATTAGGCCTAAGATAACGCTTA\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_578_1113_4:1:0_4:2:0_19\t99\tchrM\t578\t255\t200M\t=\t914\t536\tTTTAATTTAAGTAAATAACTAGCTTAATCAAACCCCCCTTACCCCCCGTTAACCTTATTTATAATAATCCGTGCCTATTTATGTCTTGCCAAACCCCACAAACAAGACTAGACCGTACCTAAATATAAGGCCTACGAAAACGCTTATAAGCTTACCAATCCCCTATTATTACTAGCTACTACGCCTAAATCATAACTCTG\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_637_1116_4:2:0_2:5:0_8f\t163\tchrM\t637\t255\t200M\t=\t917\t480\tTATCATAATACGTGCCTATTTATGTCATGCCAAACCCCACAAACAAGACTAGACCGTACCTAAATATAAGGCCTAAGACAACGCTTATAAGCTTACCAATCCCCTATTATTACTAGCTACTAAGCCTAAATCATAACTCTGTTCGCAGTTATCTATAGATATACCGACCTGACTCTAATTCGACCCTATCGAACAACATT\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_513_1000_4:1:0_4:2:0_60\t147\tchrM\t801\t255\t200M\t=\t409\t-592\tCGACCTGACTCTAATTCGTCCCTATCGAACAACATTTTACATGTCTACGTTAGCACCACATCCCAGTTAATGTAGCGTAAACCTATAAAGCAAGGCACTGAAAATGCCTAGATGAGTAGCCAGACTCCATAAACACAAAAGTTTGGTCCTGGCCTTTCCATTAGTTATTAATAAGATTACACATGCAAGCCTCCGCAGCC\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_869_1327_3:3:0_3:2:0_28\t163\tchrM\t869\t255\t200M\t=\t1128\t459\tAATGTAGCTAAAACCTATAAAGCAAGGCACAGAAAATGCCTAGATGAGTCGCCAGACTCCATAAACACAAAAGTTTGGTCCTGGCCTTTCCATTAGTTATTAATAAGATTACACATGCAAGCCTCCGCATCCCGGTGAAAATGCCCTCTAAGACACCCAGTGACCTAAAGGAGCTGGTATCAAGCACACAACCACCGTAG\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_518_1106_2:1:0_5:2:0_44\t147\tchrM\t907\t255\t200M\t=\t518\t-589\tCCTAGATGTGTAGCCAGACTCCATAAACACAAAAGTTTGCTCCTGGCCTTTCCATTAGTTATTAATAAGATTACACATGCAAGCCTCCGCATCCCGGTGAAAATGCCATCTAAGACACCCAGTGACCTAAAGGAGCTGGTATCAAGCACACAACCACAGTAGCTCATAACACCTTGCTCAGCCACACCCCCTCGGGATAC\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_578_1113_4:1:0_4:2:0_19\t147\tchrM\t914\t255\t200M\t=\t578\t-536\tGAGTCGCAAGACTCCATAAACACAAAAGTTTGGTCCTGGCCTTTCCATTTGTTATTAATAAGATTACACATGCAAGCCTCCGCATCCCGGTGAAAATGCCCTCTATGACACCCAGTGACCTAAAGGAGCTGGTATCAAGCACACAACCACAGTAGCTCATAACACCTTGCTCAGCCACACCCCCACGGGATACACCAGTG\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_637_1116_4:2:0_2:5:0_8f\t83\tchrM\t917\t255\t200M\t=\t637\t-480\tTCGCCATACTCCATAAACACAAAGGTTTGGTCCTGGCCTTTCCATTAGTGATTAATAAGAGTACACATGCAAGCCTCCGCATCCCGGTGAAAATGCCCTCTAAGACACCCAGTGACCTAAAGGAGCTGGTATCAAGCACACAGCCACAGTAGCTCATAACACCTTGTTCAGCCACACCCCGACGGGATACAGCAGTGATA\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_965_1352_7:3:0_3:2:0_5e\t163\tchrM\t965\t255\t200M\t=\t1153\t388\tTTATTAATAAGATTACACATGCACGCCTCCGCCTCCCGGTGCAAATGGCCTCTAAGACACCCAGTGACCTAAAGGAGCTGGTATCAAGCACACAACCACAGTAGCTCCTAACACCTTGCTCAGCCACACCCCCACGGGATACAGCAGTGTTAAAAATTCAGCCATGAATGAAAGTTCGACTAAGCTATAATAAACCAGGG\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_991_1476_6:4:0_5:1:0_6\t99\tchrM\t991\t255\t200M\t=\t1277\t486\tGTCCGCATCCCGGTGAACATGCCCTCTAAGACACCCAGTGACCTAAAGGAGCTGGTATCAAGCACACAGCCACAGTAGCTCATAACACCTTGTTCAGCCACACCCCGACGGGATACAGCAGTGATAAAAATTAATCCATGAATGAAAGTTCTACTAAGCTATATTAAACAAGGGATGGTAAATTTCGTTCCAGCCACCGC\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_1035_1495_4:3:0_1:1:0_5\t99\tchrM\t1035\t255\t200M\t=\t1296\t461\tAAAGGAGCTGGTATCAAGCACACAGCCACAGTAGCTCATAACACCTTGTTCAGCCACACCCCGACGGGATACAGCAGTGATAACAAATAAGCCATGAATGAAAGTTCGACTAAGCTATATAAAACAAGGGTTGGTAAATTTCGTGCCCGCCACCGCGGCCATACGATTAACCCAAACTAATAGACCCACGGCGTAAAGCG\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_1071_1604_3:2:0_4:0:0_48\t99\tchrM\t1071\t255\t200M\t=\t1405\t534\tCATAACACCTTGTTCAGCCACACCCCGACGGGATACAGCAGTGATAAAAATTAAGCCATGAATGAAAGTTCGACTAAGCTATATTAAACAAGGGTTGGTAAATTTCGTGCCAGCCACCGCGGCCATACGATTAACCGAAACTAATAGACCCACGGCGTAAAGCGTGTTAGAGAGAAAAAAATCTACTAAAGTTAAATTTT\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_869_1327_3:3:0_3:2:0_28\t83\tchrM\t1128\t255\t200M\t=\t869\t-459\tATGAATGAAAGTTCGACTAAGCTATATTAAACCAGGGTTGGTAAATTTCGTGCCAGCCACCGCGGACATACGATTAACCCAAACTAATAGACCCACGGCGTAAAGCGTCTTACAGAGAAAAGAATATACTAAAGTTAAATTTTAACTAGGCCGTAGAAAGCTACAGTTAACATAAAAATACAGCAAGAAAGTAACTTTAA\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_1129_1593_3:0:0_5:0:0_16\t99\tchrM\t1129\t255\t200M\t=\t1394\t465\tTGAATGAAAGTTCGACTAAGCTATATTAAACAAGGGTTGGTAAATTTCGAGCCAGCCACCGCGGCCAAACGATTAACCCAAACTAATAGACCCACGGCGTAAAGCGTGTTACAGAGACAAAAATATACTAAAGTTAAATTTTAACTAGGCCGTAGAAAGCTACAGTTAACATAAAAATACAGCACGAAAGTAACTTTAAC\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_1142_1676_6:2:0_4:0:0_57\t99\tchrM\t1142\t255\t200M\t=\t1477\t535\tGACTAAGCTATATTAAACCAGGGTTGGTAAATTTCGTGCCAGCCACCGCGTCCATACGATTAACCCAAACTACTAGAGCCACGGCGTAAAGCGTGTTACAGAGAAAAGAATATACAAAAGTTAAATTTTAACTAGGCCGTAGAAAGCTACAGTTAACATACAAATACAGCACGAAAGTAAGTTTAACACCTCCGACTACA\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_965_1352_7:3:0_3:2:0_5e\t83\tchrM\t1153\t255\t200M\t=\t965\t-388\tATTAAACCAGGGTTGGTAAATTTCGTGCCAGCCACCGAGGCCATACGATTAACCCAAACTAATAGTCCCACGGCGTAAAGCGTGTTACAGAGAAAAGAATATACTAAAGTTAAATTTTAACTAGGCCGTAGAAAGATACAGTTAACATAAAAATACAGCACGAAAGTAACTTTAACACCTCCGACTACACGACAGCTAAG\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n********\n*SNIP *\n********\n-chrM_15514_16085_4:1:0_0:0:1_0\t163\tchrM\t15514\t255\t200M\t=\t15886\t572\tACTAGTAGAATGAATCTGAGGGGGGTTCTCAGTAGACAAATCCACCCTAACACGATTCATTGGCTTCCACTTCATTCTTTCATTCATTATCTCAGCCTTAGCAGGAGTACACCTGTTATTCCTTCATGAAACAGGATCTAACAACCCCTCAGGAATTCCATCCGATTCAGACAAAATCCCATTCCACCCATACTATACAA\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_15542_16042_0:2:0_4:0:1_1\t99\tchrM\t15542\t255\t200M\t=\t15845\t503\tTCAGTAGACAAAGCCACCCTAACACGATTCTTTGGCTTCCACTTCATTCTTTCATTCATTATCTCAGCCTTAGCAGGAGTACACCTCTTATTCCTTCATGAAACAGGATCTAACAACCCCTCAGGAATTACATCCGATTCAGACAAAATCCCATTCCACCCATACTATACAATCAAAGAAATCCTAGGTCTTCTAGTACT\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_15557_15998_5:2:0_3:0:0_ad\t99\tchrM\t15557\t255\t200M\t=\t15799\t442\tACCCTAACACGATTCTTTGGCTTCCACTTCATTCTTTCATTCATTATCTCAGCCATAGCAGGAGTACACCTCTTATTCCTTCATGAAACAGGATCTAACAACCCCTCAGGAATTCGAACCGATTCAGACAAAATCCCATTCCACCCATACTATACAATCAAAGAAATCCTAGGTCTTCTAGTACAAGTTTTAACACTCAT\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_15354_15761_6:1:0_3:2:0_30\t147\tchrM\t15562\t255\t200M\t=\t15354\t-408\tAACACGATTCTTTGGCTTCCACTTCATTCGTTCATTCATTATCTCAGCCTTAGCAGGAGTACACCTCTTATTCCTTCATCAAACAGGATCTAACAACCCCTCAGGAATTACATCCGATTCAGACAAAATCCCATTCCACCCATACTATACAATCAAAGATATCCTAGGTCTTCTAGTACTAGTTTTAACACTCATACTAC\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_15121_15764_5:1:0_1:2:0_20\t83\tchrM\t15565\t255\t200M\t=\t15121\t-644\tACGATTCTTTGGCTTCCACTTCTTTCTTTCATTCATTATCTAAGCCTTAGCAGGAGTACACCTCTTATTCCTTCATGAAACAGGATCTAACAACCCCTCAGGAATTACATCCGATTCAGACAAAATCCCATTCCACCCATACTATACAATCAAAGACATCCTAGGTCTTCTAGTACTAGTTTTAACACTCATACTACTCG\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_15320_15806_5:2:0_7:1:0_8a\t147\tchrM\t15607\t255\t200M\t=\t15320\t-487\tTGCATTACCAGGAGTACAACTCTTATTCCTTCATGAAACAGGATCTAACAACCCCTCAGGAATTACATCCGATTCAGACAAAATCCCATTCAACCCATACTATAAAATCAAAGAAATCCTAGGGCTTCTAGTACTAGTTTTAACACTCATACTACTCGTCCTATTTTCACCAGACCTGCTAGGAGACCCAGACAACTACA\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_15221_15822_6:2:0_4:0:0_9c\t83\tchrM\t15623\t255\t200M\t=\t15221\t-602\tCACCTCTTATTCCTTCATGAAACAGGATCTAACAACCCCTCAGGAATTACTTCCGATTCAGACTAAATCCCATTCCAACCATACTATACAATCAAAGACATCCTAGGTCTTCTAGTACTAGTTTTAACACTCATACTACTCGTCCTATTTTCACCAGACCTGCTTGGAGACCCAGACAACTACATCCCAGCCAACCCTTT\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_15422_15911_4:2:0_5:1:0_99\t83\tchrM\t15712\t255\t200M\t=\t15422\t-490\tAATCAAAGAAATCCTAGGTCTTCTAGTACTAGTTTTAACACTCATACTACTCGTCCTATTTTCACCAGACCTGCTAGGAGACCCACACAACTACATCCCAGCCAACCCTTTAAATTCACCTCCCCATATTTAACCTGAATGATACTTCCTATTCGCATACGCAATTCTCCGATCCATCCCTAACAAACTAGGGGCAGTCC\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_15557_15998_5:2:0_3:0:0_ad\t147\tchrM\t15799\t255\t200M\t=\t15557\t-442\tCAACTACATCCCAGCCTACCCTTTAAATACCCCTCCCCATATTAAACCTGAATGATACTTCCTATTCGCATACGCAATTCTCCGATCCATCCCTATCAAACTAGGGGGAGTCCTAGCCCTAGTACTCTCCATCCTAGTACTAGCAATCATTCCAATCCTCCACACCTCCAAACAACGAGGAATAATCTTTCGACCACTAA\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_15439_16020_6:1:0_3:0:1_4f\t147\tchrM\t15823\t255\t200M\t=\t15439\t-584\tAAATACCCCTCCCCTTATTAAACCTGAATGATACTTCCTATTCGCATACGCAATTCTCCGATCCATCCCTAACAAACTAGGGGGAGTCCTAGCCCTAGTACTCTCCATCCTAGTACTAGCAATCATTCCAATCCTCCACACCTCCAAACAACGAGGAATAATGTTTCCACCACTAAGCCAATGTCTAGTCTGACACTCCT\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_15542_16042_0:2:0_4:0:1_1\t147\tchrM\t15845\t255\t200M\t=\t15542\t-503\tCCTGAATGATACTTCCTATTCGCATACGCAATTCTCCGATCCATCCCTAACAAACTTGGGGGAGTCCGAGCCCTAGTACTCTCCATCCTAGTACTAGCAATCATTCCAATCCTCCACACCTCCAAACAACGAGGAATAATGTTTCGACCACTAAGCCAATGTCTATTCTGAAACTACTAGTAGCGGATCTCCTAACCCTA\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_15514_16085_4:1:0_0:0:1_0\t83\tchrM\t15886\t255\t200M\t=\t15514\t-572\tTCCCTAACAAACTAGGGGGAGTCCTAGCCCTAGTACTCTCCATCCTAGTACTAGCAATCATTCCAATCCTCCACACCTCCAAACAACGAGGAATAATGTTTCGACCACTAAGCCAATGTCTATTCTGACACTCCTAGTAGCGGATCTCCTAACCCTAACATGAATCGGTGGCCAACCTGTAGAACATCCGTTCATCACCA\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_16077_16575_4:1:0_2:2:0_a6\t163\tchrM\t16077\t255\t200M\t=\t16376\t499\tTCATCACCATCGGGCAACTCGCCTCCATCCTATATTTCTCAACCCTCCTAATCCTCATACCCAACTCAGGCATTATTGAAAAGCGTCTACTCAAATGAAGAGTCTTTGTAATATATAAAATACTTTGGTCTTGTAAACCAAAAAAGGAGAACATATGCCCTCCCTAAGACTTCAAGGAAGAAGCAACAGCCCCACTATCA\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_16270_16728_4:4:1_5:2:0_79\t99\tchrM\t16270\t255\t200M\t=\t16529\t459\tACTATCAGCACACAAAGCTGAAATTCTTTCTTAAACTATTCCTTTGCAATACCAGAAAGCAACCCCATAACTTTCATAATTCATACATTGCATATACCCATACTGTGGGCTTGACCAGTATGTCCTTATTTCCCACAAAAAAACCCAGTAAAAACCCCCAAACACCAGACCCCAACACACACAATGTAAAATCACTCTAT\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_16355_16830_3:2:0_4:1:0_bd\t163\tchrM\t16355\t255\t200M\t=\t16631\t476\tTATTGCCTATACCCATACTGTGCTTGACCAGTATGTCCTTATTTCCCACACAAAAACCAAGTAAAAACCCCCAAACACCAGAAGCCAAAACACACAATGTAAAATCACTCTATTAACCACCAACTCACCCCAGGGGGTATTATACACCCATATACATAAGACATACTATGTACATCGTGCATTAATTGCTAGTCCCCATG\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_16363_16864_3:2:1_3:2:0_ba\t99\tchrM\t16361\t255\t200M\t=\t16665\t504\tATACCCATACTGTGGGCTTGCCCAGTATGTCCTTATTTCCCACAAAAAAACCAAGTAAAAACCCCCAAACACCAGAACCCAAACCACACAATGTAAAATCACTCTATTAACCACCAACTCACCCCAGGGGGTATTATACACCCATATACATAAGACATACTATGTACATCGTGCATTACTTGCTAGTCCCCATGAATATT\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_16373_16837_7:2:0_4:1:0_9\t99\tchrM\t16373\t255\t200M\t=\t16638\t465\tTGTGCTTGACCAGAATGTCCTTATTTCCCACAAAAAAACCAAGTAAAAACGCCCAAACCCCCGAACCCAAAACACACAATGTAAAATCACTCTATTAACCACCAACACACCCCAGGGGGTAATATACACCCATATACATAAGACAAACTATGTACATCGTGCATTAATTGCTAGTCCCCATGAATATTAAGCATGTACAG\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_16077_16575_4:1:0_2:2:0_a6\t83\tchrM\t16376\t255\t200M\t=\t16077\t-499\tGCTTGACCAGTATGTCATTATTTCCCACAAAAAAACCAAGTAAAAACCCCCAAACACCAGAACCCAAAACACACAATGTAAAATCACTCTATTAACCACCAACTCACCCCAGGGGGTATTATACACCCATATACATAAGACATACTATGTACATCGTGCATTAATTGCTAGTCCCCATGAATATTAAGCATGTACAGGTG\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_16484_16992_6:0:0_3:0:0_2c\t163\tchrM\t16484\t255\t200M\t=\t16793\t509\tCCCGGGGGTATTATACCCCCATATACATAAGACATACTATGTACATCGTGCATTAATTGCTAGTCCCCATGAATATAAAGCATGTACAGGATTTTATATATATTACATAAGCCATACTATGTATATCGTTCATTAATTGCTAGTCCCCATGAATATTAAGCATGTACAGTAGTTTATATATATTACATAAGACATACTAT\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_16270_16728_4:4:1_5:2:0_79\t147\tchrM\t16529\t255\t200M\t=\t16270\t-459\tTCGTGCATTAATTGCTAGTCCCCATGAATATTAAGCATGTTCAGGAGTTTATATATATTAAATAAGACATACTATGTATATCGTGCATTAATTGCTAGTCCCAATGAATATTAAGCATGTACAGTAGTTTATATATATTAAATAAGACATACTATGTATATCGTACATTAATTGCTAGTCCCCATAAATATTATGCATGT\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_16355_16830_3:2:0_4:1:0_bd\t83\tchrM\t16631\t255\t200M\t=\t16355\t-476\tCATGAATATTAAGCATGTTCAGTAGGTTATATATATTACATAAGACATACTATGTATATCGTGCATTAATTGCTAGTCCCCATAAATATTAAGCATGTACAGTAGTTTATATATATTACATAAGACATAATAGTGCTTAATCGGGCATTCACCTTAATTCTAGGACAGTCTTCTATGGAACTCAACTATTCCAAAGAGCT\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_16373_16837_7:2:0_4:1:0_9\t147\tchrM\t16638\t255\t200M\t=\t16373\t-465\tATTAAGCATGTACAGTAGTTTATATATATTACATAACACATACTATGTATTTCGTGCATTAATTGCTAGTCCCAATAAATATTAAGCATGTACAGTTGTTTATATATATTACATAAGACATAATAGTGCTTAATCGTGCATTCACCTTAATTCTAGGACAGTCTTCTATGGACCTCAACTATTCCAAAGAGCTTAATCAC\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_16363_16864_3:2:1_3:2:0_ba\t147\tchrM\t16665\t255\t200M\t=\t16361\t-504\tATTACATAAGACATACTATGTATATCGTACATTAATTGCTAGTCCCCATAAATATTAAGCATGTACAGTAGTTTATATATATTAAATAAGACATAATAGTGCTTTATAGTGCATTCACCTTAATTCTAGGACAGTCTTCTATGGACCTCAACTATTCCAAAGAGCTTAATCACCTGGCCTCGAGAAACCAGCAATCCTTG\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n-chrM_16484_16992_6:0:0_3:0:0_2c\t83\tchrM\t16793\t255\t200M\t=\t16484\t-509\tGGACAGTCTTCTATGGACCTCAACGATTCCAAAGAGCTTAATCACCTGGCCTCGAGAAACCAGCAATCCTTGCTCGAACGTGTACCTCTTCTCGCTCCGGGCCCATTTCAACGTGGGGGTTTCTATAACGGAACTATAACTGGCATATGGTTCTTACTTCAGGGCCATAAAATCCTTGAAACCAATCCTTCAGTTCTCTC\t22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222\tNH:i:1\n+@HD\tVN:1.6\tSO:coordinate\n" ], "status": "failure", "test_index": 4, "time_seconds": 29.495418071746826, "tool_id": "kallisto_quant", "tool_version": "0.46.0.4"}
+                ]]></error>
+            
+            <system-out><![CDATA[
+            {"n_targets": 1,"n_bootstraps": 0,"n_processed": 200,"n_pseudoaligned": 200,"n_unique": 200,"p_pseudoaligned": 100.0,"p_unique": 100.0,"kallisto_version": "0.46.0","index_version": 10,"start_time": "Tue Jun 13 18:07:08 2023","call": "kallisto quant -i reference.kallisto --bootstrap-samples 0 --seed 42 --pseudobam -o . /galaxy/server/database/objects/e/d/d/dataset_edd9ba8c-1e24-49e3-983c-e46b250176b5.dat /galaxy/server/database/objects/b/f/7/dataset_bf753bf6-61d4-4088-936b-b647a6aedfd5.dat"}
+            ]]></system-out>
+            <system-err><![CDATA[
+            [build] loading fasta file reference.fa[build] k-mer length: 31[build] counting k-mers ... done.[build] building target de Bruijn graph ...  done [build] creating equivalence classes ...  done[build] target de Bruijn graph has 15 contigs and contains 16670 k-mers [quant] fragment length distribution will be estimated from the data[index] k-mer length: 31[index] number of targets: 1[index] number of k-mers: 16,670[index] number of equivalence classes: 1[quant] running in paired-end mode[quant] will process pair 1: /galaxy/server/database/objects/e/d/d/dataset_edd9ba8c-1e24-49e3-983c-e46b250176b5.dat                             /galaxy/server/database/objects/b/f/7/dataset_bf753bf6-61d4-4088-936b-b647a6aedfd5.dat[quant] finding pseudoalignments for the reads ... done[quant] processed 200 reads, 200 reads pseudoaligned[quant] estimated average fragment length: 500.01[   em] quantifying the abundances ... done[   em] the Expectation-Maximization algorithm ran for 52 rounds[  bam] writing pseudoalignments to BAM format .. done
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="kallisto_quant (Test #6)" name="5" time="17.291683435440063">
+        
+            <error type="error" message="parameter 'index': an invalid option (None) was selected, please verify"><![CDATA[
+                { "dynamic_param_error": true, "execution_problem": "parameter \u0027index\u0027: an invalid option (None) was selected, please verify", "inputs": {  "pseudobam": true,  "single_paired|collection|collection_selector": "datasets",  "single_paired|collection|forward": {   "id": "df67ca54bda92961",   "src": "hda"  },  "single_paired|collection|reverse": {   "id": "fa100cae9c5ff6c0",   "src": "hda"  },  "single_paired|single_paired_selector": "paired" }, "status": "error", "test_index": 5, "time_seconds": 17.291683435440063, "tool_id": "kallisto_quant", "tool_version": "0.46.0.4"}
+            ]]></error>
+        
+    </testcase>
+    
+    <testcase classname="kallisto_quant (Test #7)" name="6" time="30.711588859558105">
+        
+            
+            <system-out><![CDATA[
+            {"n_targets": 284,"n_bootstraps": 0,"n_processed": 744,"n_pseudoaligned": 368,"n_unique": 263,"p_pseudoaligned": 49.5,"p_unique": 35.3,"kallisto_version": "0.46.0","index_version": 10,"start_time": "Tue Jun 13 18:07:58 2023","call": "kallisto quant -i reference.kallisto --bootstrap-samples 0 --seed 42 --fusion --threads 8 -o . /galaxy/server/database/objects/7/f/7/dataset_7f75e77a-7cb7-48dc-aa01-7046b003ac34.dat /galaxy/server/database/objects/0/7/8/dataset_07870d6f-2c82-43c0-8d4a-5be4c0a76c0f.dat"}
+            ]]></system-out>
+            <system-err><![CDATA[
+            [build] loading fasta file reference.fa[build] k-mer length: 31[build] warning: clipped off poly-A tail (longer than 10)        from 7 target sequences[build] counting k-mers ... done.[build] building target de Bruijn graph ...  done [build] creating equivalence classes ...  done[build] target de Bruijn graph has 1179 contigs and contains 216490 k-mers [quant] fragment length distribution will be estimated from the data[index] k-mer length: 31[index] number of targets: 284[index] number of k-mers: 216,490[index] number of equivalence classes: 909[quant] running in paired-end mode[quant] will process pair 1: /galaxy/server/database/objects/7/f/7/dataset_7f75e77a-7cb7-48dc-aa01-7046b003ac34.dat                             /galaxy/server/database/objects/0/7/8/dataset_07870d6f-2c82-43c0-8d4a-5be4c0a76c0f.dat[quant] finding pseudoalignments for the reads ... done[quant] processed 744 reads, 368 reads pseudoaligned[quant] estimated average fragment length: 140.96[   em] quantifying the abundances ... done[   em] the Expectation-Maximization algorithm ran for 210 rounds
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="mummer_show_coords (Test #1)" name="0" time="25.794895887374878">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="music_inspect_eset (Test #1)" name="0" time="29.272610425949097">
+        
+            
+            <system-out><![CDATA[
+            ExpressionSet (storageMode: lockedEnvironment)assayData: 2066 features, 250 samples   element names: exprs protocolData: nonephenoData  sampleNames: AZ_A10 AZ_A11 ... HP1502401_K15 (250 total)  varLabels: sampleID SubjectName cellTypeID cellType  varMetadata: labelDescriptionfeatureData: noneexperimentData: use 'experimentData(object)'Annotation:  
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="music_inspect_eset (Test #1)" name="0" time="30.164918184280396">
+        
+            
+            <system-out><![CDATA[
+            ExpressionSet (storageMode: lockedEnvironment)assayData: 2066 features, 250 samples   element names: exprs protocolData: nonephenoData  sampleNames: AZ_A10 AZ_A11 ... HP1502401_K15 (250 total)  varLabels: sampleID SubjectName cellTypeID cellType  varMetadata: labelDescriptionfeatureData: noneexperimentData: use 'experimentData(object)'Annotation:  
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="music_inspect_eset (Test #2)" name="1" time="29.812451601028442">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="music_inspect_eset (Test #2)" name="1" time="27.594126224517822">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="music_inspect_eset (Test #3)" name="2" time="29.457274198532104">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="music_inspect_eset (Test #3)" name="2" time="29.454802989959717">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="ncbi_acc_download (Test #1)" name="0" time="30.615543127059937">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="ncbi_acc_download (Test #2)" name="1" time="30.674514532089233">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="ncbi_acc_download (Test #3)" name="2" time="30.377673625946045">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="ncbi_acc_download (Test #4)" name="3" time="32.85025501251221">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="ncbi_acc_download (Test #5)" name="4" time="17.98454260826111">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="ncbi_acc_download (Test #6)" name="5" time="20.190577030181885">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            Failed to download file with id CP0XXXXX from NCBITraceback (most recent call last):  File "/usr/local/bin/ncbi-acc-download", line 10, in <module>    sys.exit(main())  File "/usr/local/lib/python3.8/site-packages/ncbi_acc_download/__main__.py", line 54, in main    download_to_file(dl_id, config, filename, append)  File "/usr/local/lib/python3.8/site-packages/ncbi_acc_download/core.py", line 110, in download_to_file    r = get_stream(url, params)  File "/usr/local/lib/python3.8/site-packages/ncbi_acc_download/download.py", line 90, in get_stream    raise DownloadError("Download failed with return code: {}".format(r.status_code))ncbi_acc_download.errors.DownloadError: Download failed with return code: 400
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="ncbi_acc_download (Test #7)" name="6" time="14.410120248794556">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            Failed to download file with id CP0XXXXX from NCBITraceback (most recent call last):  File "/usr/local/bin/ncbi-acc-download", line 10, in <module>    sys.exit(main())  File "/usr/local/lib/python3.8/site-packages/ncbi_acc_download/__main__.py", line 54, in main    download_to_file(dl_id, config, filename, append)  File "/usr/local/lib/python3.8/site-packages/ncbi_acc_download/core.py", line 110, in download_to_file    r = get_stream(url, params)  File "/usr/local/lib/python3.8/site-packages/ncbi_acc_download/download.py", line 90, in get_stream    raise DownloadError("Download failed with return code: {}".format(r.status_code))ncbi_acc_download.errors.DownloadError: Download failed with return code: 400
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="ncbi_acc_download (Test #8)" name="7" time="13.912596940994263">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            Failed to download file with id CP0XXXXX from NCBITraceback (most recent call last):  File "/usr/local/bin/ncbi-acc-download", line 10, in <module>    sys.exit(main())  File "/usr/local/lib/python3.8/site-packages/ncbi_acc_download/__main__.py", line 54, in main    download_to_file(dl_id, config, filename, append)  File "/usr/local/lib/python3.8/site-packages/ncbi_acc_download/core.py", line 110, in download_to_file    r = get_stream(url, params)  File "/usr/local/lib/python3.8/site-packages/ncbi_acc_download/download.py", line 90, in get_stream    raise DownloadError("Download failed with return code: {}".format(r.status_code))ncbi_acc_download.errors.DownloadError: Download failed with return code: 400
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="ncbi_acc_download (Test #9)" name="8" time="18.027050018310547">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="ncbi_acc_download (Test #10)" name="9" time="14.316795110702515">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="poretools_squiggle (Test #1)" name="0" time="37.48251271247864">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="poretools_squiggle (Test #2)" name="1" time="34.50154781341553">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="raceid_inspectclusters (Test #1)" name="0" time="29.371963262557983">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="raceid_inspectclusters (Test #1)" name="0" time="28.146395921707153">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="raceid_inspectclusters (Test #2)" name="1" time="27.1203830242157">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="raceid_inspectclusters (Test #2)" name="1" time="9.183403015136719">
+        
+            <error type="error" message="Input staging problem: Job in error state.. tool_id: upload1, exit_code: None, stderr: ."><![CDATA[
+                { "execution_problem": "Input staging problem: Job in error state.. tool_id: upload1, exit_code: None, stderr: .", "status": "error", "test_index": 1, "time_seconds": 9.183403015136719, "tool_id": "raceid_inspectclusters", "tool_version": "0.2.3+galaxy2"}
+            ]]></error>
+        
+    </testcase>
+    
+    <testcase classname="raceid_inspectclusters (Test #3)" name="2" time="29.76507019996643">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="raceid_inspectclusters (Test #3)" name="2" time="28.17198896408081">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="raceid_inspectclusters (Test #4)" name="3" time="29.6565842628479">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="raceid_inspectclusters (Test #4)" name="3" time="30.41814088821411">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="raceid_inspectclusters (Test #5)" name="4" time="29.73170232772827">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="raceid_inspectclusters (Test #5)" name="4" time="30.417941093444824">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="raceid_inspectclusters (Test #6)" name="5" time="29.02485942840576">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="raceid_inspectclusters (Test #6)" name="5" time="29.096797943115234">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="racon (Test #1)" name="0" time="79.3846161365509">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            [racon::Polisher::initialize] loaded target sequences 0.000772 s[racon::Polisher::initialize] loaded sequences 0.009830 s[racon::Polisher::initialize] loaded overlaps 0.010003 s[racon::Polisher::initialize] aligning overlaps [=>                  ] 0.007139 s[racon::Polisher::initialize] aligning overlaps [==>                 ] 0.007150 s[racon::Polisher::initialize] aligning overlaps [===>                ] 0.007156 s[racon::Polisher::initialize] aligning overlaps [====>               ] 0.007161 s[racon::Polisher::initialize] aligning overlaps [=====>              ] 0.007167 s[racon::Polisher::initialize] aligning overlaps [======>             ] 0.007173 s[racon::Polisher::initialize] aligning overlaps [=======>            ] 0.007179 s[racon::Polisher::initialize] aligning overlaps [========>           ] 0.007184 s[racon::Polisher::initialize] aligning overlaps [=========>          ] 0.007189 s[racon::Polisher::initialize] aligning overlaps [==========>         ] 0.007195 s[racon::Polisher::initialize] aligning overlaps [===========>        ] 0.007200 s[racon::Polisher::initialize] aligning overlaps [============>       ] 0.007205 s[racon::Polisher::initialize] aligning overlaps [=============>      ] 0.007211 s[racon::Polisher::initialize] aligning overlaps [==============>     ] 0.007217 s[racon::Polisher::initialize] aligning overlaps [===============>    ] 0.007222 s[racon::Polisher::initialize] aligning overlaps [================>   ] 0.007240 s[racon::Polisher::initialize] aligning overlaps [=================>  ] 0.007246 s[racon::Polisher::initialize] aligning overlaps [==================> ] 0.007252 s[racon::Polisher::initialize] aligning overlaps [===================>] 0.007257 s[racon::Polisher::initialize] aligning overlaps [====================] 0.007262 s[racon::Polisher::initialize] transformed data into windows 0.000254 s[racon::Polisher::polish] generating consensus [=>                  ] 0.091774 s[racon::Polisher::polish] generating consensus [==>                 ] 0.091865 s[racon::Polisher::polish] generating consensus [===>                ] 0.091895 s[racon::Polisher::polish] generating consensus [====>               ] 0.091916 s[racon::Polisher::polish] generating consensus [=====>              ] 0.091994 s[racon::Polisher::polish] generating consensus [======>             ] 0.092081 s[racon::Polisher::polish] generating consensus [=======>            ] 0.092124 s[racon::Polisher::polish] generating consensus [========>           ] 0.126184 s[racon::Polisher::polish] generating consensus [=========>          ] 0.160383 s[racon::Polisher::polish] generating consensus [==========>         ] 0.174509 s[racon::Polisher::polish] generating consensus [===========>        ] 0.227095 s[racon::Polisher::polish] generating consensus [============>       ] 0.227325 s[racon::Polisher::polish] generating consensus [=============>      ] 0.228891 s[racon::Polisher::polish] generating consensus [==============>     ] 0.241940 s[racon::Polisher::polish] generating consensus [===============>    ] 0.242094 s[racon::Polisher::polish] generating consensus [================>   ] 0.250672 s[racon::Polisher::polish] generating consensus [=================>  ] 0.253705 s[racon::Polisher::polish] generating consensus [==================> ] 0.277629 s[racon::Polisher::polish] generating consensus [===================>] 0.292156 s[racon::Polisher::polish] generating consensus [====================] 0.292441 s[racon::Polisher::] total = 0.321130 s
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="racon (Test #2)" name="1" time="33.66439390182495">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            [racon::Polisher::initialize] loaded target sequences 0.000881 s[racon::Polisher::initialize] loaded sequences 0.010134 s[racon::Polisher::initialize] loaded overlaps 0.000390 s[racon::Polisher::initialize] aligning overlaps [=>                  ] 0.021323 s[racon::Polisher::initialize] aligning overlaps [==>                 ] 0.021346 s[racon::Polisher::initialize] aligning overlaps [===>                ] 0.021359 s[racon::Polisher::initialize] aligning overlaps [====>               ] 0.021369 s[racon::Polisher::initialize] aligning overlaps [=====>              ] 0.033601 s[racon::Polisher::initialize] aligning overlaps [======>             ] 0.033620 s[racon::Polisher::initialize] aligning overlaps [=======>            ] 0.033628 s[racon::Polisher::initialize] aligning overlaps [========>           ] 0.033635 s[racon::Polisher::initialize] aligning overlaps [=========>          ] 0.044802 s[racon::Polisher::initialize] aligning overlaps [==========>         ] 0.044819 s[racon::Polisher::initialize] aligning overlaps [===========>        ] 0.044826 s[racon::Polisher::initialize] aligning overlaps [============>       ] 0.050677 s[racon::Polisher::initialize] aligning overlaps [=============>      ] 0.059121 s[racon::Polisher::initialize] aligning overlaps [==============>     ] 0.059135 s[racon::Polisher::initialize] aligning overlaps [===============>    ] 0.067051 s[racon::Polisher::initialize] aligning overlaps [================>   ] 0.067065 s[racon::Polisher::initialize] aligning overlaps [=================>  ] 0.071788 s[racon::Polisher::initialize] aligning overlaps [==================> ] 0.071801 s[racon::Polisher::initialize] aligning overlaps [===================>] 0.074521 s[racon::Polisher::initialize] aligning overlaps [====================] 0.081510 s[racon::Polisher::initialize] transformed data into windows 0.000353 s[racon::Polisher::polish] generating consensus [=>                  ] 0.031034 s[racon::Polisher::polish] generating consensus [==>                 ] 0.031156 s[racon::Polisher::polish] generating consensus [===>                ] 0.031262 s[racon::Polisher::polish] generating consensus [====>               ] 0.031506 s[racon::Polisher::polish] generating consensus [=====>              ] 0.031629 s[racon::Polisher::polish] generating consensus [======>             ] 0.032710 s[racon::Polisher::polish] generating consensus [=======>            ] 0.035399 s[racon::Polisher::polish] generating consensus [========>           ] 0.038808 s[racon::Polisher::polish] generating consensus [=========>          ] 0.043154 s[racon::Polisher::polish] generating consensus [==========>         ] 0.055072 s[racon::Polisher::polish] generating consensus [===========>        ] 0.073701 s[racon::Polisher::polish] generating consensus [============>       ] 0.073794 s[racon::Polisher::polish] generating consensus [=============>      ] 0.086797 s[racon::Polisher::polish] generating consensus [==============>     ] 0.100437 s[racon::Polisher::polish] generating consensus [===============>    ] 0.102042 s[racon::Polisher::polish] generating consensus [================>   ] 0.105700 s[racon::Polisher::polish] generating consensus [=================>  ] 0.120656 s[racon::Polisher::polish] generating consensus [==================> ] 0.120708 s[racon::Polisher::polish] generating consensus [===================>] 0.135277 s[racon::Polisher::polish] generating consensus [====================] 0.154749 s[racon::Polisher::] total = 0.249151 s
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="samtools_idxstats (Test #1)" name="0" time="26.486937522888184">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="samtools_idxstats (Test #1)" name="0" time="26.85043501853943">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="samtools_idxstats (Test #2)" name="1" time="26.38791513442993">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="samtools_idxstats (Test #2)" name="1" time="27.458471536636353">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="scanpy_filter_cells (Test #1)" name="0" time="0.09283852577209473">
+        
+            <error type="error" message="Input staging problem: Test input file (read_10x.h5) cannot be found."><![CDATA[
+                { "execution_problem": "Input staging problem: Test input file (read_10x.h5) cannot be found.", "status": "error", "test_index": 0, "time_seconds": 0.09283852577209473, "tool_id": "scanpy_filter_cells", "tool_version": "1.8.1+3+galaxy0"}
+            ]]></error>
+        
+    </testcase>
+    
+    <testcase classname="scanpy_filter_cells (Test #1)" name="0" time="0.09595346450805664">
+        
+            <error type="error" message="Input staging problem: Test input file (read_10x.h5) cannot be found."><![CDATA[
+                { "execution_problem": "Input staging problem: Test input file (read_10x.h5) cannot be found.", "status": "error", "test_index": 0, "time_seconds": 0.09595346450805664, "tool_id": "scanpy_filter_cells", "tool_version": "1.8.1+3+galaxy0"}
+            ]]></error>
+        
+    </testcase>
+    
+    <testcase classname="scater_plot_pca (Test #1)" name="0" time="36.42163133621216">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            Loading required package: S4VectorsLoading required package: stats4Loading required package: BiocGenericsAttaching package: ‘BiocGenerics’The following objects are masked from ‘package:stats’:    IQR, mad, sd, var, xtabsThe following objects are masked from ‘package:base’:    anyDuplicated, append, as.data.frame, basename, cbind, colnames,    dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,    grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,    rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,    union, unique, unsplit, which.max, which.minAttaching package: ‘S4Vectors’The following objects are masked from ‘package:base’:    expand.grid, I, unnameLoading required package: SingleCellExperimentLoading required package: SummarizedExperimentLoading required package: MatrixGenericsLoading required package: matrixStatsAttaching package: ‘MatrixGenerics’The following objects are masked from ‘package:matrixStats’:    colAlls, colAnyNAs, colAnys, colAvgsPerRowSet, colCollapse,    colCounts, colCummaxs, colCummins, colCumprods, colCumsums,    colDiffs, colIQRDiffs, colIQRs, colLogSumExps, colMadDiffs,    colMads, colMaxs, colMeans2, colMedians, colMins, colOrderStats,    colProds, colQuantiles, colRanges, colRanks, colSdDiffs, colSds,    colSums2, colTabulates, colVarDiffs, colVars, colWeightedMads,    colWeightedMeans, colWeightedMedians, colWeightedSds,    colWeightedVars, rowAlls, rowAnyNAs, rowAnys, rowAvgsPerColSet,    rowCollapse, rowCounts, rowCummaxs, rowCummins, rowCumprods,    rowCumsums, rowDiffs, rowIQRDiffs, rowIQRs, rowLogSumExps,    rowMadDiffs, rowMads, rowMaxs, rowMeans2, rowMedians, rowMins,    rowOrderStats, rowProds, rowQuantiles, rowRanges, rowRanks,    rowSdDiffs, rowSds, rowSums2, rowTabulates, rowVarDiffs, rowVars,    rowWeightedMads, rowWeightedMeans, rowWeightedMedians,    rowWeightedSds, rowWeightedVarsLoading required package: GenomicRangesLoading required package: IRangesLoading required package: GenomeInfoDbLoading required package: BiobaseWelcome to Bioconductor    Vignettes contain introductory material; view with    'browseVignettes()'. To cite Bioconductor, see    'citation("Biobase")', and for packages 'citation("pkgname")'.Attaching package: ‘Biobase’The following object is masked from ‘package:MatrixGenerics’:    rowMediansThe following objects are masked from ‘package:matrixStats’:    anyMissing, rowMediansLoading required package: rhdf5Loading required package: BiocIOLoading required package: scuttleLoading required package: ggplot2Warning in (function (A, nv = 5, nu = nv, maxit = 1000, work = nv + 7, reorth = TRUE,  :  You're computing too large a percentage of total singular values, use a standard svd instead.Warning message:In check_numbers(k = k, nu = nu, nv = nv, limit = min(dim(x)) -  :  more singular values/vectors requested than availableSaving 7 x 7 in image
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="scater_plot_pca (Test #1)" name="0" time="35.103739976882935">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            Loading required package: S4VectorsLoading required package: stats4Loading required package: BiocGenericsAttaching package: ‘BiocGenerics’The following objects are masked from ‘package:stats’:    IQR, mad, sd, var, xtabsThe following objects are masked from ‘package:base’:    anyDuplicated, append, as.data.frame, basename, cbind, colnames,    dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,    grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,    rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,    union, unique, unsplit, which.max, which.minAttaching package: ‘S4Vectors’The following objects are masked from ‘package:base’:    expand.grid, I, unnameLoading required package: SingleCellExperimentLoading required package: SummarizedExperimentLoading required package: MatrixGenericsLoading required package: matrixStatsAttaching package: ‘MatrixGenerics’The following objects are masked from ‘package:matrixStats’:    colAlls, colAnyNAs, colAnys, colAvgsPerRowSet, colCollapse,    colCounts, colCummaxs, colCummins, colCumprods, colCumsums,    colDiffs, colIQRDiffs, colIQRs, colLogSumExps, colMadDiffs,    colMads, colMaxs, colMeans2, colMedians, colMins, colOrderStats,    colProds, colQuantiles, colRanges, colRanks, colSdDiffs, colSds,    colSums2, colTabulates, colVarDiffs, colVars, colWeightedMads,    colWeightedMeans, colWeightedMedians, colWeightedSds,    colWeightedVars, rowAlls, rowAnyNAs, rowAnys, rowAvgsPerColSet,    rowCollapse, rowCounts, rowCummaxs, rowCummins, rowCumprods,    rowCumsums, rowDiffs, rowIQRDiffs, rowIQRs, rowLogSumExps,    rowMadDiffs, rowMads, rowMaxs, rowMeans2, rowMedians, rowMins,    rowOrderStats, rowProds, rowQuantiles, rowRanges, rowRanks,    rowSdDiffs, rowSds, rowSums2, rowTabulates, rowVarDiffs, rowVars,    rowWeightedMads, rowWeightedMeans, rowWeightedMedians,    rowWeightedSds, rowWeightedVarsLoading required package: GenomicRangesLoading required package: IRangesLoading required package: GenomeInfoDbLoading required package: BiobaseWelcome to Bioconductor    Vignettes contain introductory material; view with    'browseVignettes()'. To cite Bioconductor, see    'citation("Biobase")', and for packages 'citation("pkgname")'.Attaching package: ‘Biobase’The following object is masked from ‘package:MatrixGenerics’:    rowMediansThe following objects are masked from ‘package:matrixStats’:    anyMissing, rowMediansLoading required package: rhdf5Loading required package: BiocIOLoading required package: scuttleLoading required package: ggplot2Warning in (function (A, nv = 5, nu = nv, maxit = 1000, work = nv + 7, reorth = TRUE,  :  You're computing too large a percentage of total singular values, use a standard svd instead.Warning message:In check_numbers(k = k, nu = nu, nv = nv, limit = min(dim(x)) -  :  more singular values/vectors requested than availableSaving 7 x 7 in image
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="sniffles (Test #1)" name="0" time="25.39518094062805">
+        
+            
+            <system-out><![CDATA[
+            Estimating parameter...Max dist between aln events: 4Max diff in window: 50Min score ratio: 2Avg DEL ratio: 0.0432235Avg INS ratio: 0.0740733Start parsing... 21Switch Chr 21Reassessing breakpointsContinue parsingFinalizing  ..Start genotype calling:Reopening Bam file for parsing coverage Finalizing  ..
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="sniffles (Test #2)" name="1" time="25.100904941558838">
+        
+            
+            <system-out><![CDATA[
+            Estimating parameter...Max dist between aln events: 4Max diff in window: 50Min score ratio: 2Avg DEL ratio: 0.0432235Avg INS ratio: 0.0740733Start parsing... 21Switch Chr 21Reassessing breakpointsContinue parsingFinalizing  ..Start genotype calling:Reopening Bam file for parsing coverage Finalizing  ..
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="sniffles (Test #3)" name="2" time="25.360756635665894">
+        
+            
+            <system-out><![CDATA[
+            Estimating parameter...Max dist between aln events: 4Max diff in window: 50Min score ratio: 2Avg DEL ratio: 0.0432235Avg INS ratio: 0.0740733Start parsing... 21Switch Chr 21Reassessing breakpointsContinue parsingFinalizing  ..Start genotype calling:Reopening Bam file for parsing coverage Finalizing  ..
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="sniffles (Test #4)" name="3" time="24.44858407974243">
+        
+            
+            <system-out><![CDATA[
+            Estimating parameter...Max dist between aln events: 4Max diff in window: 50Min score ratio: 2Avg DEL ratio: 0.0432235Avg INS ratio: 0.0740733Start parsing... 21Switch Chr 21Reassessing breakpointsContinue parsingFinalizing  ..Start phasing: Cleaning tmp filesStart genotype calling:Reopening Bam file for parsing coverage Finalizing  ..
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="sniffles (Test #5)" name="4" time="26.935560941696167">
+        
+            
+            <system-out><![CDATA[
+            Estimating parameter...Max dist between aln events: 4Max diff in window: 50Min score ratio: 2Avg DEL ratio: 0.0432235Avg INS ratio: 0.0740733Start parsing... 21Switch Chr 21Reassessing breakpointsContinue parsingFinalizing  ..Start genotype calling:Reopening Bam file for parsing coverage Finalizing  ..
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="sniffles (Test #6)" name="5" time="26.360002279281616">
+        
+            
+            <system-out><![CDATA[
+            Skip parameter estimation.Start parsing... 21Switch Chr 21Reassessing breakpointsContinue parsingFinalizing  ..Start genotype calling:Reopening Bam file for parsing coverage Finalizing  ..
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="vcffixup (Test #1)" name="0" time="25.45947003364563">
+        
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            
+            ]]></system-err>
+        
+    </testcase>
+    
+    <testcase classname="vcftools_annotate (Test #1)" name="0" time="25.03498077392578">
+        
+            
+                <error type="error" message="Tool exit code: 127"><![CDATA[
+                    { "inputs": {  "condition": "\u003e= 7",  "description": "MinAF [7]",  "filter": "MinAF",  "input": {   "id": "603b9397ad2fa21d",   "src": "hda"  },  "tag": "FORMAT/FREQ" }, "job": {  "command_line": "echo \"{ tag  =\u003e \u0027FORMAT/FREQ\u0027, name =\u003e \u0027MinAF\u0027, desc =\u003e \u0027MinAF [7]\u0027, test =\u003e sub { my @t = split(\u0027%\u0027, @\\$MATCH[0]); return @t[0] \u003e= 7 ? \\$PASS : \\$FAIL }, },\" \u003e f.txt ;  vcf-annotate -f f.txt /galaxy/server/database/objects/b/1/f/dataset_b1f24823-440d-436e-94ea-0a5b03f39395.dat \u003e /galaxy/server/database/objects/8/6/c/dataset_86c285bf-70c7-4007-98d5-04fffc4b2233.dat",  "command_version": "",  "create_time": "2023-06-13T18:30:46.506058",  "dependencies": [],  "exit_code": 127,  "external_id": "gxy-galaxy-galaxy-ffq5v",  "galaxy_version": "23.0",  "history_id": "b7c70fb70b831b26",  "id": "c3ee3e4501022e11",  "inputs": {   "input": {    "id": "603b9397ad2fa21d",    "src": "hda",    "uuid": "b1f24823-440d-436e-94ea-0a5b03f39395"   }  },  "job_messages": [   {    "code_desc": "tool progress",    "desc": "Log: tool progress",    "error_level": 1,    "match": "/galaxy/server/database/jobs_directory/001/1939/tool_script.sh: line 22: vcf-annotate: command not found",    "stream": "stderr",    "type": "regex"   },   {    "code_desc": "tool progress",    "desc": "Log: tool progress",    "error_level": 1,    "match": "",    "stream": "stdout",    "type": "regex"   }  ],  "job_metrics": [   {    "name": "uname",    "plugin": "uname",    "raw_value": "Linux gxy-galaxy-galaxy-ffq5v-zrc7d 5.10.162+ #1 SMP Thu Mar 16 14:55:19 UTC 2023 x86_64 GNU/Linux\n",    "title": "Operating System",    "value": "Linux gxy-galaxy-galaxy-ffq5v-zrc7d 5.10.162+ #1 SMP Thu Mar 16 14:55:19 UTC 2023 x86_64 GNU/Linux\n"   },   {    "name": "swaptotal",    "plugin": "meminfo",    "raw_value": "0E-7",    "title": "Total System Swap",    "value": "0 bytes"   },   {    "name": "memtotal",    "plugin": "meminfo",    "raw_value": "132016184.0000000",    "title": "Total System Memory",    "value": "122.9 GB"   },   {    "name": "processor_count",    "plugin": "cpuinfo",    "raw_value": "32.0000000",    "title": "Processor Count",    "value": "32"   },   {    "name": "memory.soft_limit_in_bytes",    "plugin": "cgroup",    "raw_value": "9223372036854771712.0000000",    "title": "Memory softlimit on cgroup",    "value": "8.0 EB"   },   {    "name": "memory.oom_control.under_oom",    "plugin": "cgroup",    "raw_value": "0E-7",    "title": "Was OOM Killer active?",    "value": "No"   },   {    "name": "memory.oom_control.oom_kill_disable",    "plugin": "cgroup",    "raw_value": "0E-7",    "title": "OOM Control enabled",    "value": "Yes"   },   {    "name": "memory.memsw.max_usage_in_bytes",    "plugin": "cgroup",    "raw_value": "4595712.0000000",    "title": "Max memory usage (MEM+SWP)",    "value": "4.4 MB"   },   {    "name": "memory.memsw.limit_in_bytes",    "plugin": "cgroup",    "raw_value": "4080218112.0000000",    "title": "Memory limit on cgroup (MEM+SWP)",    "value": "3.8 GB"   },   {    "name": "memory.max_usage_in_bytes",    "plugin": "cgroup",    "raw_value": "4595712.0000000",    "title": "Max memory usage (MEM)",    "value": "4.4 MB"   },   {    "name": "memory.limit_in_bytes",    "plugin": "cgroup",    "raw_value": "4080218112.0000000",    "title": "Memory limit on cgroup (MEM)",    "value": "3.8 GB"   },   {    "name": "memory.failcnt",    "plugin": "cgroup",    "raw_value": "0E-7",    "title": "Failed to allocate memory count",    "value": 0.0   },   {    "name": "cpuacct.usage",    "plugin": "cgroup",    "raw_value": "77197490.0000000",    "title": "CPU Time",    "value": "0.07719749 seconds"   },   {    "name": "runtime_seconds",    "plugin": "core",    "raw_value": "0E-7",    "title": "Job Runtime (Wall Clock)",    "value": "0 seconds"   },   {    "name": "end_epoch",    "plugin": "core",    "raw_value": "1686681048.0000000",    "title": "Job End Time",    "value": "2023-06-13 18:30:48"   },   {    "name": "start_epoch",    "plugin": "core",    "raw_value": "1686681048.0000000",    "title": "Job Start Time",    "value": "2023-06-13 18:30:48"   },   {    "name": "galaxy_memory_mb",    "plugin": "core",    "raw_value": "4080.0000000",    "title": "Memory Allocated (MB)",    "value": "4080"   },   {    "name": "galaxy_slots",    "plugin": "core",    "raw_value": "1.0000000",    "title": "Cores Allocated",    "value": "1"   }  ],  "job_stderr": "",  "job_stdout": "",  "model_class": "Job",  "output_collections": {},  "outputs": {   "output": {    "id": "d492586e7222520c",    "src": "hda",    "uuid": "86c285bf-70c7-4007-98d5-04fffc4b2233"   }  },  "params": {   "__input_ext": "\"vcf\"",   "chromInfo": "\"/cvmfs/data.galaxyproject.org/managed/len/ucsc/?.len\"",   "condition": "\"\u003e= 7\"",   "dbkey": "\"?\"",   "description": "\"MinAF [7]\"",   "filter": "\"MinAF\"",   "tag": "\"FORMAT/FREQ\""  },  "state": "ok",  "stderr": "/galaxy/server/database/jobs_directory/001/1939/tool_script.sh: line 22: vcf-annotate: command not found\n",  "stdout": "",  "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/vcftools_annotate/vcftools_annotate/0.1",  "tool_stderr": "/galaxy/server/database/jobs_directory/001/1939/tool_script.sh: line 22: vcf-annotate: command not found\n",  "tool_stdout": "",  "traceback": null,  "update_time": "2023-06-13T18:30:57.821726",  "user_email": "admin@cloudve.org" }, "output_problems": [  "Output output:  different than expected, difference (using diff):\n( /tmp/tmpok7pn89stest_out1.vcf v. /tmp/tmppe7jsedntest_out1.vcf )\n--- local_file\n+++ history_data\n@@ -1,30 +0,0 @@\n-##fileformat=VCFv4.1\n-##FILTER=\u003cID=MinAF,Description=\"MinAF [7]\"\u003e\n-##source_20130813.1=vcf-annotate(r797) -f f.txt \u003cinput_file\u003e\n-#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tSample1\n-chr1\t14470\t.\tG\tA\t.\tPASS\tADP=25;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:28:25:23:2:8%:9.8E-1:33:39:22:1:2:0\n-chr1\t14513\t.\tG\tA\t.\tPASS\tADP=32;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:36:32:24:8:25%:9.8E-1:31:22:16:8:7:1\n-chr1\t14626\t.\tG\tC\t.\tPASS\tADP=44;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:45:44:40:4:9.09%:9.8E-1:34:36:14:26:0:4\n-chr1\t14677\t.\tG\tA\t.\tPASS\tADP=70;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:82:70:63:7:10%:9.8E-1:33:17:44:19:7:0\n-chr1\t14813\t.\tT\tG\t.\tMinAF\tADP=105;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:121:105:103:2:1.9%:9.8E-1:32:22:42:61:1:1\n-chr1\t14815\t.\tC\tT\t.\tMinAF\tADP=117;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:122:117:109:8:6.84%:9.8E-1:33:29:50:59:4:4\n-chr1\t14907\t.\tA\tG\t.\tPASS\tADP=104;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:108:104:19:16:45.71%:9.8E-1:37:18:10:9:8:8\n-chr1\t14930\t.\tA\tG\t.\tPASS\tADP=103;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:110:103:17:17:50%:9.8E-1:37:24:8:9:8:9\n-chr1\t15015\t.\tG\tC\t.\tPASS\tADP=52;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:55:52:44:8:15.38%:9.8E-1:34:35:5:39:1:7\n-chr1\t15211\t.\tT\tG\t.\tPASS\tADP=21;WT=0;HET=0;HOM=1;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t1/1:0:23:21:0:2:100%:9.8E-1:0:26:0:0:1:1\n-chr1\t15527\t.\tG\tA\t.\tPASS\tADP=53;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:57:53:29:5:14.71%:9.8E-1:32:23:19:10:3:2\n-chr1\t15688\t.\tC\tT\t.\tPASS\tADP=34;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:36:34:11:4:26.67%:9.8E-1:35:26:6:5:1:3\n-chr1\t16257\t.\tG\tC\t.\tPASS\tADP=23;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:26:23:20:2:9.09%:9.8E-1:35:17:7:13:0:2\n-chr1\t16288\t.\tC\tG\t.\tPASS\tADP=15;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:16:15:11:3:21.43%:9.8E-1:34:36:3:8:1:2\n-chr1\t16298\t.\tC\tT\t.\tPASS\tADP=12;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:12:12:9:2:18.18%:9.8E-1:34:30:2:7:1:1\n-chr1\t16378\t.\tT\tC\t.\tPASS\tADP=24;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:24:24:11:12:52.17%:9.8E-1:37:34:7:4:8:4\n-chr1\t16495\t.\tG\tC\t.\tPASS\tADP=21;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:22:21:14:6:30%:9.8E-1:31:25:5:9:2:4\n-chr1\t16534\t.\tC\tT\t.\tPASS\tADP=11;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:11:11:6:4:40%:9.8E-1:32:37:1:5:0:4\n-chr1\t16571\t.\tG\tA\t.\tPASS\tADP=8;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:8:8:5:2:28.57%:9.8E-1:31:34:2:3:0:2\n-chr1\t16737\t.\tG\tT\t.\tPASS\tADP=27;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:30:27:22:5:18.52%:9.8E-1:37:34:21:1:5:0\n-chr1\t16742\t.\tG\tC\t.\tPASS\tADP=30;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:30:30:23:7:23.33%:9.8E-1:32:37:21:2:7:0\n-chr1\t16900\t.\tT\tC\t.\tMinAF\tADP=140;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:150:140:135:5:3.57%:9.8E-1:35:25:119:16:5:0\n-chr1\t16963\t.\tG\tA\t.\tPASS\tADP=338;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:354:338:297:41:12.13%:9.8E-1:32:34:218:79:26:15\n-chr1\t16977\t.\tG\tA\t.\tPASS\tADP=368;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:384:368:270:98:26.63%:9.8E-1:34:25:186:84:63:35\n-chr1\t16996\t.\tT\tC\t.\tPASS\tADP=356;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:371:356:269:87:24.44%:9.8E-1:35:34:147:122:58:29\n-chr1\t17020\t.\tG\tA\t.\tMinAF\tADP=355;WT=0;HET=1;HOM=0;NC=0\tGT:GQ:SDP:DP:RD:AD:FREQ:PVAL:RBQ:ABQ:RDF:RDR:ADF:ADR\t0/1:0:380:355:347:8:2.25%:9.8E-1:33:29:164:183:4:4\n" ], "status": "failure", "test_index": 0, "time_seconds": 25.03498077392578, "tool_id": "vcftools_annotate", "tool_version": "0.1"}
+                ]]></error>
+            
+            <system-out><![CDATA[
+            
+            ]]></system-out>
+            <system-err><![CDATA[
+            /galaxy/server/database/jobs_directory/001/1939/tool_script.sh: line 22: vcf-annotate: command not found
+            ]]></system-err>
+        
+    </testcase>
+    
+</testsuite>
