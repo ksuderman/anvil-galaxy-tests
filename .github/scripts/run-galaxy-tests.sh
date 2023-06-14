@@ -11,6 +11,7 @@ OUTDIR=$2
 CHUNK_FILE=$OUTDIR/chunk.txt
 TIMESTAMP=$(date "+%F-%H-%M")
 
+
 #history="anvil-test-$TIMESTAMP"
 #echo "History is $history"
 cat << EOF > $OUTDIR/results.json
@@ -19,6 +20,13 @@ cat << EOF > $OUTDIR/results.json
 }
 EOF
 
+echo "URL $GALAXY_URL"
+echo "KEY $GALAXY_KEY"
+
+if [[ -z $GALAXY_KEY ]] ; then
+  GALAXY_KEY=$(abm config show galaxy | jq -r .key)
+  echo "Set GALAXY_KEY to $GALAXY_KEY"
+fi 
 while read tool_args ; do
   galaxy-tool-test \
     -u $GALAXY_URL \
