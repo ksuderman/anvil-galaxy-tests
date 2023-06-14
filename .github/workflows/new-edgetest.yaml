@@ -84,7 +84,7 @@ jobs:
               --timeout 720s\
               --version $GKM_VERSION\
               --set galaxy.service.type=LoadBalancer\
-              --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"tests@fake.org\"\
+              --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"tests@fake.org,admin@example.org\"\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=galaxypassword\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.single_user=\"tests@fake.org\"\
               --set galaxy.configs.\"job_conf\.yml\".runners.k8s.k8s_node_selector=\"cloud.google.com/gke-nodepool: default-pool\"\
@@ -146,7 +146,8 @@ jobs:
           abm version
           cp -R .abm ~/.abm
           abm config url galaxy ${{ steps.galaxy.outputs.url }}
-          key=$(abm galaxy user key test@fake.org)
+          abm galaxy user create edge admin@example.org galaxypassword
+          key=$(abm galaxy user key edge)
           echo "Key is $key"
           abm config key galaxy $key
           abm config show galaxy
