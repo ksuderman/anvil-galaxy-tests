@@ -26,7 +26,7 @@ echo "KEY $GALAXY_KEY"
 if [[ -z $GALAXY_KEY ]] ; then
   GALAXY_KEY=$(abm config show galaxy | jq -r .key)
   echo "Set GALAXY_KEY to $GALAXY_KEY"
-fi 
+fi
 while read tool_args ; do
   galaxy-tool-test \
     -u $GALAXY_URL \
