@@ -165,7 +165,7 @@ jobs:
       - name: Run tool tests
         env:
           GALAXY_URL: ${{ steps.galaxy.outputs.url }}
-          GALAXY_KEY: ${{ steps.key.outputs.key }}
+          GALAXY_KEY: ${{ steps.api.outputs.key }}
         run: sleep 30 && .github/scripts/run-galaxy-tests.sh ${{ steps.history.outputs.history_name }} ${{ steps.reports.outputs.dir }}
       - name: Write job results
         run: abm galaxy jobs list --history ${{ steps.history.outputs.history_name }} > ${{ steps.reports.outputs.dir }}/jobs.txt
