@@ -20,6 +20,7 @@ cat << EOF > $OUTDIR/results.json
 }
 EOF
 
+GALAXY_URL=$(abm config show galaxy | jq -r .url)
 echo "URL $GALAXY_URL"
 echo "KEY $GALAXY_KEY"
 
