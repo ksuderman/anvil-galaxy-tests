@@ -146,7 +146,8 @@ jobs:
           abm version
           cp -R .abm ~/.abm
           abm config url galaxy ${{ steps.galaxy.outputs.url }}
-          key=$(abm galaxy user key test@fake.org)
+          key=$(abm galaxy user key admin)
+          echo "Key is $key"
           abm config key galaxy $key
           abm config show galaxy
           echo "key=$key" >> $GITHUB_OUTPUT
