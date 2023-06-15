@@ -1,6 +1,8 @@
 #!/bin/bash
 set -xe
 
+echo $1
+cat $1
 DURATION=$(cat $1 | grep "real" | grep -o "[0-9][a-z0-9\.]\+")
 STATUS=$(cat $1 | grep "STATUS:" | grep -oP '(?<=STATUS\: )\w+')
 DATE=$(cat $1 | grep "LAST DEPLOYED:" | grep -oP '(?<=LAST DEPLOYED\: )[^\n]+')
