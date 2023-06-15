@@ -10,12 +10,12 @@ on:
         description: 'Chunk to run. Valid range [0:13]. Out of range inputs will be ignored.'
         required: true
         default: '3'
-  env:
-    GKE_ZONE: us-east1-b
-    GKE_VERSION: "1.24"
-    GKM_VERSION: "2.0.0"
-    GXY_TMP: /tmp/gxy
-    PREFIX: gtests-prod
+env:
+  GKE_ZONE: us-east1-b
+  GKE_VERSION: "1.24"
+  GKM_VERSION: "2.0.0"
+  GXY_TMP: /tmp/gxy
+  PREFIX: gtests-prod
 jobs:
   deploygke:
     runs-on: ubuntu-latest
