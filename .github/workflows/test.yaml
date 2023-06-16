@@ -12,12 +12,14 @@ jobs:
       name: ${{ inputs.name }}
       deploy: true
   galaxy:
+    needs: cluster
     uses: ./.github/workflows/install-galaxy.yaml
     with:
       chart: anvil/galaxykubeman
       version: "2.7.0"
       prefix: ${{ inputs.name }}
   teardown:
+    needs: [cluster, galaxy]
     uses: ./.github/workflows/gke.yaml
     with:
       name: ${{ inputs.name }}
