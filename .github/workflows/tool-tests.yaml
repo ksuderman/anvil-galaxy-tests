@@ -6,8 +6,8 @@ on:
         type: string
         required: true
       chunk:
-        default: 3
-        type: int
+        required: true
+        type: string
       type:
         type: string
         default: edge
