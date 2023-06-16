@@ -1,0 +1,14 @@
+name: Test callable workflows
+on:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        type: boolean
+        default: true
+jobs:
+  gke:
+    uses: ./github/workflows/gke.yaml
+    with:
+      name: ks-test-20230615-1
+      deploy: ${{ inputs.deploy }}
+

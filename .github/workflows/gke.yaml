@@ -2,19 +2,12 @@ name: Deploy a GKE cluster
 on:
   workflow_call:
     inputs:
-      deploy:
-        required: false
-        type: boolean
-        default: true
-      idp:
-        required: true
-        type: string
-      account:
-        required: true
-        type: string
       name:
         required: true
         type: string
+      deploy:
+        type: boolean
+        default: true
       zone:
         required: false
         type: string
@@ -27,17 +20,20 @@ on:
         required: false
         type: string
         default: "1.24"
+      idp:
+        default: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+        type: string
+      account:
+        default: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
+        type: string
       temp:
         required: false
         type: string
         default: /tmp/gxy
-      prefix:
-        required: true
-        type: string
 
 jobs:
   deploy:
-    if: ${{ inputs.deploy }}
+    if: inputs.deploy
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -56,8 +52,15 @@ jobs:
           gcloud container clusters create ${{ inputs.name }} --cluster-version=${{ inputs.version }} --disk-size=100 --num-nodes=1 --machine-type=${{ inputs.machine_type }} --zone ${{ inputs.zone }}
           gcloud compute disks create "${{ inputs.name }}-1-postgres-pd" --size 10Gi --zone ${{ inputs.zone }} 
           gcloud compute disks create "${{ inputs.name }}-1-nfs-pd" --size 250Gi --zone ${{ inputs.zone }}
+      - name: Get cluster kubeconfig
+        run: gcloud container clusters get-credentials "${{ inputs.name }}" --zone ${{ inputs.zone }} --project ${{ secrets.GCP_PROJECT_ID }}
+      - name: Save the kubeconfig
+        uses: actions/upload-artifact@v3
+        with:
+          name: kubeconfig
+          path: ~/.kube/config
   teardown:
-    if: ${{ inputs.deploy == false }}
+    if: inputs.deploy == false
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -65,7 +68,7 @@ jobs:
     steps:
       - uses: 'actions/checkout@v3'
       - id: 'Auth'
-        uses: 'google-github-actions/auth@v0'
+        uses: 'google-github-actions/auth@v1'
         with:
           workload_identity_provider: ${{ inputs.idp }}
           service_account: ${{ input.account }}
