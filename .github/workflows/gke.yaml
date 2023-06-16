@@ -71,7 +71,7 @@ jobs:
         uses: 'google-github-actions/auth@v1'
         with:
           workload_identity_provider: ${{ inputs.idp }}
-          service_account: ${{ input.account }}
+          service_account: ${{ inputs.account }}
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
       - name: Delete the GKE cluster
