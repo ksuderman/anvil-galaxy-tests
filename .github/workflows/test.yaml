@@ -20,6 +20,7 @@ jobs:
       prefix: ${{ inputs.name }}
   teardown:
     needs: [cluster, galaxy]
+    if: always()
     uses: ./.github/workflows/gke.yaml
     with:
       name: ${{ inputs.name }}
