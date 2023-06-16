@@ -1,0 +1,79 @@
+name: Deploy a GKE cluster
+on:
+  workflow_call:
+    inputs:
+      deploy:
+        required: false
+        type: boolean
+        default: true
+      idp:
+        required: true
+        type: string
+      account:
+        required: true
+        type: string
+      name:
+        required: true
+        type: string
+      zone:
+        required: false
+        type: string
+        default: us-east1-b
+      machine_type:
+        required: false
+        type: string
+        default: "e2-standard-16"
+      version:
+        required: false
+        type: string
+        default: "1.24"
+      temp:
+        required: false
+        type: string
+        default: /tmp/gxy
+      prefix:
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    if: ${{ inputs.deploy }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - uses: 'actions/checkout@v3'
+      - id: 'Auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          workload_identity_provider: ${{ inputs.idp }}
+          service_account: ${{ inputs.account }}
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
+      - name: Create GKE cluster
+        run: |
+          gcloud container clusters create ${{ inputs.name }} --cluster-version=${{ inputs.version }} --disk-size=100 --num-nodes=1 --machine-type=${{ inputs.machine_type }} --zone ${{ inputs.zone }}
+          gcloud compute disks create "${{ inputs.name }}-1-postgres-pd" --size 10Gi --zone ${{ inputs.zone }} 
+          gcloud compute disks create "${{ inputs.name }}-1-nfs-pd" --size 250Gi --zone ${{ inputs.zone }}
+  teardown:
+    if: ${{ inputs.deploy == false }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - uses: 'actions/checkout@v3'
+      - id: 'Auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          workload_identity_provider: ${{ inputs.idp }}
+          service_account: ${{ input.account }}
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+      - name: Delete the GKE cluster
+        run: |
+          gcloud container clusters delete ${{ inputs.name }} --zone ${{ inputs.zone }} --quiet
+          gcloud compute disks delete "${{ inputs.name }}-1-postgres-pd" --zone ${{ inputs.zone }} --quiet 
+          gcloud compute disks delete "${{ inputs.name }}-1-nfs-pd" --zone ${{ inputs.zone }} --quiet
+          

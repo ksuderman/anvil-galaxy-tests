@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Set prefix with date
         id: prefix
-        run: echo "prefix=$(echo $PREFIX-$(date +'%m-%d-%H-%M'))" >> $GITHUB_OUTPUT
+        run: echo "prefix=$(echo $PREFIX-$(date +'%y-%m-%d-%H-%M'))" >> $GITHUB_OUTPUT
       - uses: 'actions/checkout@v3'
       - id: 'Auth'
         uses: 'google-github-actions/auth@v0'
