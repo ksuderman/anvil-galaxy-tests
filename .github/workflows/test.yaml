@@ -18,7 +18,7 @@ jobs:
       version: "2.7.0"
       prefix: ${{ inputs.name }}
   teardown:
-    uses: ./github/workflows/gke.yaml
+    uses: ./.github/workflows/gke.yaml
     with:
       name: ${{ inputs.name }}
       deploy: false
