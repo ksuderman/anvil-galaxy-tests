@@ -20,6 +20,9 @@ on:
       account:
         type: string
         required: true
+      zone:
+        type: string
+        default: 'us-east1-b'
 jobs:
   install:
     runs-on: ubuntu-latest
@@ -40,6 +43,10 @@ jobs:
         with:
           name: kubeconfig
           path: ~/.kube
+      - name: Setup gcloud auth plugin for kubectl and fetch creds
+        run: |
+          gcloud components install gke-gcloud-auth-plugin
+          gcloud container clusters get-credentials "${{inputs.prefix}}" --zone ${{ inputs.zone }}
       - name: Install Kubectl
         run: |
           pwd
@@ -50,7 +57,7 @@ jobs:
           curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"  
           chmod +x ./kubectl 
           sudo mv ./kubectl /usr/local/bin/kubectl 
-          kubectl version --short
+          kubectl version 
       - name: Install Helm
         run: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
       - name: Add anvil repository
