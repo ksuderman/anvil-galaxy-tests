@@ -5,12 +5,18 @@ on:
       name:
         type: string
         default: ks-test-20230616
+env:
+  idp: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+  account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
+
 jobs:
   cluster:
     uses: ./.github/workflows/gke.yaml
     with:
       name: ${{ inputs.name }}
       deploy: true
+      idp: ${{ env.idp }}
+      account: ${{ env.account }}
   galaxy:
     needs: cluster
     uses: ./.github/workflows/install-galaxy.yaml
@@ -18,6 +24,8 @@ jobs:
       chart: anvil/galaxykubeman
       version: "2.7.0"
       prefix: ${{ inputs.name }}
+      idp: ${{ env.idp }}
+      account: ${{ env.account }}
   teardown:
     needs: [cluster, galaxy]
     if: always()
@@ -25,3 +33,5 @@ jobs:
     with:
       name: ${{ inputs.name }}
       deploy: false
+      idp: ${{ env.idp }}
+      account: ${{ env.account }}

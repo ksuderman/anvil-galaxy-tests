@@ -27,12 +27,14 @@ jobs:
       - name: Install Kubectl
         run: |
           pwd
+          echo "Listing current"
           ls -al
-          ls -al ~/.kube
+          echo "Listing ~/.kube/"
+          ls -al ~/.kube/
           curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"  
           chmod +x ./kubectl 
           sudo mv ./kubectl /usr/local/bin/kubectl 
-          kubectl version
+          kubectl version --short
       - name: Install Helm
         run: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
       - name: Add anvil repository
@@ -51,7 +53,7 @@ jobs:
               --set galaxy.configs.\"job_conf\.yml\".runners.k8s.k8s_node_selector=\"cloud.google.com/gke-nodepool: default-pool\"\
               --set 'galaxy.configs.job_conf\.yml.execution.environments.tpv_dispatcher.tpv_config_files={https://raw.githubusercontent.com/galaxyproject/tpv-shared-database/main/tools.yml,lib/galaxy/jobs/rules/tpv_rules_local.yml,https://gist.githubusercontent.com/afgane/68d1dbbe0af2468ba347dc74b6d3f7fa/raw/20edda50161bdcb74ff38935e7f76d79bfdaf303/tvp_rules_tests.yml}'\
               --set galaxy.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set galaxy.persistence.storageClass=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
+              --set galaxy.persistence.storageClass=\"nfs-${{inputs.prefix}}-1\"\
               --set galaxy.postgresql.galaxyDatabasePassword=galaxypassword\
               --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set galaxy.postgresql.persistence.existingClaim=\"${{inputs.prefix}}-1-postgres-disk-pvc\"\
