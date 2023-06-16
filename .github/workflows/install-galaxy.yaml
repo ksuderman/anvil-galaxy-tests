@@ -33,6 +33,8 @@ jobs:
         with:
           workload_identity_provider: ${{ inputs.idp }}
           service_account: ${{ inputs.account }}
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
       - name: Download the kubeconfig
         uses: actions/download-artifact@v3
         with:

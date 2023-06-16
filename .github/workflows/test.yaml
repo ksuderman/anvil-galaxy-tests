@@ -9,7 +9,7 @@ on:
       type:
         type: choice
         default: edge
-        options: ['edge', 'prod']
+        options: ['edge', 'production']
         description: "Are we testing production or dev tools"
       chunk:
         type: int
@@ -48,7 +48,7 @@ jobs:
       idp: ${{ inputs.idp }}
       account: ${{ inputs.account }}
   teardown:
-    needs: [cluster, galaxy]
+    needs: [cluster, test]
     if: always()
     uses: ./.github/workflows/gke.yaml
     with:

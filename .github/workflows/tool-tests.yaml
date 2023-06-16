@@ -85,6 +85,6 @@ jobs:
       - name: Create HTML report
         run: planemo test_reports ${{ steps.reports.outputs.dir }}/results.json --test_output_xunit ${{ steps.reports.outputs.dir }}/results.xunit --test_output ${{ steps.reports.outputs.dir }}/results.html
       - name: Update Readme
-        run: python .github/scripts/update_readme.py ${{ steps.reports.outputs.dir }}/chunk.json reports/anvil-edge/tool-tests/chunks.json reports/anvil-edge/README.md
+        run: python .github/scripts/update_readme.py ${{ steps.reports.outputs.dir }}/chunk.json reports/anvil-${{ inputs.type }}/tool-tests/chunks.json reports/anvil-${{ inputs.type }}/README.md
       - name: Add updated README from this run
-        run: bash ./.github/scripts/report_tests.sh ${{ secrets.GIT_TOKEN }} "Updating anvil-edge README for ${{needs.deploygke.outputs.prefix}}-1" reports/anvil-edge
+        run: bash ./.github/scripts/report_tests.sh ${{ secrets.GIT_TOKEN }} "Updating anvil-${{ inputs.type }} README for ${{needs.deploygke.outputs.prefix}}-1" reports/anvil-${{ inputs.type }}
