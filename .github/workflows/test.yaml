@@ -27,8 +27,8 @@ jobs:
       chart: anvil/galaxykubeman
       version: "2.7.0"
       prefix: ${{ inputs.name }}
-      idp: ${{ inputs.idp }}
-      account: ${{ inputs.account }}
+      idp: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+      account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
   teardown:
     needs: [cluster, galaxy]
     if: always()
