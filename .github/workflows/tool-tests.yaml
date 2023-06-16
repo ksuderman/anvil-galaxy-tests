@@ -6,7 +6,6 @@ on:
         type: string
         required: true
       chunk:
-        type: int
         default: 3
       type:
         type: string

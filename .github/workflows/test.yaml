@@ -5,9 +5,12 @@ on:
       name:
         type: string
         default: ks-test-20230616
+        description: "Name used for the cluster, namespace, and generated ID values."
       type:
-        type: string
+        type: choice
         default: edge
+        options: ['edge', 'prod']
+        description: "Are we testing production or dev tools"
       chunk:
         type: int
         default: 3
