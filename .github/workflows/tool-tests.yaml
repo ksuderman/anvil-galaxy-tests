@@ -7,6 +7,7 @@ on:
         required: true
       chunk:
         default: 3
+        type: int
       type:
         type: string
         default: edge
