@@ -7,7 +7,7 @@ on:
         default: true
 jobs:
   gke:
-    uses: ./github/workflows/gke.yaml
+    uses: ./.github/workflows/gke.yaml
     with:
       name: ks-test-20230615-1
       deploy: ${{ inputs.deploy }}
