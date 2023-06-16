@@ -2,13 +2,23 @@ name: Test callable workflows
 on:
   workflow_dispatch:
     inputs:
-      deploy:
-        type: boolean
-        default: true
+      name:
+        type: string
+        default: ks-test-20230616
 jobs:
-  gke:
+  cluster:
     uses: ./.github/workflows/gke.yaml
     with:
-      name: ks-test-20230615-1
-      deploy: ${{ inputs.deploy }}
-
+      name: ${{ inputs.name }}
+      deploy: true
+  galaxy:
+    uses: ./.github/workflows/install-galaxy.yaml
+    with:
+      chart: anvil/galaxykubeman
+      version: "2.7.0"
+      prefix: ${{ inputs.name }}
+  teardown:
+    uses: ./github/workflows/gke.yaml
+    with:
+      name: ${{ inputs.name }}
+      deploy: false

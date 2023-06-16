@@ -30,6 +30,10 @@ on:
         required: false
         type: string
         default: /tmp/gxy
+      project:
+        required: false
+        type: string
+        default: anvil-and-terra-development
 
 jobs:
   deploy:
@@ -53,7 +57,7 @@ jobs:
           gcloud compute disks create "${{ inputs.name }}-1-postgres-pd" --size 10Gi --zone ${{ inputs.zone }} 
           gcloud compute disks create "${{ inputs.name }}-1-nfs-pd" --size 250Gi --zone ${{ inputs.zone }}
       - name: Get cluster kubeconfig
-        run: gcloud container clusters get-credentials "${{ inputs.name }}" --zone ${{ inputs.zone }} --project anvil-and-terra-development
+        run: gcloud container clusters get-credentials "${{ inputs.name }}" --zone ${{ inputs.zone }} --project ${{ inputs.project }}
       - name: Save the kubeconfig
         uses: actions/upload-artifact@v3
         with:
