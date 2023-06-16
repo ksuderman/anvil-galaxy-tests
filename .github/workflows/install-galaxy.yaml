@@ -14,11 +14,22 @@ on:
       temp:
         type: string
         default: /tmp/gxy
+      idp:
+        type: string
+        required: true
+      account:
+        type: string
+        required: true
 jobs:
   install:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - id: 'Auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          workload_identity_provider: ${{ inputs.idp }}
+          service_account: ${{ inputs.account }}
       - name: Download the kubeconfig
         uses: actions/download-artifact@v3
         with:
