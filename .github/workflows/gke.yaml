@@ -1,4 +1,4 @@
-name: Deploy a GKE cluster
+name: Manage a GKE cluster
 on:
   workflow_call:
     inputs:
@@ -53,7 +53,7 @@ jobs:
           gcloud compute disks create "${{ inputs.name }}-1-postgres-pd" --size 10Gi --zone ${{ inputs.zone }} 
           gcloud compute disks create "${{ inputs.name }}-1-nfs-pd" --size 250Gi --zone ${{ inputs.zone }}
       - name: Get cluster kubeconfig
-        run: gcloud container clusters get-credentials "${{ inputs.name }}" --zone ${{ inputs.zone }} --project ${{ secrets.GCP_PROJECT_ID }}
+        run: gcloud container clusters get-credentials "${{ inputs.name }}" --zone ${{ inputs.zone }} --project anvil-and-terra-development
       - name: Save the kubeconfig
         uses: actions/upload-artifact@v3
         with:
