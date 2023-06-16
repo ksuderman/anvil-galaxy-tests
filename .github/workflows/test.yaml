@@ -5,6 +5,12 @@ on:
       name:
         type: string
         default: ks-test-20230616
+      type:
+        type: string
+        default: edge
+      chunk:
+        type: int
+        default: 3
       idp:
         type: string
         default: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
@@ -27,6 +33,15 @@ jobs:
       chart: anvil/galaxykubeman
       version: "2.7.0"
       prefix: ${{ inputs.name }}
+      idp: ${{ inputs.idp }}
+      account: ${{ inputs.account }}
+  test:
+    needs: galaxy
+    uses: ./.github/workflows/tool-tests.yaml
+    with:
+      prefix: ${{ inputs.name }}
+      chunk: ${{ inputs.chunk }}
+      type: ${{ inputs.type }}
       idp: ${{ inputs.idp }}
       account: ${{ inputs.account }}
   teardown:
