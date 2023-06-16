@@ -23,8 +23,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: kubeconfig
+          path: ~/.kube
       - name: Install Kubectl
         run: |
+          pwd
+          ls -al
+          ls -al ~/.kube
           curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"  
           chmod +x ./kubectl 
           sudo mv ./kubectl /usr/local/bin/kubectl 
