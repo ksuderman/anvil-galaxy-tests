@@ -36,6 +36,7 @@ jobs:
       chart: anvil/galaxykubeman
       version: "2.7.0"
       prefix: ${{ inputs.name }}
+      type: ${{ inputs.type }}
       idp: ${{ inputs.idp }}
       account: ${{ inputs.account }}
   test:

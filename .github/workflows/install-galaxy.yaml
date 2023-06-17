@@ -11,6 +11,9 @@ on:
       prefix:
         type: string
         required: true
+      type:
+        type: string
+        required: true
       temp:
         type: string
         default: /tmp/gxy
@@ -49,15 +52,10 @@ jobs:
           gcloud container clusters get-credentials "${{inputs.prefix}}" --zone ${{ inputs.zone }}
       - name: Install Kubectl
         run: |
-          pwd
-          echo "Listing current"
-          ls -al
-          echo "Listing ~/.kube/"
-          ls -al ~/.kube/
           curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"  
           chmod +x ./kubectl 
           sudo mv ./kubectl /usr/local/bin/kubectl 
-          kubectl version 
+          kubectl version
       - name: Install Helm
         run: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
       - name: Add anvil repository
@@ -115,4 +113,4 @@ jobs:
         with:
           persist-credentials: false
       - name: Add report from this run
-        run: bash ./.github/scripts/report_deployment.sh "$GXY_TMP" anvil-edge ${{ secrets.GIT_TOKEN }}
+        run: bash ./.github/scripts/report_deployment.sh ${{ inputs.temp }} anvil-${{ inputs.type }} ${{ secrets.GIT_TOKEN }}
