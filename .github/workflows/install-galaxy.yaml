@@ -116,4 +116,4 @@ jobs:
         with:
           persist-credentials: false
       - name: Add report from this run
-        run: bash ./.github/scripts/report_deployment.sh ${{ inputs.temp }} anvil-${{ inputs.type }} ${{ github.token }}
+        run: bash ./.github/scripts/report_deployment.sh ${{ inputs.temp }} anvil-${{ inputs.type }} ${{ secrets.GITHUB_TOKEN }}

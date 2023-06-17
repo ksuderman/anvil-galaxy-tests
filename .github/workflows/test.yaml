@@ -1,5 +1,9 @@
-name: Test callable workflows
+name: Edge and Production Tool Tests
 on:
+  schedule:
+    - cron: "22 6,18 * * *"
+    - cron: "22 0,12 * * *"
+
   workflow_dispatch:
     inputs:
       name:
@@ -22,39 +26,67 @@ on:
         default: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set workflow_dispatch variables
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "name=${{ inputs.type }}-$(date +'%Y-%m-%d-%H-%M)" >> $GITHUB_OUTPUT
+          echo "chunk=$(python scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
+          echo "type=${{ inputs.type }}" >> $GITHUB_OUTPUT
+          echo "idp=${{ inputs.idp }} >> $GITHUB_OUTPUT
+          echo "account=${{ inputs.account }} >> $GITHUB_OUTPUT
+      - name: Set edge vars from cron
+        if: github.event.schedule == "22 6,18 * * *"
+        run: |
+          echo "name=edge-$(date +'%Y-%m-%d-%H-%M)" >> $GITHUB_OUTPUT
+          echo "chunk=$(python scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
+          echo "type=edge" >> $GITHUB_OUTPUT
+          echo "idp=projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider} >> $GITHUB_OUTPUT
+          echo "account=galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com >> $GITHUB_OUTPUT
+      - name: Set production vars from cron
+        if: github.event.schedule == "22 0,12 * * *"
+        run: |
+          echo "name=production-$(date +'%Y-%m-%d-%H-%M)" >> $GITHUB_OUTPUT
+          echo "chunk=$(python scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
+          echo "type=production" >> $GITHUB_OUTPUT
+          echo "idp=projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider} >> $GITHUB_OUTPUT
+          echo "account=galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com >> $GITHUB_OUTPUT
   cluster:
     uses: ./.github/workflows/gke.yaml
+    needs: setup
     with:
-      name: ${{ inputs.name }}
+      name: ${{ needs.setup.outputs.name }}
       deploy: true
-      idp: ${{ inputs.idp }}
-      account: ${{ inputs.account }}
+      idp: ${{ needs.setup.outputs.idp }}
+      account: ${{ needs.setup.outputs.account }}
   galaxy:
     needs: cluster
     uses: ./.github/workflows/install-galaxy.yaml
     with:
       chart: anvil/galaxykubeman
       version: "2.7.0"
-      prefix: ${{ inputs.name }}
-      type: ${{ inputs.type }}
-      idp: ${{ inputs.idp }}
-      account: ${{ inputs.account }}
-#      token: ${{ secrets.GIT_TOKEN }}
+      prefix: ${{ needs.setup.outputs.name }}
+      type: ${{ needs.setup.outputs.type }}
+      idp: ${{ needs.setup.outputs.idp }}
+      account: ${{ needs.setup.outputs.account }}
+      token: ${{ secrets.GIT_TOKEN }}
   test:
     needs: galaxy
     uses: ./.github/workflows/tool-tests.yaml
     with:
-      prefix: ${{ inputs.name }}
-      chunk: ${{ inputs.chunk }}
-      type: ${{ inputs.type }}
-      idp: ${{ inputs.idp }}
-      account: ${{ inputs.account }}
+      prefix: ${{ needs.setup.outputs.name }}
+      chunk: ${{ needs.setup.outputs.chunk }}
+      type: ${{ needs.setup.outputs.type }}
+      idp: ${{ needs.setup.outputs.idp }}
+      account: ${{ needs.setup.outputs.account }}
   teardown:
     needs: [cluster, test]
     if: always()
     uses: ./.github/workflows/gke.yaml
     with:
-      name: ${{ inputs.name }}
+      name: ${{ needs.setup.outputs.name }}
       deploy: false
-      idp: ${{ inputs.idp }}
-      account: ${{ inputs.account }}
+      idp: ${{ needs.setup.outputs.idp }}
+      account: ${{ needs.setup.outputs.account }}
