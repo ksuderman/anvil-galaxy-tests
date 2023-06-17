@@ -72,7 +72,7 @@ jobs:
       type: ${{ needs.setup.outputs.type }}
       idp: ${{ needs.setup.outputs.idp }}
       account: ${{ needs.setup.outputs.account }}
-      token: ${{ secrets.GIT_TOKEN }}
+      token: ${{ secrets.GITHUB_TOKEN }}
   test:
     needs: galaxy
     uses: ./.github/workflows/tool-tests.yaml
