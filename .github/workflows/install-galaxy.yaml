@@ -26,9 +26,9 @@ on:
       zone:
         type: string
         default: 'us-east1-b'
-      token:
-        type: string
-        required: true
+#      token:
+#        type: string
+#        required: true
 jobs:
   install:
     runs-on: ubuntu-latest
@@ -116,4 +116,4 @@ jobs:
         with:
           persist-credentials: false
       - name: Add report from this run
-        run: bash ./.github/scripts/report_deployment.sh ${{ inputs.temp }} anvil-${{ inputs.type }} ${{ inputs.token }}
+        run: bash ./.github/scripts/report_deployment.sh ${{ inputs.temp }} anvil-${{ inputs.type }} ${{ github.token }}
