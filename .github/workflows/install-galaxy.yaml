@@ -26,9 +26,9 @@ on:
       zone:
         type: string
         default: 'us-east1-b'
-#      token:
-#        type: string
-#        required: true
+      token:
+        type: string
+        required: true
 jobs:
   install:
     runs-on: ubuntu-latest
