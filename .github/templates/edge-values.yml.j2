@@ -1,0 +1,27 @@
+cvmfs:
+  cvmfscsi:
+    cache:
+      alien:
+        pvc:
+          storageClass: "nfs-{{ prefix }}-1"
+galaxy:
+  configs:
+    job_conf.yml:
+      execution:
+        environments:
+          tpv_dispatcher:
+            tpv_config_files:
+              - https://raw.githubusercontent.com/galaxyproject/tpv-shared-database/main/tools.yml
+              - lib/galaxy/jobs/rules/tpv_rules_local.yml
+              - https://gist.githubusercontent.com/afgane/68d1dbbe0af2468ba347dc74b6d3f7fa/raw/20edda50161bdcb74ff38935e7f76d79bfdaf303/tvp_rules_tests.yml
+  ingress:
+    ingressClassName: ""
+  rabbitmq:
+    nodeSelector:
+      "cloud__google__com/gke-nodepool": "default-pool"
+    persistence:
+      storageClassName: "nfs-{{ prefix }}-1"
+  tusd:
+    ingress:
+      ingressClassName: ""
+

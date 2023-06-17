@@ -63,6 +63,18 @@ jobs:
         run: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
       - name: Add anvil repository
         run: helm repo add anvil https://github.com/cloudve/helm-charts/raw/anvil
+      - name: Generate values files
+        shell: bash
+        run: |
+          python3 scripts/render_template.py -t templates/common-values.yml.j2 prefix=${{ inputs.prefix }} common_password=galaxypassword > common.yaml
+          if [[ "${{ inputs.type }}" = "edge" ]] ; then
+            echo "Generating values for edge test"
+            template=templates/edge-values.yml.j2          
+          else
+            echo "Generating values for production test"
+            template=templates/prod-values.yml.j2
+          fi
+          python3 scripts/render_template.py -t $template prefix=${{ inputs.prefix }} common_password=galaxypassword > values.yaml
       - name: Deploy GalaxyKubeMan
         continue-on-error: true
         run: >
@@ -71,29 +83,8 @@ jobs:
               --wait-for-jobs\
               --timeout 720s\
               --version ${{ inputs.version }}\
-              --set galaxy.service.type=LoadBalancer\
-              --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"tests@fake.org\"\
-              --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=galaxypassword\
-              --set galaxy.configs.\"galaxy\.yml\".galaxy.single_user=\"tests@fake.org\"\
-              --set galaxy.configs.\"job_conf\.yml\".runners.k8s.k8s_node_selector=\"cloud.google.com/gke-nodepool: default-pool\"\
-              --set galaxy.configs.\"job_conf\.yml\".execution.environments.tpv_dispatcher.tpv_config_files={https://raw.githubusercontent.com/galaxyproject/tpv-shared-database/main/tools.yml,lib/galaxy/jobs/rules/tpv_rules_local.yml,https://gist.githubusercontent.com/afgane/68d1dbbe0af2468ba347dc74b6d3f7fa/raw/20edda50161bdcb74ff38935e7f76d79bfdaf303/tvp_rules_tests.yml}\
-              --set galaxy.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set galaxy.persistence.storageClass=\"nfs-${{inputs.prefix}}-1\"\
-              --set galaxy.postgresql.galaxyDatabasePassword=galaxypassword\
-              --set galaxy.postgresql.master.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set galaxy.postgresql.persistence.existingClaim=\"${{inputs.prefix}}-1-postgres-disk-pvc\"\
-              --set galaxy.rabbitmq.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set galaxy.rabbitmq.persistence.storageClassName=\"nfs-${{inputs.prefix}}-1\"\
-              --set galaxy.ingress.ingressClassName=\"\"\
-              --set galaxy.tusd.ingress.ingressClassName=\"\"\
-              --set cvmfs.cvmfscsi.cache.alien.pvc.storageClass=\"nfs-${{inputs.prefix}}-1\"\
-              --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
-              --set nfs.persistence.existingClaim=\"${{inputs.prefix}}-1-nfs-disk-pvc\"\
-              --set nfs.storageClass.name=\"nfs-${{inputs.prefix}}-1\"\
-              --set persistence.nfs.name=\"${{inputs.prefix}}-1-nfs-disk\"\
-              --set persistence.nfs.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{inputs.prefix}}-1-nfs-pd\"\
-              --set persistence.postgres.name=\"${{inputs.prefix}}-1-postgres-disk\"\
-              --set persistence.postgres.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{inputs.prefix}}-1-postgres-pd\"") 1> "$GXY_TMP" 2>> "$GXY_TMP"
+              --values common.yaml\
+              --values values.yaml) 1> "$GXY_TMP" 2>> "$GXY_TMP"
 
 #      - name: Deploy GalaxyKubeMan
 #        run: >

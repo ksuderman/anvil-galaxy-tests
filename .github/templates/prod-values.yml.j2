@@ -1,0 +1,29 @@
+galaxy:
+  image:
+    tag: "21.09"
+  jobHandlers:
+    startupDelay: 5
+  jobs:
+    maxLimits:
+      cpu: 5
+      memory: 50
+    maxRequests:
+      cpu: 4
+      memory: 45
+  persistence:
+    size: "240gi"
+  webHandlers:
+    startupDelay: 10
+  workflowHandlers:
+    startupDelay: 0
+nfs:
+  persistence:
+    size: "250gi"
+persistence:
+  nfs:
+    size: "250gi"
+  postgres:
+    size: "10gi"
+rbac:
+  enabled: false
+
