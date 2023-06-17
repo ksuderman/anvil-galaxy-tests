@@ -24,15 +24,18 @@ push_report() {
   git stash pop | true
   git add reports/$REPORT_DIR
   git commit -m "Submitting $REPORT_DIR report for deployment from $DATE"
-  #git push "$REMOTE" "HEAD:$GIT_BRANCH" -v -v
-  git push origin $GIT_BRANCH
+  git push "$REMOTE" "HEAD:$GIT_BRANCH" -v -v
+#  git push origin $GIT_BRANCH
 }
 
-setup_git
+#setup_git
 mkdir -p "reports/$REPORT_DIR"
 if [ ! -f "reports/$REPORT_DIR/deployments.json" ]; then
     echo '{"results": {"deployments": []}}' > "reports/$REPORT_DIR/deployments.json"
 fi
 touch "reports/$REPORT_DIR/deployments.html"
 python .github/scripts/report_deployment.py $REPORT_DIR "{\"status\": \"$STATUS\", \"time\": \"$DURATION\", \"date\": \"$DATE\"}"
-push_report
+#push_report
+git add reports/$REPORT_DIR
+git commit -m "Submitting $REPORT_DIR report for deployment from $DATE"
+git push

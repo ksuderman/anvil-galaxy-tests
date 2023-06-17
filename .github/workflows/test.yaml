@@ -26,76 +26,77 @@ on:
         default: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
 
 jobs:
-  configuration:
+  config:
     runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.config.outputs.name }}
+      type: ${{ steps.config.outputs.type }}
+      chunk: ${{ steps.config.outputs.chunk }}
+      idp: ${{ steps.config.outputs.idp }}
+      account: ${{ steps.config.outputs.account }}
     steps:
-      - name: Set workflow_dispatch variables
-        if: github.event_name == 'workflow_dispatch'
+      - name: Set variables
+        id: config
+        shell: bash
         run: |
-          echo "Workflow dispatch"
-          echo "name=${{ inputs.type }}-$(date +'%Y-%m-%d-%H-%M')" >> $GITHUB_OUTPUT
-          echo "chunk=$(python scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
-          echo "type=${{ inputs.type }}" >> $GITHUB_OUTPUT
-          echo "idp=${{ inputs.idp }}" >> $GITHUB_OUTPUT
-          echo "account=${{ inputs.account }}" >> $GITHUB_OUTPUT
-      - name: Set edge vars from cron
-        if: github.event.schedule == '22 6,18 * * *'
-        run: |
-          echo "Cron: Edge"
-          echo "name=edge-$(date +'%Y-%m-%d-%H-%M')" >> $GITHUB_OUTPUT
-          echo "chunk=$(python scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
-          echo "type=edge" >> $GITHUB_OUTPUT
-          echo "idp=projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider" >> $GITHUB_OUTPUT
-          echo "account=galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com" >> $GITHUB_OUTPUT
-      - name: Set production vars from cron
-        if: github.event.schedule == '22 0,12 * * *'
-        run: |
-          echo "Cron: Production"
-          echo "name=production-$(date +'%Y-%m-%d-%H-%M')" >> $GITHUB_OUTPUT
-          echo "chunk=$(python scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
-          echo "type=production" >> $GITHUB_OUTPUT
-          echo "idp=projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider" >> $GITHUB_OUTPUT
-          echo "account=galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com" >> $GITHUB_OUTPUT
-      - name: Display values that have been set
-        run: |
-          echo $GITHUB_OUTPUT
-          cat $GITHUB_OUTPUT
+          if [[ "${{ github.event.schedule }}" = "22 6,18 * * *" ]] ; then
+            echo "Cron: Edge"
+            echo "name=edge-$(date +'%Y-%m-%d-%H-%M')" >> $GITHUB_OUTPUT
+            echo "chunk=$(python scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
+            echo "type=edge" >> $GITHUB_OUTPUT
+            echo "idp=projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider" >> $GITHUB_OUTPUT
+            echo "account=galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.event.schedule }}" = "22 6,18 * * *" ]] ; then
+            echo "Cron: Production"
+            echo "name=production-$(date +'%Y-%m-%d-%H-%M')" >> $GITHUB_OUTPUT
+            echo "chunk=$(python scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
+            echo "type=production" >> $GITHUB_OUTPUT
+            echo "idp=projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider" >> $GITHUB_OUTPUT
+            echo "account=galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com" >> $GITHUB_OUTPUT
+          else
+            echo "Workflow dispatch"
+            echo "name=${{ inputs.type }}-$(date +'%Y-%m-%d-%H-%M')" >> $GITHUB_OUTPUT
+            echo "chunk=${{ inputs.chunk }}" >> $GITHUB_OUTPUT
+            echo "type=${{ inputs.type }}" >> $GITHUB_OUTPUT
+            echo "idp=${{ inputs.idp }}" >> $GITHUB_OUTPUT
+            echo "account=${{ inputs.account }}" >> $GITHUB_OUTPUT
+          fi
 
   cluster:
     uses: ./.github/workflows/gke.yaml
-    needs: configuration
+    needs: config
     with:
-      name: ${{ needs.configuration.outputs.name }}
+      name: ${{ needs.config.outputs.name }}
       deploy: true
-      idp: ${{ needs.configuration.outputs.idp }}
-      account: ${{ needs.configuration.outputs.account }}
+      idp: ${{ needs.config.outputs.idp }}
+      account: ${{ needs.config.outputs.account }}
   galaxy:
-    needs: cluster
+    needs: [config, cluster]
     uses: ./.github/workflows/install-galaxy.yaml
     secrets: inherit
     with:
       chart: anvil/galaxykubeman
       version: "2.7.0"
-      prefix: ${{ needs.configuration.outputs.name }}
-      type: ${{ needs.configuration.outputs.type }}
-      idp: ${{ needs.configuration.outputs.idp }}
-      account: ${{ needs.configuration.outputs.account }}
+      prefix: ${{ needs.config.outputs.name }}
+      type: ${{ needs.config.outputs.type }}
+      idp: ${{ needs.config.outputs.idp }}
+      account: ${{ needs.config.outputs.account }}
       token: ${{ github.token }}
   test:
-    needs: galaxy
+    needs: [config, galaxy]
     uses: ./.github/workflows/tool-tests.yaml
     with:
-      prefix: ${{ needs.configuration.outputs.name }}
-      chunk: ${{ needs.configuration.outputs.chunk }}
-      type: ${{ needs.configuration.outputs.type }}
-      idp: ${{ needs.configuration.outputs.idp }}
-      account: ${{ needs.configuration.outputs.account }}
+      prefix: ${{ needs.config.outputs.name }}
+      chunk: ${{ needs.config.outputs.chunk }}
+      type: ${{ needs.config.outputs.type }}
+      idp: ${{ needs.config.outputs.idp }}
+      account: ${{ needs.config.outputs.account }}
   teardown:
-    needs: [cluster, test]
+    needs: [config, cluster, test]
     if: always()
     uses: ./.github/workflows/gke.yaml
     with:
-      name: ${{ needs.configuration.outputs.name }}
+      name: ${{ needs.config.outputs.name }}
       deploy: false
-      idp: ${{ needs.configuration.outputs.idp }}
-      account: ${{ needs.configuration.outputs.account }}
+      idp: ${{ needs.config.outputs.idp }}
+      account: ${{ needs.config.outputs.account }}

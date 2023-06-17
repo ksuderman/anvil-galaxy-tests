@@ -1,4 +1,4 @@
-name: Production Deployment and Tool Tests
+name: (Deprecated) Production Deployment and Tool Tests
 on:
   # 2023-05-23 - EA: pause production runs until intermittent run stalls are resolved
   # schedule:

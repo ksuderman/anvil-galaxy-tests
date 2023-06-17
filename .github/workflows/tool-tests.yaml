@@ -1,4 +1,4 @@
-name: Tool tests
+name: Run the tool tests
 on:
   workflow_call:
     inputs:
