@@ -32,7 +32,7 @@ jobs:
       - name: Set workflow_dispatch variables
         if: github.event_name == 'workflow_dispatch'
         run: |
-          echo "name=${{ inputs.type }}-$(date +'%Y-%m-%d-%H-%M)" >> $GITHUB_OUTPUT
+          echo "name=${{ inputs.type }}-$(date +'%Y-%m-%d-%H-%M')" >> $GITHUB_OUTPUT
           echo "chunk=$(python scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
           echo "type=${{ inputs.type }}" >> $GITHUB_OUTPUT
           echo "idp=${{ inputs.idp }}" >> $GITHUB_OUTPUT
@@ -40,7 +40,7 @@ jobs:
       - name: Set edge vars from cron
         if: github.event.schedule == '22 6,18 * * *'
         run: |
-          echo "name=edge-$(date +'%Y-%m-%d-%H-%M)" >> $GITHUB_OUTPUT
+          echo "name=edge-$(date +'%Y-%m-%d-%H-%M')" >> $GITHUB_OUTPUT
           echo "chunk=$(python scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
           echo "type=edge" >> $GITHUB_OUTPUT
           echo "idp=projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider" >> $GITHUB_OUTPUT
@@ -48,7 +48,7 @@ jobs:
       - name: Set production vars from cron
         if: github.event.schedule == '22 0,12 * * *'
         run: |
-          echo "name=production-$(date +'%Y-%m-%d-%H-%M)" >> $GITHUB_OUTPUT
+          echo "name=production-$(date +'%Y-%m-%d-%H-%M')" >> $GITHUB_OUTPUT
           echo "chunk=$(python scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
           echo "type=production" >> $GITHUB_OUTPUT
           echo "idp=projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider" >> $GITHUB_OUTPUT
