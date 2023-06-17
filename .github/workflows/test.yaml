@@ -39,6 +39,7 @@ jobs:
       type: ${{ inputs.type }}
       idp: ${{ inputs.idp }}
       account: ${{ inputs.account }}
+      token: ${{ secrets.GIT_TOKEN }}
   test:
     needs: galaxy
     uses: ./.github/workflows/tool-tests.yaml
