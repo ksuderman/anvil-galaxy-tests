@@ -28,7 +28,7 @@ push_report() {
 #  git push origin $GIT_BRANCH
 }
 
-#setup_git
+setup_git
 mkdir -p "reports/$REPORT_DIR"
 if [ ! -f "reports/$REPORT_DIR/deployments.json" ]; then
     echo '{"results": {"deployments": []}}' > "reports/$REPORT_DIR/deployments.json"

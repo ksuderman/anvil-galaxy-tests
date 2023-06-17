@@ -91,12 +91,12 @@ jobs:
       type: ${{ needs.config.outputs.type }}
       idp: ${{ needs.config.outputs.idp }}
       account: ${{ needs.config.outputs.account }}
-#  teardown:
-#    needs: [config, cluster, test]
-#    if: always()
-#    uses: ./.github/workflows/gke.yaml
-#    with:
-#      name: ${{ needs.config.outputs.name }}
-#      deploy: false
-#      idp: ${{ needs.config.outputs.idp }}
-#      account: ${{ needs.config.outputs.account }}
+  teardown:
+    needs: [config, cluster, test]
+    if: always()
+    uses: ./.github/workflows/gke.yaml
+    with:
+      name: ${{ needs.config.outputs.name }}
+      deploy: false
+      idp: ${{ needs.config.outputs.idp }}
+      account: ${{ needs.config.outputs.account }}
