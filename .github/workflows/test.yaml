@@ -63,7 +63,7 @@ jobs:
 
   cluster:
     uses: ./.github/workflows/gke.yaml
-    needs: setup
+    needs: configuration
     with:
       name: ${{ needs.configuration.outputs.name }}
       deploy: true
