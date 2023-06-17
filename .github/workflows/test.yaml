@@ -64,6 +64,7 @@ jobs:
   galaxy:
     needs: cluster
     uses: ./.github/workflows/install-galaxy.yaml
+    secrets: inherit
     with:
       chart: anvil/galaxykubeman
       version: "2.7.0"
