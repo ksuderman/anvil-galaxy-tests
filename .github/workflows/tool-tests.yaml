@@ -43,6 +43,7 @@ jobs:
         run: gcloud container clusters create "${{steps.prefix.outputs.prefix}}" --cluster-version="$GKE_VERSION" --disk-size=100 --num-nodes=1 --machine-type=e2-custom-20-81920 --zone "$GKE_ZONE"
 
   testgalaxy1:
+    timeout-minutes: 120
     needs: deploygke
     env:
       USE_GKE_GCLOUD_AUTH_PLUGIN: True
@@ -166,7 +167,6 @@ jobs:
         id: history
         run: echo "history_name=anvil-test-$(date '+%F-%H-%M')" >> $GITHUB_OUTPUT
       - name: Run tool tests
-        timeout-minutes: 180
         run: sleep 30 && .github/scripts/run-galaxy-tests.sh ${{ steps.history.outputs.history_name }} ${{ steps.reports.outputs.dir }}
       - name: Write job results
         run: abm galaxy jobs list --history ${{ steps.history.outputs.history_name }} > ${{ steps.reports.outputs.dir }}/jobs.txt
