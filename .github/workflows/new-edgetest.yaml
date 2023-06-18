@@ -157,7 +157,7 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' }}
         run: python .github/scripts/get_chunk.py --chunk ${{ github.event.inputs.chunk }} -o ${{ steps.reports.outputs.dir }} reports/anvil-edge/tools.yaml
       - name: Split tool tests (cron job)
-        if: ${{ github.event_name }} != 'workflow_dispatch'
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         run: python .github/scripts/get_chunk.py reports/anvil-edge/tools.yaml -o ${{ steps.reports.outputs.dir }}
       - name: Generate a history name
         id: history

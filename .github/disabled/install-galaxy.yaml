@@ -78,7 +78,7 @@ jobs:
       - name: Deploy GalaxyKubeMan
         continue-on-error: true
         run: >
-          (time sh -c "helm install --create-namespace -n ${{inputs.prefix}}-1 ${{inputs.prefix}}-1 ${{ inputs.charts }}\
+          (time sh -c "helm install --create-namespace -n ${{inputs.prefix}}-1 ${{inputs.prefix}}-1 ${{ inputs.chart }}\
               --wait\
               --wait-for-jobs\
               --timeout 720s\
