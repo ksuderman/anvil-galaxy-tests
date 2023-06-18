@@ -66,15 +66,15 @@ jobs:
       - name: Generate values files
         shell: bash
         run: |
-          python3 scripts/render_template.py -t templates/common-values.yml.j2 prefix=${{ inputs.prefix }} common_password=galaxypassword > common.yaml
+          python3 .github/scripts/render_template.py -t .github/templates/common-values.yml.j2 prefix=${{ inputs.prefix }} common_password=galaxypassword > common.yaml
           if [[ "${{ inputs.type }}" = "edge" ]] ; then
             echo "Generating values for edge test"
-            template=templates/edge-values.yml.j2          
+            template=.github/templates/edge-values.yml.j2          
           else
             echo "Generating values for production test"
-            template=templates/prod-values.yml.j2
+            template=.github/templates/prod-values.yml.j2
           fi
-          python3 scripts/render_template.py -t $template prefix=${{ inputs.prefix }} common_password=galaxypassword > values.yaml
+          python3 .github/scripts/render_template.py -t $template prefix=${{ inputs.prefix }} common_password=galaxypassword > values.yaml
       - name: Deploy GalaxyKubeMan
         continue-on-error: true
         run: >
