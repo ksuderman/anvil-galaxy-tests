@@ -35,7 +35,4 @@ if [ ! -f "reports/$REPORT_DIR/deployments.json" ]; then
 fi
 touch "reports/$REPORT_DIR/deployments.html"
 python .github/scripts/report_deployment.py $REPORT_DIR "{\"status\": \"$STATUS\", \"time\": \"$DURATION\", \"date\": \"$DATE\"}"
-#push_report
-git add reports/$REPORT_DIR
-git commit -m "Submitting $REPORT_DIR report for deployment from $DATE"
-git push
+push_report
