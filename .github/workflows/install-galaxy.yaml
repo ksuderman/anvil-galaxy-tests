@@ -84,7 +84,7 @@ jobs:
               --timeout 720s\
               --version ${{ inputs.version }}\
               --values common.yaml\
-              --values values.yaml) 1> "$GXY_TMP" 2>> "$GXY_TMP"
+              --values values.yaml") 1> ${{ inputs.temp }} 2>> ${{ inputs.temp }}
 
 #      - name: Deploy GalaxyKubeMan
 #        run: >
