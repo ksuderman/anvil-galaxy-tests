@@ -1,8 +1,8 @@
 name: Unified Tool Tests
 on:
-  schedule:
-    - cron: "22 0,12 * * *"
-    - cron: "22 6,18 * * *"
+#  schedule:
+#    - cron: "22 0,12 * * *"
+#    - cron: "22 6,18 * * *"
 
   workflow_dispatch:
     inputs:
@@ -39,9 +39,9 @@ jobs:
       id-token: 'write'
     outputs:
       prefix: ${{ steps.prefix.outputs.prefix }}
-      type: ${{ steps.config.outputs.type }
-      tag: ${{ steps.config.outputs.tag }
-      version: ${{ steps.config.outputs.version }
+      type: ${{ steps.config.outputs.type }}
+      tag: ${{ steps.config.outputs.tag }}
+      version: ${{ steps.config.outputs.version }}
     steps:
       - name: Configure variables based on launch type
         id: config
@@ -130,10 +130,12 @@ jobs:
             common_password=galaxypassword > values.yaml
       - name: Deploy GalaxyKubeMan 1
         run: >
-          (time sh -c "helm install --create-namespace -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
+          (time sh -c "helm install --create-namespace\
+              -n ${{needs.deploygke.outputs.prefix}}-1\
+              ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
               --wait\
               --timeout 1000s\
-              --version ${{ needs.deploygke.output.version }}\
+              --version ${{ needs.deploygke.outputs.version }}\
               --values common.yml\
               --values values.yml) 1> "$GXY_TMP" 2>> "$GXY_TMP"
       - name: Print output
