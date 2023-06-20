@@ -17,7 +17,7 @@ on:
         default: 'edge'
       tag:
         description: "Docker image tag to test"
-        default: dev
+        default: 23.0-auto
       version:
         description: "Version of the Helm chart to install"
         default: '2.7.0'
@@ -30,9 +30,8 @@ env:
   GKM_VERSION: "2.0.0"
   IMAGE_TAG: "21.09"
   GXY_TMP: /tmp/gxy
-  PREFIX: gtests-prod
 jobs:
-  deploygke:
+  deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -85,14 +84,19 @@ jobs:
       - name: Create GKE cluster
         run: gcloud container clusters create "${{steps.prefix.outputs.prefix}}" --cluster-version="$GKE_VERSION" --disk-size=100 --num-nodes=1 --machine-type=e2-custom-20-81920 --zone "$GKE_ZONE"
 
-  testgalaxy1:
-    needs: deploygke
+  test:
+    needs: deploy
     env:
       USE_GKE_GCLOUD_AUTH_PLUGIN: True
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
       id-token: 'write'
+    outputs:
+      url: ${{ steps.galaxy.outputs.url }}
+      key: ${{ steps.api.outputs.key }}
+      history: ${{ steps.history.outputs.history_name }}
+      dir: ${{ steps.reports.outputs.dir }}
     steps:
       - uses: actions/checkout@v3
       - id: 'Auth'
@@ -103,13 +107,13 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
       - name: Get cluster kubeconfig
-        run: gcloud container clusters get-credentials "${{needs.deploygke.outputs.prefix}}" --zone "$GKE_ZONE" --project ${{ secrets.GCP_PROJECT_ID }}
+        run: gcloud container clusters get-credentials "${{needs.deploy.outputs.prefix}}" --zone "$GKE_ZONE" --project ${{ secrets.GCP_PROJECT_ID }}
       - name: Create two GCP Disks
-        run: gcloud compute disks create "${{needs.deploygke.outputs.prefix}}-1-postgres-pd" --size 10Gi --zone "$GKE_ZONE" && gcloud compute disks create "${{needs.deploygke.outputs.prefix}}-1-nfs-pd" --size 250Gi --zone "$GKE_ZONE"
+        run: gcloud compute disks create "${{needs.deploy.outputs.prefix}}-1-postgres-pd" --size 10Gi --zone "$GKE_ZONE" && gcloud compute disks create "${{needs.deploy.outputs.prefix}}-1-nfs-pd" --size 250Gi --zone "$GKE_ZONE"
       - name: Setup gcloud auth plugin for kubectl and fetch creds
         run: |
           gcloud components install gke-gcloud-auth-plugin
-          gcloud container clusters get-credentials "${{needs.deploygke.outputs.prefix}}" --zone "$GKE_ZONE"
+          gcloud container clusters get-credentials "${{needs.deploy.outputs.prefix}}" --zone "$GKE_ZONE"
       - name: Install Kubectl
         run: curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" && chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl && kubectl version
       - name: Install Helm
@@ -121,31 +125,34 @@ jobs:
         run: |
           python3 .github/scripts/render_template.py\ 
             --template .github/templates/common-values.yml.j2\
-            prefix=${{ needs.deploygke.outputs.prefix }} 
+            prefix=${{ needs.deploy.outputs.prefix }} 
             common_password=galaxypassword > common.yaml
           python3 .github/scripts/render_template.py \
-            --template .github/templates/${{ needs.deploygke.outputs.type }}-values.yml.j2 \
-            prefix=${{ needs.deploygke.outputs.prefix }} \
-            tag=${{ needs.deploygke.outputs.tag }} \
+            --template .github/templates/${{ needs.deploy.outputs.type }}-values.yml.j2 \
+            prefix=${{ needs.deploy.outputs.prefix }} \
+            tag=${{ needs.deploy.outputs.tag }} \
             common_password=galaxypassword > values.yaml
       - name: Deploy GalaxyKubeMan 1
         run: >
-          (time sh -c "helm install --create-namespace\
-              -n ${{needs.deploygke.outputs.prefix}}-1\
-              ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
+          (time sh -c "helm install -n galaxy galaxy anvil/galaxykubeman\
+              --create-namespace\
               --wait\
               --timeout 1000s\
-              --version ${{ needs.deploygke.outputs.version }}\
+              --version ${{ needs.deploy.outputs.version }}\
               --values common.yml\
               --values values.yml) 1> "$GXY_TMP" 2>> "$GXY_TMP"
       - name: Print output
         run: cat "$GXY_TMP"
       - name: Helm get values
-        run: helm get values -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1
+        run: helm get values -n galaxy galaxy
       - name: Get pods, pvc, and pv, sc
-        run: kubectl get pods -n ${{needs.deploygke.outputs.prefix}}-1; kubectl get pvc -n ${{needs.deploygke.outputs.prefix}}-1; kubectl get pv -n ${{needs.deploygke.outputs.prefix}}-1; kubectl get sc -n ${{needs.deploygke.outputs.prefix}}-1
+        run: |
+          kubectl get pods -n galaxy
+          kubectl get pvc -n galaxy
+          kubectl get pv -n galaxy 
+          kubectl get sc -n galaxy
       - name: Get events
-        run: kubectl get events -n ${{needs.deploygke.outputs.prefix}}-1
+        run: kubectl get events -n galaxy
       - uses: actions/setup-python@v4
         with:
           python-version: '3.x'
@@ -157,51 +164,104 @@ jobs:
         with:
           persist-credentials: false
       - name: Add report from this run
-        run: bash ./.github/scripts/report_deployment.sh "$GXY_TMP" anvil-${{ needs.deploygke.outputs.type }} ${{ secrets.GIT_TOKEN }}
+        run: bash ./.github/scripts/report_deployment.sh "$GXY_TMP" anvil-${{ needs.deploy.outputs.type }} ${{ secrets.GIT_TOKEN }}
       - name: Get Galaxy IP and port
         id: galaxy
-        run: echo "url=$(echo \"http://$(kubectl get svc -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy-nginx -o jsonpath='{.status.loadBalancer.ingress[0].ip}' | sed -e 's/\"//g'):$(kubectl get svc -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy-nginx -o jsonpath='{.spec.ports[0].port}')$(kubectl get ingress -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy -o jsonpath='{.spec.rules[0].http.paths[0].path}')/\")" >> $GITHUB_OUTPUT
+        run: echo "url=$(echo \"http://$(kubectl get svc -n galaxy galaxy-galaxy-nginx -o jsonpath='{.status.loadBalancer.ingress[0].ip}' | sed -e 's/\"//g'):$(kubectl get svc -n galaxy galaxy-galaxy-nginx -o jsonpath='{.spec.ports[0].port}')$(kubectl get ingress -n galaxy galaxy-galaxy -o jsonpath='{.spec.rules[0].http.paths[0].path}')/\")" >> $GITHUB_OUTPUT
       - name: Create remote single user
         run: curl ${{steps.galaxy.outputs.url}}
       - name: Create reports dir for this date
         id: reports
         run: |
-          DIR=reports/anvil-${{ needs.deploygke.outputs.type }}/tool-tests/${{needs.deploygke.outputs.prefix}}-1
+          DIR=reports/anvil-${{ needs.deploy.outputs.type }}/tool-tests/${{needs.deploy.outputs.prefix}}-1
           mkdir -p $DIR
           echo "dir=$DIR" >> $GITHUB_OUTPUT
       # - name: Get tool list
       #   run: cp production/anvil/tools.yaml reports/anvil-production/tools.yaml
       - name: Create and get API key
-        run: echo "key=$(python .github/scripts/create_api_key.py ${{steps.galaxy.outputs.url}} galaxypassword)" >> $GITHUB_OUTPUT
         id: api
+        run: echo "key=$(python .github/scripts/create_api_key.py ${{steps.galaxy.outputs.url}} galaxypassword)" >> $GITHUB_OUTPUT
       - name: Configure ABM
-        id: key
         run: |
           abm version
           cp -R .abm ~/.abm
           abm config url galaxy ${{ steps.galaxy.outputs.url }}
-          echo "Key is ${{ steps.api.outputs.key }}"
           abm config key galaxy ${{ steps.api.outputs.key }}
-          echo "key=$key" >> $GITHUB_OUTPUT
       - name: Split tool tests
-        run: python .github/scripts/get_chunk.py --chunk ${{ ${{ needs.deploygke.outputs.chunk }} -o ${{ steps.reports.outputs.dir }} reports/anvil-${{ needs.deploygke.outputs.type }}/tools.yaml
+        run: python .github/scripts/get_chunk.py --chunk ${{ ${{ needs.deploy.outputs.chunk }} -o ${{ steps.reports.outputs.dir }} reports/anvil-${{ needs.deploy.outputs.type }}/tools.yaml
       - name: Generate a history name
         id: history
         run: echo "history_name=anvil-test-$(date '+%F-%H-%M')" >> $GITHUB_OUTPUT
       - name: Run tool tests
         run: sleep 30 && .github/scripts/run-galaxy-tests.sh ${{ steps.history.outputs.history_name }} ${{ steps.reports.outputs.dir }}
-      - name: Write job results
-        run: abm galaxy jobs list --history ${{ steps.history.outputs.history_name }} > ${{ steps.reports.outputs.dir }}/jobs.txt
+#      - name: Write job results
+#        run: abm galaxy jobs list --history ${{ steps.history.outputs.history_name }} > ${{ steps.reports.outputs.dir }}/jobs.txt
       - name: Create HTML report
         run: planemo test_reports ${{ steps.reports.outputs.dir }}/results.json --test_output_xunit ${{ steps.reports.outputs.dir }}/results.xunit --test_output ${{ steps.reports.outputs.dir }}/results.html
       - name: Update Readme
-        run: python .github/scripts/update_readme.py ${{ steps.reports.outputs.dir }}/chunk.json reports/anvil-${{ needs.deploygke.outputs.type }}/tool-tests/chunks.json reports/anvil-${{ needs.deploygke.outputs.type }}/README.md
+        run: python .github/scripts/update_readme.py ${{ steps.reports.outputs.dir }}/chunk.json reports/anvil-${{ needs.deploy.outputs.type }}/tool-tests/chunks.json reports/anvil-${{ needs.deploy.outputs.type }}/README.md
       - name: Add updated README from this run
-        run: bash ./.github/scripts/report_tests.sh ${{ secrets.GIT_TOKEN }} "Updating anvil-${{ needs.deploygke.outputs.type }} README for ${{needs.deploygke.outputs.prefix}}-1" reports/anvil-${{ needs.deploygke.outputs.type }}
+        run: bash ./.github/scripts/report_tests.sh ${{ secrets.GIT_TOKEN }} "Updating anvil-${{ needs.deploy.outputs.type }} README for ${{needs.deploy.outputs.prefix}}-1" reports/anvil-${{ needs.deploy.outputs.type }}
+
+  reports:
+    if: always()
+    needs: test
+    steps:
+      - uses: actions/checkout@v3
+      - id: 'Auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+          service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+      - name: Get cluster kubeconfig
+      - name: Setup gcloud auth plugin for kubectl and fetch creds
+        run: |
+          gcloud components install gke-gcloud-auth-plugin
+          gcloud container clusters get-credentials "${{needs.deploy.outputs.prefix}}" --zone "$GKE_ZONE" --project ${{ secrets.GCP_PROJECT_ID }}
+      - name: Install Kubectl
+        run: curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl" && chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl && kubectl version
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install required system packages
+        run: sudo apt-get update && sudo apt-get install -y python3-h5py pkg-config libhdf5-dev
+      - name: Install dependencies
+        run: python -m pip install planemo ephemeris pysam "galaxy-tool-util>=21.1.0.dev6" bioblend Jinja2 matplotlib gxabm
+      - name: Configure ABM and generate Jobs reports
+        shell: bash
+        run: |
+          abm version
+          cp -R .abm ~/.abm
+          abm config url galaxy ${{ needs.test.outputs.url }}
+          abm config key galaxy ${{ needs.test.outputs.key }}
+          abm galaxy jobs list --history ${{ needs.test.outputs.history }} > ${{ needs.test.outputs.dir }}/jobs.txt
+          echo "Saving jobs that had errors."
+          for job in $(abm jobs list --state error | awk '{print $1}') ; do
+            if [[ ! -e ${{ needs.test.outputs.dir }}/errors ]] ; then
+              mkdir ${{ needs.test.outputs.dir }}/errors
+            fi
+            abm galaxy jobs show $job > ${{ needs.test.outputs.dir }}/errors/$job.json
+          done
+          echo "Looking for paused jobs"
+          for job in $(abm jobs list --state paused | awk '{print $1}') ; do
+            if [[ ! -e ${{ needs.test.outputs.dir }}/paused ]] ; then
+              mkdir ${{ needs.test.outputs.dir }}/paused
+            fi
+            echo "Job $job was paused"
+            abm galaxy jobs show $job > ${{ needs.test.outputs.dir }}/paused/$job.json
+          done
+          abm galaxy history summarize ${{ needs.test.outputs.history }} > ${{ needs.test.outputs.dir }}/job-stats.csv
+      - name: Save job handler logs
+        shell: bash
+        run: |
+          pod=$(kubectl get pods -n galaxy | grep galaxy-job | awk '{print $1}')
+          kubectl logs -n galaxy $pod > ${{ needs.test.outputs.dir }}/job.log
 
   cleanup:
     if: always()
-    needs: [deploygke,testgalaxy1]
+    needs: [deploy,test,reports]
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -217,6 +277,6 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v1'
       - name: Delete the GKE cluster
         continue-on-error: true
-        run: gcloud container clusters delete "${{needs.deploygke.outputs.prefix}}" --zone "$GKE_ZONE" --quiet
+        run: gcloud container clusters delete "${{needs.deploy.outputs.prefix}}" --zone "$GKE_ZONE" --quiet
       - name: Delete the two GCP Disks for first Galaxy
-        run: gcloud compute disks delete "${{needs.deploygke.outputs.prefix}}-1-postgres-pd" --zone "$GKE_ZONE" --quiet && gcloud compute disks delete "${{needs.deploygke.outputs.prefix}}-1-nfs-pd" --zone "$GKE_ZONE" --quiet
+        run: gcloud compute disks delete "${{needs.deploy.outputs.prefix}}-1-postgres-pd" --zone "$GKE_ZONE" --quiet && gcloud compute disks delete "${{needs.deploy.outputs.prefix}}-1-nfs-pd" --zone "$GKE_ZONE" --quiet
