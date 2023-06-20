@@ -5,6 +5,14 @@ galaxy:
         admin_users: "tests@fake.org"
         master_api_key: {{ common_password }}
         single_user: "tests@fake.org"
+        job_metrics_config_file: job_metrics_conf.yml
+        cleanup_job: onsuccess
+    job_metrics_conf.yml:
+	  - type: core
+	  - type: cgroup
+	  - type: cpuinfo
+	  - type: meminfo
+	  - type: uname
     job_conf.yml:
       runners:
         k8s:
