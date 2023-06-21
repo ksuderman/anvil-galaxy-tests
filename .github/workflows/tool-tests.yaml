@@ -128,11 +128,15 @@ jobs:
           python3 $prog --template .github/templates/common-values.yml.j2\
             prefix=${{ needs.deploy.outputs.prefix }} 
             common_password=galaxypassword > common.yaml
+          echo "Common values"
+          cat common.yaml
           python3 $prog \
             --template .github/templates/${{ needs.deploy.outputs.type }}-values.yml.j2 \
             prefix=${{ needs.deploy.outputs.prefix }} \
             tag=${{ needs.deploy.outputs.tag }} \
             common_password=galaxypassword > values.yaml
+          echo "${{ needs.deploy.outputs.type }} specific values"
+          cat values.yaml
       - name: Deploy GalaxyKubeMan 1
         run: >
           (time sh -c "helm install -n galaxy galaxy anvil/galaxykubeman\
@@ -140,8 +144,8 @@ jobs:
               --wait\
               --timeout 1000s\
               --version ${{ needs.deploy.outputs.version }}\
-              --values common.yml\
-              --values values.yml") 1> "$GXY_TMP" 2>> "$GXY_TMP"
+              --values common.yaml\
+              --values values.yaml") 1> "$GXY_TMP" 2>> "$GXY_TMP"
       - name: Print output
         run: cat "$GXY_TMP"
       - name: Helm get values
