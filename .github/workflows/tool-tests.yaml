@@ -188,7 +188,7 @@ jobs:
           abm config url galaxy ${{ steps.galaxy.outputs.url }}
           abm config key galaxy ${{ steps.api.outputs.key }}
       - name: Split tool tests
-        run: python .github/scripts/get_chunk.py --chunk ${{ ${{ needs.deploy.outputs.chunk }} -o ${{ steps.reports.outputs.dir }} reports/anvil-${{ needs.deploy.outputs.type }}/tools.yaml
+        run: python .github/scripts/get_chunk.py --chunk ${{ needs.deploy.outputs.chunk }} -o ${{ steps.reports.outputs.dir }} reports/anvil-${{ needs.deploy.outputs.type }}/tools.yaml
       - name: Generate a history name
         id: history
         run: echo "history_name=anvil-test-$(date '+%F-%H-%M')" >> $GITHUB_OUTPUT
