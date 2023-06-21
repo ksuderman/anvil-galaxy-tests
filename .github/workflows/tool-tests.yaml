@@ -139,7 +139,7 @@ jobs:
           cat values.yaml
       - name: Deploy GalaxyKubeMan 1
         run: >
-          (time sh -c "helm install -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1  anvil/galaxykubeman\
+          (time sh -c "helm install -n ${{needs.deploy.outputs.prefix}}-1 ${{needs.deploy.outputs.prefix}}-1  anvil/galaxykubeman\
               --create-namespace\
               --wait\
               --timeout 1000s\
@@ -149,15 +149,15 @@ jobs:
       - name: Print output
         run: cat "$GXY_TMP"
       - name: Helm get values
-        run: helm get values -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1
+        run: helm get values -n ${{needs.deploy.outputs.prefix}}-1 ${{needs.deploy.outputs.prefix}}-1
       - name: Get pods, pvc, and pv, sc
         run: |
-          kubectl get pods -n ${{needs.deploygke.outputs.prefix}}-1
-          kubectl get pvc -n ${{needs.deploygke.outputs.prefix}}-1
-          kubectl get pv -n ${{needs.deploygke.outputs.prefix}}-1 
-          kubectl get sc -n ${{needs.deploygke.outputs.prefix}}-1
+          kubectl get pods -n ${{needs.deploy.outputs.prefix}}-1
+          kubectl get pvc -n ${{needs.deploy.outputs.prefix}}-1
+          kubectl get pv -n ${{needs.deploy.outputs.prefix}}-1 
+          kubectl get sc -n ${{needs.deploy.outputs.prefix}}-1
       - name: Get events
-        run: kubectl get events -n ${{needs.deploygke.outputs.prefix}}-1
+        run: kubectl get events -n ${{needs.deploy.outputs.prefix}}-1
       - uses: actions/setup-python@v4
         with:
           python-version: '3.x'
@@ -172,7 +172,7 @@ jobs:
         run: bash ./.github/scripts/report_deployment.sh "$GXY_TMP" anvil-${{ needs.deploy.outputs.type }} ${{ secrets.GIT_TOKEN }}
       - name: Get Galaxy IP and port
         id: galaxy
-        run: echo "url=$(echo \"http://$(kubectl get svc -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy-nginx -o jsonpath='{.status.loadBalancer.ingress[0].ip}' | sed -e 's/\"//g'):$(kubectl get svc -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy-nginx -o jsonpath='{.spec.ports[0].port}')$(kubectl get ingress -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy -o jsonpath='{.spec.rules[0].http.paths[0].path}')/\")" >> $GITHUB_OUTPUT
+        run: echo "url=$(echo \"http://$(kubectl get svc -n ${{needs.deploy.outputs.prefix}}-1 ${{needs.deploy.outputs.prefix}}-1-galaxy-nginx -o jsonpath='{.status.loadBalancer.ingress[0].ip}' | sed -e 's/\"//g'):$(kubectl get svc -n ${{needs.deploy.outputs.prefix}}-1 ${{needs.deploy.outputs.prefix}}-1-galaxy-nginx -o jsonpath='{.spec.ports[0].port}')$(kubectl get ingress -n ${{needs.deploy.outputs.prefix}}-1 ${{needs.deploy.outputs.prefix}}-1-galaxy -o jsonpath='{.spec.rules[0].http.paths[0].path}')/\")" >> $GITHUB_OUTPUT
       - name: Create remote single user
         run: curl ${{steps.galaxy.outputs.url}}
       - name: Create reports dir for this date
