@@ -123,18 +123,16 @@ jobs:
       - name: Generate values files
         shell: bash
         run: |
-          ls -al .github/scripts/
           prog=$(find . -name render_template.py)
+          echo $prog
           python3 $prog --template .github/templates/common-values.yml.j2\
             prefix=${{ needs.deploy.outputs.prefix }} 
             common_password=galaxypassword > common.yaml
-          cat common.yaml
-          python3 $(prog) \
+          python3 $prog \
             --template .github/templates/${{ needs.deploy.outputs.type }}-values.yml.j2 \
             prefix=${{ needs.deploy.outputs.prefix }} \
             tag=${{ needs.deploy.outputs.tag }} \
             common_password=galaxypassword > values.yaml
-          cat values.yaml
       - name: Deploy GalaxyKubeMan 1
         run: >
           (time sh -c "helm install -n galaxy galaxy anvil/galaxykubeman\
