@@ -124,6 +124,7 @@ jobs:
         shell: bash
         run: |
           ls -al .github/scripts/
+          find . -name render_template.py
           python3 .github/scripts/render_template.py\ 
             --template .github/templates/common-values.yml.j2\
             prefix=${{ needs.deploy.outputs.prefix }} 
