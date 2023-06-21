@@ -123,15 +123,18 @@ jobs:
       - name: Generate values files
         shell: bash
         run: |
+          ls -al .github/scripts/
           python3 .github/scripts/render_template.py\ 
             --template .github/templates/common-values.yml.j2\
             prefix=${{ needs.deploy.outputs.prefix }} 
             common_password=galaxypassword > common.yaml
+          cat common.yaml
           python3 .github/scripts/render_template.py \
             --template .github/templates/${{ needs.deploy.outputs.type }}-values.yml.j2 \
             prefix=${{ needs.deploy.outputs.prefix }} \
             tag=${{ needs.deploy.outputs.tag }} \
             common_password=galaxypassword > values.yaml
+          cat values.yaml
       - name: Deploy GalaxyKubeMan 1
         run: >
           (time sh -c "helm install -n galaxy galaxy anvil/galaxykubeman\
@@ -207,6 +210,11 @@ jobs:
     if: always()
     needs: [deploy, test]
     runs-on: ubuntu-latest
+    env:
+      USE_GKE_GCLOUD_AUTH_PLUGIN: True
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
       - uses: actions/checkout@v3
       - id: 'Auth'
