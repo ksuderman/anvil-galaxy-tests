@@ -52,14 +52,14 @@ jobs:
             echo "tag=21.09" >> $GITHUB_OUTPUT
             echo "version=2.0.0" >> $GITHUB_OUTPUT
             echo "machine=e2-custom-20-81920" >> $GITHUB_OUTPUT
-            echo "chunk=${python ./.github/scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
+            echo "chunk=$(python ./.github/scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
           elif [[ "${{ github.event.schedule }}" = "22 6,18 * * *" ]] ; then
             echo "Edge settings"
             echo "type=edge" >> $GITHUB_OUTPUT
             echo "tag=23.0-auto" >> $GITHUB_OUTPUT
             echo "version=2.7.0" >> $GITHUB_OUTPUT
             echo "machine=e2-standard-16" >> $GITHUB_OUTPUT
-            echo "chunk=${python ./.github/scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
+            echo "chunk=$(python ./.github/scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
           else
             echo "Custom settings"
             echo "type=${{ inputs.type }}" >> $GITHUB_OUTPUT
