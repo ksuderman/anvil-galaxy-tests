@@ -125,12 +125,12 @@ jobs:
         run: |
           ls -al .github/scripts/
           find . -name render_template.py
-          python3 .github/scripts/render_template.py\ 
+          python3 ./.github/scripts/render_template.py\ 
             --template .github/templates/common-values.yml.j2\
             prefix=${{ needs.deploy.outputs.prefix }} 
             common_password=galaxypassword > common.yaml
           cat common.yaml
-          python3 .github/scripts/render_template.py \
+          python3 ./.github/scripts/render_template.py \
             --template .github/templates/${{ needs.deploy.outputs.type }}-values.yml.j2 \
             prefix=${{ needs.deploy.outputs.prefix }} \
             tag=${{ needs.deploy.outputs.tag }} \
