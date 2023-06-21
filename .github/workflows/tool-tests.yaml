@@ -206,6 +206,7 @@ jobs:
   reports:
     if: always()
     needs: [deploy, test]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - id: 'Auth'
