@@ -126,7 +126,7 @@ jobs:
           prog=$(find . -name render_template.py)
           echo $prog
           python3 $prog --template .github/templates/common-values.yml.j2\
-            prefix=${{ needs.deploy.outputs.prefix }} 
+            prefix=${{ needs.deploy.outputs.prefix }}\
             common_password=galaxypassword > common.yaml
           echo "Common values"
           cat common.yaml
