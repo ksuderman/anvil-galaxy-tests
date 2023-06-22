@@ -176,6 +176,7 @@ jobs:
               --set nfs.nodeSelector.\"cloud\.google\.com\/gke-nodepool\"=\"default-pool\"\
               --set nfs.persistence.existingClaim=\"${{needs.deploy.outputs.prefix}}-1-nfs-disk-pvc\"\
               --set nfs.storageClass.name=\"nfs-${{needs.deploy.outputs.prefix}}-1\"\
+              --set nfs.storageClass.defaultClass=false\
               --set persistence.nfs.name=\"${{needs.deploy.outputs.prefix}}-1-nfs-disk\"\
               --set persistence.nfs.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploy.outputs.prefix}}-1-nfs-pd\"\
               --set persistence.postgres.name=\"${{needs.deploy.outputs.prefix}}-1-postgres-disk\"\
