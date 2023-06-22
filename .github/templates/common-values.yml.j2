@@ -37,6 +37,7 @@ nfs:
     existingClaim: "{{ prefix }}-1-nfs-disk-pvc"
   storageClass:
     name: "nfs-{{ prefix }}-1"
+    defaultClass: false
 persistence:
   nfs:
     name: "{{ prefix }}-1-nfs-disk"
