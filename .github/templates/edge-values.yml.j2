@@ -18,7 +18,7 @@ galaxy:
     ingressClassName: ""
   rabbitmq:
     nodeSelector:
-      "cloud__google__com/gke-nodepool": "default-pool"
+      "cloud,google.com/gke-nodepool": "default-pool"
     persistence:
       storageClassName: "nfs-{{ prefix }}-1"
   tusd:
