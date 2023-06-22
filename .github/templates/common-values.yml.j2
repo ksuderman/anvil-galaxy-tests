@@ -18,21 +18,21 @@ galaxy:
         k8s:
           k8s_node_selector: "cloud.google.com/gke-nodepool: default-pool"
   nodeSelector:
-    "cloud__google__com/gke-nodepool": "default-pool"
+    "cloud.google.com/gke-nodepool": "default-pool"
   persistence:
     storageClass: "nfs-{{ prefix }}-1"
   postgresql:
     galaxyDatabasePassword: {{ common_password }}
     master:
       nodeSelector:
-        "cloud__google__com/gke-nodepool": "default-pool"
+        "cloud.google.com/gke-nodepool": "default-pool"
     persistence:
       existingClaim: "{{ prefix }}-1-postgres-disk-pvc"
   service:
     type: loadbalancer
 nfs:
   nodeSelector:
-    "cloud__google__com/gke-nodepool": "default-pool"
+    "cloud.google.com/gke-nodepool": "default-pool"
   persistence:
     existingClaim: "{{ prefix }}-1-nfs-disk-pvc"
   storageClass:
