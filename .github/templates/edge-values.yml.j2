@@ -5,8 +5,6 @@ cvmfs:
         pvc:
           storageClass: "nfs-{{ prefix }}-1"
 galaxy:
-  image:
-    tag: "{{ tag }}"
   configs:
     job_conf.yml:
       execution:
