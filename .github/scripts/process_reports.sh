@@ -2,5 +2,6 @@
 
 for d in $(find reports/anvil-$1/tool-tests -type d -name "$2") ; do
 	#echo $d
-	python .github/scripts/extract_problems.py $d
+	python .github/scripts/process_reports.py $d
 done
+
