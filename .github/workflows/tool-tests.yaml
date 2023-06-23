@@ -145,7 +145,8 @@ jobs:
           (time sh -c "helm install -n ${{needs.deploy.outputs.prefix}}-1 ${{needs.deploy.outputs.prefix}}-1  anvil/galaxykubeman\
               --create-namespace\
               --wait\
-              --timeout 1000s\
+              --wait-for-jobs\
+              --timeout 15m\
               --version ${{ needs.deploy.outputs.version }}\
               --values common.yaml\
               --values values.yaml") 1> "$GXY_TMP" 2>> "$GXY_TMP"
