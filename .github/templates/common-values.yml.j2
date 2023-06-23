@@ -29,7 +29,7 @@ galaxy:
     persistence:
       existingClaim: "{{ prefix }}-1-postgres-disk-pvc"
   service:
-    type: loadbalancer
+    type: LoadBalancer
 nfs:
   nodeSelector:
     "cloud.google.com/gke-nodepool": "default-pool"
