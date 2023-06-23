@@ -41,6 +41,7 @@ jobs:
       type: ${{ steps.config.outputs.type }}
       tag: ${{ steps.config.outputs.tag }}
       version: ${{ steps.config.outputs.version }}
+      chunk: ${{ steps.config.outputs.chunk }}
     steps:
       - name: Configure variables based on launch type
         id: config
