@@ -17,13 +17,13 @@ on:
         default: 'edge'
       tag:
         description: "Docker image tag to test"
-        default: 23.0-auto
+        default: 23.0
       version:
         description: "Version of the Helm chart to install"
         default: '2.7.0'
       machine:
         description: "Machine type for cluster nodes"
-        default: "e2-standard-16"
+        default: "e2-custom-20-81920"
 env:
   GKE_ZONE: us-east1-b
   GKE_VERSION: "1.24"
@@ -56,7 +56,7 @@ jobs:
           elif [[ "${{ github.event.schedule }}" = "22 6,18 * * *" ]] ; then
             echo "Edge settings"
             echo "type=edge" >> $GITHUB_OUTPUT
-            echo "tag=23.0-auto" >> $GITHUB_OUTPUT
+            echo "tag=23.0" >> $GITHUB_OUTPUT
             echo "version=2.7.0" >> $GITHUB_OUTPUT
             echo "machine=e2-standard-16" >> $GITHUB_OUTPUT
             echo "chunk=$(python ./.github/scripts/print_chunk_number.py)" >> $GITHUB_OUTPUT
@@ -82,13 +82,13 @@ jobs:
       - name: gcloud version
         run:  gcloud --version
       - name: Create GKE cluster
-        run: gcloud container clusters create "${{steps.prefix.outputs.prefix}}" --cluster-version="$GKE_VERSION" --disk-size=100 --num-nodes=1 --machine-type=e2-custom-20-81920 --zone "$GKE_ZONE"
+        run: gcloud container clusters create "${{steps.prefix.outputs.prefix}}" --cluster-version="$GKE_VERSION" --disk-size=100 --num-nodes=1 --machine-type=${{ steps.config.outputs.machine }} --zone "$GKE_ZONE"
 
   test:
     needs: deploy
     env:
-      GKE_ZONE: us-east1-b
-      GXY_TMP: /tmp/gxy
+#      GKE_ZONE: us-east1-b
+#      GXY_TMP: /tmp/gxy
       GKM_VERSION: "2.7.0"
       USE_GKE_GCLOUD_AUTH_PLUGIN: True
     runs-on: ubuntu-latest
