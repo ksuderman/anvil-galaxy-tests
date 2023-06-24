@@ -152,7 +152,7 @@ jobs:
 #              --values common.yaml\
 #              --values values.yaml") 1> "$GXY_TMP" 2>> "$GXY_TMP"
       - name: Deploy GalaxyKubeMan
-        if: ${{ needs.deploy.outputs.type == "edge" }}
+        if: needs.deploy.outputs.type == 'edge'
         continue-on-error: true
         run: >
           (time sh -c "helm install --create-namespace -n ${{needs.deploy.outputs.prefix}}-1 ${{needs.deploy.outputs.prefix}}-1 anvil/galaxykubeman\
@@ -186,7 +186,7 @@ jobs:
               --values .github/templates/job_metrics_conf.yml\
               --set persistence.postgres.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploy.outputs.prefix}}-1-postgres-pd\"") 1> "$GXY_TMP" 2>> "$GXY_TMP"
       - name: Deploy GalaxyKubeMan (Production)
-        if: ${{ needs.deploy.outputs.type != "edge" }}
+        if: needs.deploy.outputs.type != 'edge'
         continue-on-error: true
         run: >
           (time sh -c "helm install --create-namespace -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
