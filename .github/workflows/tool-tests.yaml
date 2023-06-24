@@ -151,7 +151,7 @@ jobs:
 #              --version ${{ needs.deploy.outputs.version }}\
 #              --values common.yaml\
 #              --values values.yaml") 1> "$GXY_TMP" 2>> "$GXY_TMP"
-      - name: Deploy GalaxyKubeMan
+      - name: Deploy GalaxyKubeMan (Edge)
         if: needs.deploy.outputs.type == 'edge'
         continue-on-error: true
         run: >
@@ -183,7 +183,6 @@ jobs:
               --set persistence.nfs.name=\"${{needs.deploy.outputs.prefix}}-1-nfs-disk\"\
               --set persistence.nfs.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploy.outputs.prefix}}-1-nfs-pd\"\
               --set persistence.postgres.name=\"${{needs.deploy.outputs.prefix}}-1-postgres-disk\"\
-              --values .github/templates/job_metrics_conf.yml\
               --set persistence.postgres.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploy.outputs.prefix}}-1-postgres-pd\"") 1> "$GXY_TMP" 2>> "$GXY_TMP"
       - name: Deploy GalaxyKubeMan (Production)
         if: needs.deploy.outputs.type != 'edge'
