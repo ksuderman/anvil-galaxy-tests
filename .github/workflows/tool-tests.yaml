@@ -280,6 +280,9 @@ jobs:
       - name: Configure ABM and generate Jobs reports
         shell: bash
         run: |
+          pwd
+          ls -al
+          
           abm version
           cp -R .abm ~/.abm
           abm config url galaxy ${{ needs.test.outputs.url }}
@@ -308,7 +311,7 @@ jobs:
           kubectl logs -n galaxy $pod > ${{ needs.test.outputs.dir }}/job.log
           kubectl describe nodes > ${{ needs.test.outputs.dir }}/node-info.txt
       - name: Update and push reports back to the repo.
-        run: bash ./.github/scripts/report_tests.sh ${{ secrets.GIT_TOKEN }} "Updating anvil-${{ needs.deploy.outputs.type }} README for ${{needs.deploy.outputs.prefix}}-1" reports/anvil-${{ needs.deploy.outputs.type }}
+        run: bash ./.github/scripts/report_tests.sh ${{ secrets.GIT_TOKEN }} "Updating anvil-${{ needs.deploy.outputs.type }} job and node info for ${{needs.deploy.outputs.prefix}}-1" reports/anvil-${{ needs.deploy.outputs.type }}
 
 
   cleanup:
