@@ -280,10 +280,7 @@ jobs:
       - name: Configure ABM and generate Jobs reports
         shell: bash
         run: |
-          pwd
-          ls -al
-          ls -al reports/anvil-edge/tool-tests
-          if [[ -z ${{ needs.test.outputs.key }} ]] ; then
+          if [[ -z "${{ needs.test.outputs.key }}" ]] ; then
             echo "Galaxy installation failed"
             exit
           fi
