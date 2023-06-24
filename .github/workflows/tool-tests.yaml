@@ -282,7 +282,10 @@ jobs:
         run: |
           pwd
           ls -al
-          
+          if [[ ! -e ${{ needs.test.outputs.dir }} ]] ; then
+            echo "Directory ${{ needs.test.outputs.dir }} not found."
+            mkdir -p ${{ needs.test.outputs.dir }}
+          fi
           abm version
           cp -R .abm ~/.abm
           abm config url galaxy ${{ needs.test.outputs.url }}
@@ -291,14 +294,14 @@ jobs:
           echo "Saving jobs that had errors."
           for job in $(abm jobs list --state error | awk '{print $1}') ; do
             if [[ ! -e ${{ needs.test.outputs.dir }}/errors ]] ; then
-              mkdir ${{ needs.test.outputs.dir }}/errors
+              mkdir -p ${{ needs.test.outputs.dir }}/errors
             fi
             abm galaxy jobs show $job > ${{ needs.test.outputs.dir }}/errors/$job.json
           done
           echo "Looking for paused jobs"
           for job in $(abm jobs list --state paused | awk '{print $1}') ; do
             if [[ ! -e ${{ needs.test.outputs.dir }}/paused ]] ; then
-              mkdir ${{ needs.test.outputs.dir }}/paused
+              mkdir -p ${{ needs.test.outputs.dir }}/paused
             fi
             echo "Job $job was paused"
             abm galaxy jobs show $job > ${{ needs.test.outputs.dir }}/paused/$job.json
