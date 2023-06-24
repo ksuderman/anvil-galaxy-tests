@@ -282,6 +282,7 @@ jobs:
         run: |
           pwd
           ls -al
+          ls -al reports/anvil-edge/tool-tests
           if [[ ! -e ${{ needs.test.outputs.dir }} ]] ; then
             echo "Directory ${{ needs.test.outputs.dir }} not found."
             mkdir -p ${{ needs.test.outputs.dir }}
@@ -292,14 +293,15 @@ jobs:
           abm config key galaxy ${{ needs.test.outputs.key }}
           abm galaxy jobs list --history ${{ needs.test.outputs.history }} > ${{ needs.test.outputs.dir }}/jobs.txt
           echo "Saving jobs that had errors."
-          for job in $(abm jobs list --state error | awk '{print $1}') ; do
+          abm galaxy jobs list --state error 
+          for job in $(abm galaxy jobs list --state error | awk '{print $1}') ; do
             if [[ ! -e ${{ needs.test.outputs.dir }}/errors ]] ; then
               mkdir -p ${{ needs.test.outputs.dir }}/errors
             fi
             abm galaxy jobs show $job > ${{ needs.test.outputs.dir }}/errors/$job.json
           done
           echo "Looking for paused jobs"
-          for job in $(abm jobs list --state paused | awk '{print $1}') ; do
+          for job in $(abm galaxy jobs list --state paused | awk '{print $1}') ; do
             if [[ ! -e ${{ needs.test.outputs.dir }}/paused ]] ; then
               mkdir -p ${{ needs.test.outputs.dir }}/paused
             fi
