@@ -283,6 +283,10 @@ jobs:
           pwd
           ls -al
           ls -al reports/anvil-edge/tool-tests
+          if [[ -z ${{ needs.test.outputs.key }} ]] ; then
+            echo "Galaxy installation failed"
+            exit
+          fi
           if [[ ! -e ${{ needs.test.outputs.dir }} ]] ; then
             echo "Directory ${{ needs.test.outputs.dir }} not found."
             mkdir -p ${{ needs.test.outputs.dir }}
