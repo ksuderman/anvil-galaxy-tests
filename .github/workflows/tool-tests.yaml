@@ -311,24 +311,24 @@ jobs:
         run: bash ./.github/scripts/report_tests.sh ${{ secrets.GIT_TOKEN }} "Updating anvil-${{ needs.deploy.outputs.type }} README for ${{needs.deploy.outputs.prefix}}-1" reports/anvil-${{ needs.deploy.outputs.type }}
 
 
-#  cleanup:
-#    if: always()
-#    needs: [deploy,test,reports]
-#    runs-on: ubuntu-latest
-#    permissions:
-#      contents: 'read'
-#      id-token: 'write'
-#    steps:
-#      - uses: 'actions/checkout@v3'
-#      - id: 'Auth'
-#        uses: 'google-github-actions/auth@v0'
-#        with:
-#          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
-#          service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
-#      - name: 'Set up Cloud SDK'
-#        uses: 'google-github-actions/setup-gcloud@v1'
-#      - name: Delete the GKE cluster
-#        continue-on-error: true
-#        run: gcloud container clusters delete "${{needs.deploy.outputs.prefix}}" --zone "$GKE_ZONE" --quiet
-#      - name: Delete the two GCP Disks for first Galaxy
-#        run: gcloud compute disks delete "${{needs.deploy.outputs.prefix}}-1-postgres-pd" --zone "$GKE_ZONE" --quiet && gcloud compute disks delete "${{needs.deploy.outputs.prefix}}-1-nfs-pd" --zone "$GKE_ZONE" --quiet
+  cleanup:
+    if: always()
+    needs: [deploy,test,reports]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - uses: 'actions/checkout@v3'
+      - id: 'Auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          workload_identity_provider: 'projects/526897014808/locations/global/workloadIdentityPools/galaxy-tests-identity-pool/providers/gxy-tests-provider'
+          service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+      - name: Delete the GKE cluster
+        continue-on-error: true
+        run: gcloud container clusters delete "${{needs.deploy.outputs.prefix}}" --zone "$GKE_ZONE" --quiet
+      - name: Delete the two GCP Disks for first Galaxy
+        run: gcloud compute disks delete "${{needs.deploy.outputs.prefix}}-1-postgres-pd" --zone "$GKE_ZONE" --quiet && gcloud compute disks delete "${{needs.deploy.outputs.prefix}}-1-nfs-pd" --zone "$GKE_ZONE" --quiet
