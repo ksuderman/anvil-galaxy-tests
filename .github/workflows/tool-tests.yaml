@@ -159,7 +159,7 @@ jobs:
               --wait\
               --wait-for-jobs\
               --timeout 720s\
-              --version ${{ needs.deploy.outputs.version }}\
+              --version 2.7.0\
               --set galaxy.service.type=LoadBalancer\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"tests@fake.org\"\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=galaxypassword\
@@ -191,12 +191,12 @@ jobs:
           (time sh -c "helm install --create-namespace -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
               --wait\
               --timeout 1000s\
-              --version ${{ needs.deploy.outputs.version }}\
+              --version 2.0.0
               --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"tests@fake.org\"\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=galaxypassword\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.single_user=\"tests@fake.org\"\
               --set galaxy.configs.\"job_conf\.yml\".runners.k8s.k8s_node_selector=\"cloud.google.com/gke-nodepool: default-pool\"\
-              --set galaxy.image.tag=\"${{ needs.deploy.outputs.tag }}\"\
+              --set galaxy.image.tag=\"2.0.0\"\
               --set galaxy.jobHandlers.startupDelay=5\
               --set galaxy.jobs.maxLimits.cpu=5\
               --set galaxy.jobs.maxLimits.memory=50\
