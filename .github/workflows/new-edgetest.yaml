@@ -162,9 +162,39 @@ jobs:
         id: history
         run: echo "history_name=anvil-test-$(date '+%F-%H-%M')" >> $GITHUB_OUTPUT
       - name: Run tool tests
+        continue-on-error: true
         run: sleep 30 && .github/scripts/run-galaxy-tests.sh ${{ steps.history.outputs.history_name }} ${{ steps.reports.outputs.dir }}
-      - name: Write job results
-        run: abm galaxy jobs list --history ${{ steps.history.outputs.history_name }} > ${{ steps.reports.outputs.dir }}/jobs.txt
+#      - name: Write job results
+#        run: abm galaxy jobs list --history ${{ steps.history.outputs.history_name }} > ${{ steps.reports.outputs.dir }}/jobs.txt
+      - name: Generate Jobs reports
+        continue-on-error: true
+        shell: bash
+        run: |
+          abm galaxy jobs list --history ${{ steps.history.outputs.history_name }} > ${{ steps.reports.outputs.dir }}/jobs.txt
+          echo "Saving jobs that had errors."
+          abm galaxy jobs list --state error 
+          for job in $(abm galaxy jobs list --state error | awk '{print $1}') ; do
+            if [[ ! -e ${{ steps.reports.outputs.dir }}/errors ]] ; then
+              mkdir -p ${{ steps.reports.outputs.dir }}/errors
+            fi
+            abm galaxy jobs show $job > ${{ steps.reports.outputs.dir }}/errors/$job.json
+          done
+          echo "Looking for paused jobs"
+          for job in $(abm galaxy jobs list --state paused | awk '{print $1}') ; do
+            if [[ ! -e ${{ steps.reports.outputs.dir }}/paused ]] ; then
+              mkdir -p ${{ steps.reports.outputs.dir }}/paused
+            fi
+            echo "Job $job was paused"
+            abm galaxy jobs show $job > ${{ steps.reports.outputs.dir }}/paused/$job.json
+          done
+          abm galaxy history summarize ${{ steps.reports.outputs.dir }} > ${{ needs.test.outputs.dir }}/job-metrics.csv
+      - name: Save job handler logs and node information
+        continue-on-error: true
+        shell: bash
+        run: |
+          pod=$(kubectl get pods -n ${{needs.deploygke.outputs.prefix}}-1 | grep galaxy-job | awk '{print $1}')
+          kubectl logs -n galaxy $pod > ${{ steps.reports.outputs.dir }}/job.log
+          kubectl describe nodes > ${{ steps.reports.outputs.dir }}/node-info.txt
       - name: Create HTML report
         run: planemo test_reports ${{ steps.reports.outputs.dir }}/results.json --test_output_xunit ${{ steps.reports.outputs.dir }}/results.xunit --test_output ${{ steps.reports.outputs.dir }}/results.html
       - name: Update Readme
