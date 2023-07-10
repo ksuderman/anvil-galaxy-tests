@@ -18,7 +18,7 @@ EOF
 GALAXY_URL=$(abm config show galaxy | jq -r .url)
 GALAXY_KEY=$(abm config show galaxy | jq -r .key)
 
-export DEFAULT_TOOL_TEST_WAIT=600
+export GALAXY_TEST_DEFAULT_WAIT=600
 
 while read tool_args ; do
   galaxy-tool-test \
