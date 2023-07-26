@@ -180,14 +180,15 @@ jobs:
             abm galaxy jobs show $job > ${{ steps.reports.outputs.dir }}/errors/$job.json
           done
           echo "Looking for paused jobs"
+          abm galaxy jobs list --state paused
           for job in $(abm galaxy jobs list --state paused | awk '{print $1}') ; do
+            echo "Job $job was paused"
             if [[ ! -e ${{ steps.reports.outputs.dir }}/paused ]] ; then
               mkdir -p ${{ steps.reports.outputs.dir }}/paused
             fi
-            echo "Job $job was paused"
             abm galaxy jobs show $job > ${{ steps.reports.outputs.dir }}/paused/$job.json
           done
-          abm galaxy history summarize ${{ steps.reports.outputs.dir }} > ${{ steps.reports.outputs.dir }}/job-metrics.csv
+          abm galaxy history summarize ${{ steps.history.outputs.history_name }} > ${{ steps.reports.outputs.dir }}/job-metrics.csv
       - name: Save job handler logs and node information
         continue-on-error: true
         shell: bash
