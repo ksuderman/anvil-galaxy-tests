@@ -12,7 +12,7 @@ on:
         default: '3'
 env:
   GKE_ZONE: us-east1-b
-  GKE_VERSION: "1.24"
+  GKE_VERSION: "1.25"
   GKM_VERSION: "2.0.0"
   IMAGE_TAG: "21.09"
   GXY_TMP: /tmp/gxy
@@ -120,7 +120,7 @@ jobs:
         run: kubectl get events -n ${{needs.deploygke.outputs.prefix}}-1
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: '3.11'
       - name: Install required system packages
         run: sudo apt-get update && sudo apt-get install -y python3-h5py pkg-config libhdf5-dev
       - name: Install dependencies
