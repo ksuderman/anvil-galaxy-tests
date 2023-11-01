@@ -82,7 +82,6 @@ jobs:
               --wait-for-jobs\
               --timeout 720s\
               --version $GKM_VERSION\
-              --values .github/templates/job_metrics.conf.yml\
               --set galaxy.service.type=LoadBalancer\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"tests@fake.org\"\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.master_api_key=galaxypassword\
