@@ -12,9 +12,9 @@ on:
         default: '3'
 env:
   GKE_ZONE: us-east1-b
-  GKE_VERSION: "1.25"
-  GKM_VERSION: "2.0.0"
-  IMAGE_TAG: "21.09"
+  GKE_VERSION: "1.28"
+  GKM_VERSION: "2.8.1"
+  IMAGE_TAG: "23.1"
   GXY_TMP: /tmp/gxy
   PREFIX: gtests-prod
 jobs:
