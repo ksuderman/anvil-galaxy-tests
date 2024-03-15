@@ -12,7 +12,7 @@ on:
         default: '3'
 env:
   GKE_ZONE: us-east1-b
-  GKE_VERSION: "1.28"
+  GKE_VERSION: "1.27"
   GKM_VERSION: "2.8.1"
   IMAGE_TAG: "23.1"
   GXY_TMP: /tmp/gxy
