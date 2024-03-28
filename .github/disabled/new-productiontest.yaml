@@ -10,13 +10,15 @@ on:
         description: 'Chunk to run. Valid range [0:13]. Out of range inputs will be ignored.'
         required: true
         default: '3'
+env:
+  GKE_ZONE: us-east1-b
+  GKE_VERSION: "1.27"
+  GKM_VERSION: "2.8.1"
+  IMAGE_TAG: "23.1"
+  GXY_TMP: /tmp/gxy
+  PREFIX: gtests-prod
 jobs:
   deploygke:
-    env:
-      GKE_ZONE: us-east1-b
-      GKE_VERSION: "1.28"
-      GXY_TMP: /tmp/gxy
-      PREFIX: gtests-prod
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -42,11 +44,6 @@ jobs:
 
   testgalaxy1:
     needs: deploygke
-    env:
-      GKE_ZONE: us-east1-b
-      GXY_TMP: /tmp/gxy
-      GKM_VERSION: "2.8.1"
-      USE_GKE_GCLOUD_AUTH_PLUGIN: True
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
@@ -80,7 +77,7 @@ jobs:
           (time sh -c "helm install --create-namespace -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1 anvil/galaxykubeman\
               --wait\
               --wait-for-jobs\
-              --timeout 720s\
+              --timeout 1500s\
               --version $GKM_VERSION\
               --set galaxy.service.type=LoadBalancer\
               --set galaxy.configs.\"galaxy\.yml\".galaxy.admin_users=\"tests@fake.org\"\
@@ -206,8 +203,6 @@ jobs:
   cleanup:
     if: always()
     needs: [deploygke,testgalaxy1]
-    env:
-      GKE_ZONE: us-east1-b
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
