@@ -16,7 +16,7 @@ jobs:
       GKE_ZONE: us-east1-b
       GKE_VERSION: "1.28"
       GXY_TMP: /tmp/gxy
-      PREFIX: gtests-prod
+      PREFIX: prod
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
