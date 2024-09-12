@@ -45,7 +45,7 @@ jobs:
     env:
       GKE_ZONE: us-east1-b
       GXY_TMP: /tmp/gxy
-      GKM_VERSION: "2.10.0"
+      GKM_VERSION: "2.11.0"
       USE_GKE_GCLOUD_AUTH_PLUGIN: True
     runs-on: ubuntu-latest
     permissions:
@@ -172,7 +172,7 @@ jobs:
         run: |
           abm galaxy jobs list --history ${{ steps.history.outputs.history_name }} > ${{ steps.reports.outputs.dir }}/jobs.txt
           echo "Saving jobs that had errors."
-          abm galaxy jobs list --state error 
+          abm galaxy jobs list --state error
           for job in $(abm galaxy jobs list --state error | awk '{print $1}') ; do
             if [[ ! -e ${{ steps.reports.outputs.dir }}/errors ]] ; then
               mkdir -p ${{ steps.reports.outputs.dir }}/errors
