@@ -45,7 +45,7 @@ jobs:
     env:
       GKE_ZONE: us-east1-b
       GXY_TMP: /tmp/gxy
-      GKM_VERSION: "2.11.0"
+      GKM_VERSION: "3.0.0"
       USE_GKE_GCLOUD_AUTH_PLUGIN: True
     runs-on: ubuntu-latest
     permissions:
