@@ -221,6 +221,17 @@ jobs:
           service_account: 'galaxy-tests-repo-actions-sa@anvil-and-terra-development.iam.gserviceaccount.com'
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v2'
+      - name: Install Kubectl
+        run: |
+          curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+          chmod +x ./kubectl
+          sudo mv ./kubectl /usr/local/bin/kubectl
+      - name: Get cluster credentials
+        continue-on-error: true
+        run: gcloud container clusters get-credentials "${{needs.deploygke.outputs.prefix}}" --zone "$GKE_ZONE" --project ${{ secrets.GCP_PROJECT_ID }}
+      - name: Delete LoadBalancer Service
+        continue-on-error: true
+        run: kubectl delete svc -n ${{needs.deploygke.outputs.prefix}}-1 ${{needs.deploygke.outputs.prefix}}-1-galaxy-nginx
       - name: Delete the GKE cluster
         continue-on-error: true
         run: gcloud container clusters delete "${{needs.deploygke.outputs.prefix}}" --zone "$GKE_ZONE" --quiet
