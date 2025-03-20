@@ -104,7 +104,7 @@ jobs:
               --set nfs.storageClass.name=\"nfs-${{needs.deploygke.outputs.prefix}}-1\"\
               --set nfs.storageClass.reclaimPolicy=\"Delete\"\
               --set persistence.nfs.name=\"${{needs.deploygke.outputs.prefix}}-1-nfs-disk\"\
-              --set persistence.nfs.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploygke.outputs.prefix}}-1-nfs-pd\" 1> "$GXY_TMP" 2>> "$GXY_TMP"
+              --set persistence.nfs.persistentVolume.extraSpec.gcePersistentDisk.pdName=\"${{needs.deploygke.outputs.prefix}}-1-nfs-pd\") 1> "$GXY_TMP" 2>> "$GXY_TMP"
 
       - name: Print output
         run: cat "$GXY_TMP"
