@@ -1,4 +1,4 @@
-name: New Edge Deployment and Tool Tests
+name: Newer Edge Deployment and Tool Tests
 on:
   schedule:
     - cron: "0 6 * * *"
