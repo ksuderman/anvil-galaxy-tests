@@ -75,7 +75,7 @@ jobs:
       - name: Add anvil repository
         run: helm repo add anvil https://github.com/cloudve/helm-charts/raw/anvil
       - name: Generate the values file
-        run: cat .github/templates/edge-values.yaml.template | sed "s/{{prefix}}/${{needs.deploygke.outputs.prefix}}/g" | sed "s/{{password}}/${secrets.COMMON_PASSWORD}/g" > edge-values.yaml
+        run: cat .github/templates/edge-values.yaml.template | sed "s/{{prefix}}/${{needs.deploygke.outputs.prefix}}/g" | sed "s/{{password}}/${{secrets.COMMON_PASSWORD}}/g" > edge-values.yaml
       - name: Deploy GalaxyKubeMan
         continue-on-error: true
         run: >
