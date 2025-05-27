@@ -22,7 +22,7 @@ galaxy:
   nodeSelector: 
     cloud.google.com/gke-nodepool: default-pool
   persistence: 
-    storageClass: "nfs-{{prefix}}-1
+    storageClass: nfs-{{prefix}}-1
   postgresql:
     galaxyDatabasePassword: {{password}}
     operator:
@@ -60,5 +60,6 @@ persistence:
     name: {{prefix}}-1-nfs-disk
     persistentVolume:
       extraSpec:
-        gcePersistentDisk: pdName: {{prefix}}-1-nfs-pd
+        gcePersistentDisk:
+          pdName: {{prefix}}-1-nfs-pd
 
