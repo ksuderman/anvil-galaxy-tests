@@ -982,5 +982,17 @@
     "tests_errored": 9,
     "tests_skipped": 45,
     "results_html_url": "https://anvilproject.github.io/galaxy-tests/tool-tests/anvil-test-ci-261119-144510/results.html"
+  },
+  {
+    "run_id": "anvil-test-ci-261120-142659",
+    "timestamp": "2026-11-20T14:26:59",
+    "duration_seconds": 7725.428316,
+    "tools_attempted": 249,
+    "tests_total": 1433,
+    "tests_passed": 1265,
+    "tests_failed": 41,
+    "tests_errored": 29,
+    "tests_skipped": 45,
+    "results_html_url": "https://anvilproject.github.io/galaxy-tests/tool-tests/anvil-test-ci-261120-142659/results.html"
   }
 ]
