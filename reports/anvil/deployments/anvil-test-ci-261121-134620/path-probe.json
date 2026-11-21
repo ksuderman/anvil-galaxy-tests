@@ -1,37 +1,37 @@
 {
-  "label": "in-run-1054",
-  "host": "136.70.78.134",
+  "label": "in-run-1358",
+  "host": "34.186.39.18",
   "port": 80,
-  "started_at": "2026-10-22T10:54:32Z",
-  "elapsed_seconds": 7787.0,
+  "started_at": "2026-11-21T13:58:29Z",
+  "elapsed_seconds": 8086.8,
   "mode": "paced",
   "poll_interval": 0.25,
   "concurrency": 4,
   "requested_rate": 2.0,
   "achieved_rate": 2.0,
-  "connect_attempts": 15573,
-  "connect_ok": 15573,
+  "connect_attempts": 16172,
+  "connect_ok": 16172,
   "connect_failed": 0,
   "connect_failure_pct": 0.0,
   "outcomes": {
-    "connect_ok": 15573
+    "connect_ok": 16172
   },
   "connect_latency_ms": {
-    "n": 15573,
-    "min": 5.56,
-    "p50": 6.6,
-    "p99": 10.33,
-    "max": 193.61
+    "n": 16172,
+    "min": 5.76,
+    "p50": 6.85,
+    "p99": 10.13,
+    "max": 1088.16
   },
   "tcp_stats_before": {
-    "ActiveOpens": 804,
+    "ActiveOpens": 1190,
     "AttemptFails": 0,
     "RetransSegs": 1
   },
   "tcp_stats_after": {
-    "ActiveOpens": 23570,
+    "ActiveOpens": 24805,
     "AttemptFails": 0,
-    "RetransSegs": 1170
+    "RetransSegs": 14
   },
   "failure_samples": []
 }
