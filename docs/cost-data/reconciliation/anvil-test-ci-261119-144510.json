@@ -1,0 +1,4556 @@
+{
+  "run_id": "anvil-test-ci-261119-144510",
+  "github_run_id": "44546818215",
+  "queried_at": "2026-11-21T20:40:18Z",
+  "rainstone_revision": "58c1d7ef-c838-47ef-9eae-a1a972f9d4f6",
+  "main_vm": {
+    "rainstone": 2.112,
+    "billing": 2.1244,
+    "difference": -0.0124
+  },
+  "gcp_batch": {
+    "rainstone": 10.5897,
+    "billing": 10.6298,
+    "difference": -0.0401,
+    "rainstone_jobs": 754,
+    "billing_jobs": 754,
+    "only_in_rainstone": [],
+    "only_in_billing": [],
+    "unpriced_in_rainstone": {
+      "jobs": 0,
+      "jobs_with_billing": 0,
+      "billing": 0.0
+    }
+  },
+  "total": {
+    "rainstone": 12.7017,
+    "billing": 12.7542,
+    "difference": -0.0525
+  },
+  "jobs": [
+    {
+      "resource_key": "anvil-test-1795100834-1e3b1368-250",
+      "rainstone": 0.06612,
+      "billing": 0.06616,
+      "difference": -4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100834-696ed402-248",
+      "rainstone": 0.170868,
+      "billing": 0.170905,
+      "difference": -3.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100834-fd8f669e-251",
+      "rainstone": 0.061716,
+      "billing": 0.061768,
+      "difference": -5.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100835-f0df9da1-252",
+      "rainstone": 0.066654,
+      "billing": 0.066706,
+      "difference": -5.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100876-091fe040-179",
+      "rainstone": 0.004265,
+      "billing": 0.004284,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100881-822580ea-166",
+      "rainstone": 0.004101,
+      "billing": 0.004127,
+      "difference": -2.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100881-a768497d-181",
+      "rainstone": 0.004387,
+      "billing": 0.004409,
+      "difference": -2.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100881-bee1ada4-168",
+      "rainstone": 0.004247,
+      "billing": 0.004271,
+      "difference": -2.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100883-8b118b92-346",
+      "rainstone": 0.017188,
+      "billing": 0.01728,
+      "difference": -9.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100884-691d8235-347",
+      "rainstone": 0.020936,
+      "billing": 0.02098,
+      "difference": -4.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100886-87d3f870-350",
+      "rainstone": 0.020663,
+      "billing": 0.020708,
+      "difference": -4.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100887-7c5d34c1-351",
+      "rainstone": 0.02336,
+      "billing": 0.023428,
+      "difference": -6.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100891-9f476908-267",
+      "rainstone": 0.023049,
+      "billing": 0.023171,
+      "difference": -0.000122
+    },
+    {
+      "resource_key": "anvil-test-1795100891-b5edad26-354",
+      "rainstone": 0.018335,
+      "billing": 0.018427,
+      "difference": -9.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100893-39a901d9-304",
+      "rainstone": 0.018974,
+      "billing": 0.019066,
+      "difference": -9.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100894-a62121a7-312",
+      "rainstone": 0.005377,
+      "billing": 0.005391,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100894-e44860ac-358",
+      "rainstone": 0.017299,
+      "billing": 0.017384,
+      "difference": -8.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100896-686447cc-266",
+      "rainstone": 0.016298,
+      "billing": 0.016361,
+      "difference": -6.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100896-b6d90516-314",
+      "rainstone": 0.017287,
+      "billing": 0.017362,
+      "difference": -7.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100896-fb1e9818-315",
+      "rainstone": 0.005525,
+      "billing": 0.005539,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100898-6f472279-300",
+      "rainstone": 0.023673,
+      "billing": 0.023744,
+      "difference": -7.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100900-c7b0aace-305",
+      "rainstone": 0.005375,
+      "billing": 0.005414,
+      "difference": -3.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100900-e15e9370-313",
+      "rainstone": 0.005389,
+      "billing": 0.005398,
+      "difference": -9e-06
+    },
+    {
+      "resource_key": "anvil-test-1795100902-9e077690-268",
+      "rainstone": 0.022684,
+      "billing": 0.022846,
+      "difference": -0.000162
+    },
+    {
+      "resource_key": "anvil-test-1795100902-bbaf2138-302",
+      "rainstone": 0.017289,
+      "billing": 0.017362,
+      "difference": -7.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100904-55ed9aeb-365",
+      "rainstone": 0.017402,
+      "billing": 0.017496,
+      "difference": -9.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100905-05ac875f-327",
+      "rainstone": 0.005328,
+      "billing": 0.005335,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795100905-17ef5b80-301",
+      "rainstone": 0.023638,
+      "billing": 0.023721,
+      "difference": -8.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100905-76cd4587-303",
+      "rainstone": 0.018347,
+      "billing": 0.018551,
+      "difference": -0.000204
+    },
+    {
+      "resource_key": "anvil-test-1795100906-78140dbf-316",
+      "rainstone": 0.005285,
+      "billing": 0.005311,
+      "difference": -2.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100907-ae63fe06-367",
+      "rainstone": 0.003187,
+      "billing": 0.003193,
+      "difference": -6e-06
+    },
+    {
+      "resource_key": "anvil-test-1795100909-fa9adef7-328",
+      "rainstone": 0.005389,
+      "billing": 0.005396,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795100910-d5f2237c-371",
+      "rainstone": 0.008424,
+      "billing": 0.008473,
+      "difference": -4.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100911-a04702aa-374",
+      "rainstone": 0.005991,
+      "billing": 0.006018,
+      "difference": -2.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100911-f6d6e4b3-375",
+      "rainstone": 0.006348,
+      "billing": 0.006367,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100912-5f30c930-377",
+      "rainstone": 0.008367,
+      "billing": 0.008391,
+      "difference": -2.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100912-ddbdb49a-336",
+      "rainstone": 0.023254,
+      "billing": 0.02353,
+      "difference": -0.000276
+    },
+    {
+      "resource_key": "anvil-test-1795100914-558e0773-332",
+      "rainstone": 0.019467,
+      "billing": 0.019526,
+      "difference": -5.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100914-6ef24cb4-378",
+      "rainstone": 0.003027,
+      "billing": 0.003086,
+      "difference": -5.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100915-ce8dfa6e-333",
+      "rainstone": 0.023813,
+      "billing": 0.024018,
+      "difference": -0.000205
+    },
+    {
+      "resource_key": "anvil-test-1795100918-a276a770-329",
+      "rainstone": 0.005581,
+      "billing": 0.005597,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100923-ee9af300-335",
+      "rainstone": 0.016068,
+      "billing": 0.016242,
+      "difference": -0.000174
+    },
+    {
+      "resource_key": "anvil-test-1795100927-31c2b1fd-334",
+      "rainstone": 0.025817,
+      "billing": 0.025903,
+      "difference": -8.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100930-7a8cb8e0-389",
+      "rainstone": 0.012825,
+      "billing": 0.012871,
+      "difference": -4.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100930-9b572cc0-388",
+      "rainstone": 0.082001,
+      "billing": 0.082083,
+      "difference": -8.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100930-de4aa435-387",
+      "rainstone": 0.023155,
+      "billing": 0.023228,
+      "difference": -7.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100933-5efea329-394",
+      "rainstone": 0.012645,
+      "billing": 0.012688,
+      "difference": -4.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100952-ac2570eb-407",
+      "rainstone": 0.012886,
+      "billing": 0.012959,
+      "difference": -7.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795100987-ad9b8db1-422",
+      "rainstone": 0.019578,
+      "billing": 0.019762,
+      "difference": -0.000184
+    },
+    {
+      "resource_key": "anvil-test-1795100990-05cb8ac8-425",
+      "rainstone": 0.018266,
+      "billing": 0.018326,
+      "difference": -6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101010-084eb673-429",
+      "rainstone": 0.013059,
+      "billing": 0.013156,
+      "difference": -9.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101010-2cdde2ae-428",
+      "rainstone": 0.0055,
+      "billing": 0.005521,
+      "difference": -2.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101023-552eae04-430",
+      "rainstone": 0.002356,
+      "billing": 0.002371,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101025-0bcd8e47-431",
+      "rainstone": 0.004356,
+      "billing": 0.004379,
+      "difference": -2.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101026-2fb9633c-433",
+      "rainstone": 0.006259,
+      "billing": 0.006293,
+      "difference": -3.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101026-974ab666-432",
+      "rainstone": 0.006048,
+      "billing": 0.006074,
+      "difference": -2.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101027-dc1babed-434",
+      "rainstone": 0.009772,
+      "billing": 0.009769,
+      "difference": 3e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101028-3829d3a0-435",
+      "rainstone": 0.004311,
+      "billing": 0.004334,
+      "difference": -2.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101042-fc352461-439",
+      "rainstone": 0.009747,
+      "billing": 0.009784,
+      "difference": -3.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101044-50dec0cc-440",
+      "rainstone": 0.012056,
+      "billing": 0.012077,
+      "difference": -2.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101046-69cb36fd-441",
+      "rainstone": 0.003047,
+      "billing": 0.003056,
+      "difference": -9e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101049-356ee41f-443",
+      "rainstone": 0.017353,
+      "billing": 0.017428,
+      "difference": -7.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101050-3bc7c845-445",
+      "rainstone": 0.003061,
+      "billing": 0.00307,
+      "difference": -9e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101050-82f84d5a-444",
+      "rainstone": 0.044405,
+      "billing": 0.044642,
+      "difference": -0.000237
+    },
+    {
+      "resource_key": "anvil-test-1795101051-279931c8-446",
+      "rainstone": 0.003443,
+      "billing": 0.003463,
+      "difference": -2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101052-5459a2dd-447",
+      "rainstone": 0.020785,
+      "billing": 0.020883,
+      "difference": -9.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101053-9ea756ce-449",
+      "rainstone": 0.01899,
+      "billing": 0.019157,
+      "difference": -0.000167
+    },
+    {
+      "resource_key": "anvil-test-1795101053-aa7d69ce-450",
+      "rainstone": 0.020334,
+      "billing": 0.020412,
+      "difference": -7.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101063-06b32561-458",
+      "rainstone": 0.033347,
+      "billing": 0.033451,
+      "difference": -0.000104
+    },
+    {
+      "resource_key": "anvil-test-1795101084-4cadbbfd-465",
+      "rainstone": 0.00303,
+      "billing": 0.003042,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101086-e3a469c1-466",
+      "rainstone": 0.003097,
+      "billing": 0.003103,
+      "difference": -6e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101088-5ee6fce3-467",
+      "rainstone": 0.03221,
+      "billing": 0.032315,
+      "difference": -0.000105
+    },
+    {
+      "resource_key": "anvil-test-1795101088-bddd28b3-469",
+      "rainstone": 0.003018,
+      "billing": 0.003038,
+      "difference": -2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101090-a3299762-470",
+      "rainstone": 0.02403,
+      "billing": 0.024172,
+      "difference": -0.000142
+    },
+    {
+      "resource_key": "anvil-test-1795101093-1a462f99-475",
+      "rainstone": 0.027045,
+      "billing": 0.02712,
+      "difference": -7.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101093-2f76202b-474",
+      "rainstone": 0.003053,
+      "billing": 0.003058,
+      "difference": -5e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101100-beeb057a-480",
+      "rainstone": 0.003092,
+      "billing": 0.003101,
+      "difference": -9e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101102-77a23f1c-481",
+      "rainstone": 0.016882,
+      "billing": 0.016955,
+      "difference": -7.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101108-26bd32a9-482",
+      "rainstone": 0.016832,
+      "billing": 0.016932,
+      "difference": -0.0001
+    },
+    {
+      "resource_key": "anvil-test-1795101112-5b51fd7b-483",
+      "rainstone": 0.002418,
+      "billing": 0.002449,
+      "difference": -3.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101116-22ea0bea-485",
+      "rainstone": 0.012231,
+      "billing": 0.012316,
+      "difference": -8.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101118-8fe656ca-487",
+      "rainstone": 0.034625,
+      "billing": 0.034764,
+      "difference": -0.000139
+    },
+    {
+      "resource_key": "anvil-test-1795101127-ad27d0c8-497",
+      "rainstone": 0.03396,
+      "billing": 0.034079,
+      "difference": -0.000119
+    },
+    {
+      "resource_key": "anvil-test-1795101130-bda2093d-505",
+      "rainstone": 0.009957,
+      "billing": 0.009996,
+      "difference": -3.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101132-d5710b28-508",
+      "rainstone": 0.038625,
+      "billing": 0.038754,
+      "difference": -0.000129
+    },
+    {
+      "resource_key": "anvil-test-1795101133-e95e6e86-509",
+      "rainstone": 0.034111,
+      "billing": 0.034286,
+      "difference": -0.000175
+    },
+    {
+      "resource_key": "anvil-test-1795101185-9bd44f21-551",
+      "rainstone": 0.017067,
+      "billing": 0.017155,
+      "difference": -8.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101188-22f247a0-553",
+      "rainstone": 0.036143,
+      "billing": 0.036226,
+      "difference": -8.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101193-0d9eb025-558",
+      "rainstone": 0.138005,
+      "billing": 0.138074,
+      "difference": -6.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101196-579b3fd3-560",
+      "rainstone": 0.02287,
+      "billing": 0.022917,
+      "difference": -4.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101199-9f3099d5-561",
+      "rainstone": 0.021646,
+      "billing": 0.021727,
+      "difference": -8.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101204-889d8171-563",
+      "rainstone": 0.016969,
+      "billing": 0.017039,
+      "difference": -7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101222-dd96be36-572",
+      "rainstone": 0.016817,
+      "billing": 0.016914,
+      "difference": -9.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101229-c3e7c226-573",
+      "rainstone": 0.009206,
+      "billing": 0.009225,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101237-82e785f9-575",
+      "rainstone": 0.009305,
+      "billing": 0.009324,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101253-ad8d582a-582",
+      "rainstone": 0.008085,
+      "billing": 0.008099,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101259-32f4294f-585",
+      "rainstone": 0.008142,
+      "billing": 0.008158,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101282-3afc5ee5-591",
+      "rainstone": 0.009527,
+      "billing": 0.009536,
+      "difference": -9e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101299-0f9b42a9-617",
+      "rainstone": 0.006769,
+      "billing": 0.006789,
+      "difference": -2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101359-71c3460b-657",
+      "rainstone": 0.008174,
+      "billing": 0.008197,
+      "difference": -2.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101391-801c72c0-676",
+      "rainstone": 0.003328,
+      "billing": 0.003341,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101395-8bfd8fb2-679",
+      "rainstone": 0.013398,
+      "billing": 0.013504,
+      "difference": -0.000106
+    },
+    {
+      "resource_key": "anvil-test-1795101396-ed4a650f-680",
+      "rainstone": 0.003059,
+      "billing": 0.003082,
+      "difference": -2.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101397-1784b442-681",
+      "rainstone": 0.012958,
+      "billing": 0.013032,
+      "difference": -7.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101398-ee002c88-682",
+      "rainstone": 0.003065,
+      "billing": 0.003095,
+      "difference": -3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101400-0f302447-683",
+      "rainstone": 0.002959,
+      "billing": 0.002979,
+      "difference": -2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101402-635da0df-685",
+      "rainstone": 0.013279,
+      "billing": 0.01338,
+      "difference": -0.000101
+    },
+    {
+      "resource_key": "anvil-test-1795101413-fdff1b73-693",
+      "rainstone": 0.012171,
+      "billing": 0.012244,
+      "difference": -7.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101416-3a63e1bb-697",
+      "rainstone": 0.004285,
+      "billing": 0.004303,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101418-a46c85a3-700",
+      "rainstone": 0.018606,
+      "billing": 0.018685,
+      "difference": -7.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101418-f4017fef-699",
+      "rainstone": 0.00477,
+      "billing": 0.0048,
+      "difference": -3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101418-f626b5c7-698",
+      "rainstone": 0.017518,
+      "billing": 0.01762,
+      "difference": -0.000102
+    },
+    {
+      "resource_key": "anvil-test-1795101420-04764b3e-701",
+      "rainstone": 0.004311,
+      "billing": 0.00433,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101421-224bbd19-702",
+      "rainstone": 0.014148,
+      "billing": 0.014233,
+      "difference": -8.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101422-f9647d17-703",
+      "rainstone": 0.013761,
+      "billing": 0.013829,
+      "difference": -6.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101425-3227cbd6-707",
+      "rainstone": 0.012357,
+      "billing": 0.01246,
+      "difference": -0.000103
+    },
+    {
+      "resource_key": "anvil-test-1795101430-97dc176e-709",
+      "rainstone": 0.00436,
+      "billing": 0.004375,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101432-ed4ce17f-713",
+      "rainstone": 0.01845,
+      "billing": 0.01854,
+      "difference": -9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101436-2798bf9b-716",
+      "rainstone": 0.003101,
+      "billing": 0.003119,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101437-ccaa3170-718",
+      "rainstone": 0.019021,
+      "billing": 0.0191,
+      "difference": -7.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101439-a4017c73-721",
+      "rainstone": 0.008827,
+      "billing": 0.008922,
+      "difference": -9.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101441-6ab2f086-723",
+      "rainstone": 0.008893,
+      "billing": 0.008996,
+      "difference": -0.000103
+    },
+    {
+      "resource_key": "anvil-test-1795101449-ebe79fea-730",
+      "rainstone": 0.013518,
+      "billing": 0.013555,
+      "difference": -3.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101452-89125600-733",
+      "rainstone": 0.003293,
+      "billing": 0.003281,
+      "difference": 1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101453-211084fe-735",
+      "rainstone": 0.005542,
+      "billing": 0.005556,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101454-5c118897-736",
+      "rainstone": 0.019166,
+      "billing": 0.019246,
+      "difference": -8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101456-78ada979-738",
+      "rainstone": 0.005519,
+      "billing": 0.005536,
+      "difference": -1.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101457-4aa1cafb-739",
+      "rainstone": 0.018678,
+      "billing": 0.018797,
+      "difference": -0.000119
+    },
+    {
+      "resource_key": "anvil-test-1795101458-9eacb238-740",
+      "rainstone": 0.01265,
+      "billing": 0.012715,
+      "difference": -6.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101459-20788f68-741",
+      "rainstone": 0.005317,
+      "billing": 0.005331,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101465-6e9b710e-746",
+      "rainstone": 0.005304,
+      "billing": 0.005315,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101466-aaebc108-747",
+      "rainstone": 0.005426,
+      "billing": 0.005436,
+      "difference": -1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101469-c6347e60-749",
+      "rainstone": 0.005424,
+      "billing": 0.00544,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101471-f4cbc66e-752",
+      "rainstone": 0.016189,
+      "billing": 0.016241,
+      "difference": -5.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101472-e43b6d04-753",
+      "rainstone": 0.016217,
+      "billing": 0.016315,
+      "difference": -9.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101473-052cda44-754",
+      "rainstone": 0.024466,
+      "billing": 0.024582,
+      "difference": -0.000116
+    },
+    {
+      "resource_key": "anvil-test-1795101475-c50d598a-756",
+      "rainstone": 0.020845,
+      "billing": 0.020998,
+      "difference": -0.000153
+    },
+    {
+      "resource_key": "anvil-test-1795101477-3865383a-758",
+      "rainstone": 0.016065,
+      "billing": 0.016134,
+      "difference": -6.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101478-b75d0d4d-759",
+      "rainstone": 0.01291,
+      "billing": 0.012852,
+      "difference": 5.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101482-fccabff4-760",
+      "rainstone": 0.023711,
+      "billing": 0.023787,
+      "difference": -7.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101484-bd076e93-761",
+      "rainstone": 0.003166,
+      "billing": 0.003176,
+      "difference": -1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101488-70d26863-762",
+      "rainstone": 0.004983,
+      "billing": 0.005033,
+      "difference": -5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101489-4e8a5580-763",
+      "rainstone": 0.006247,
+      "billing": 0.006277,
+      "difference": -3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101491-e047ba1c-764",
+      "rainstone": 0.012454,
+      "billing": 0.01249,
+      "difference": -3.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101493-6a21f553-766",
+      "rainstone": 0.008243,
+      "billing": 0.008283,
+      "difference": -4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101495-c8ceb157-767",
+      "rainstone": 0.008308,
+      "billing": 0.008349,
+      "difference": -4.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101496-63c5643b-769",
+      "rainstone": 0.016183,
+      "billing": 0.01624,
+      "difference": -5.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101504-0d901faf-772",
+      "rainstone": 0.018003,
+      "billing": 0.018057,
+      "difference": -5.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101509-98e97c8c-776",
+      "rainstone": 0.017805,
+      "billing": 0.017878,
+      "difference": -7.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101514-8f6019b1-779",
+      "rainstone": 0.030426,
+      "billing": 0.03054,
+      "difference": -0.000114
+    },
+    {
+      "resource_key": "anvil-test-1795101518-b74db31e-783",
+      "rainstone": 0.006821,
+      "billing": 0.006833,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101520-596c91e9-785",
+      "rainstone": 0.02353,
+      "billing": 0.023586,
+      "difference": -5.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101523-0b69c561-787",
+      "rainstone": 0.018741,
+      "billing": 0.01882,
+      "difference": -7.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101527-58723a3f-791",
+      "rainstone": 0.002267,
+      "billing": 0.002295,
+      "difference": -2.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101537-dbcbebf5-795",
+      "rainstone": 0.018902,
+      "billing": 0.018955,
+      "difference": -5.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101539-734923b3-796",
+      "rainstone": 0.01856,
+      "billing": 0.018641,
+      "difference": -8.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101541-1dda4ae2-797",
+      "rainstone": 0.017888,
+      "billing": 0.017967,
+      "difference": -7.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101543-2b86fbf3-798",
+      "rainstone": 0.002349,
+      "billing": 0.002356,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101545-d604498a-801",
+      "rainstone": 0.002475,
+      "billing": 0.002491,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101562-b6a83c52-821",
+      "rainstone": 0.010432,
+      "billing": 0.010469,
+      "difference": -3.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101564-853fe224-822",
+      "rainstone": 0.013656,
+      "billing": 0.013732,
+      "difference": -7.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101566-a47a8259-824",
+      "rainstone": 0.013217,
+      "billing": 0.01332,
+      "difference": -0.000103
+    },
+    {
+      "resource_key": "anvil-test-1795101578-4667039c-831",
+      "rainstone": 0.003149,
+      "billing": 0.00316,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101585-0f4859c2-819",
+      "rainstone": 0.033007,
+      "billing": 0.033101,
+      "difference": -9.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101593-ad90143e-838",
+      "rainstone": 0.003175,
+      "billing": 0.003179,
+      "difference": -4e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101621-d529d839-847",
+      "rainstone": 0.01208,
+      "billing": 0.012094,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101636-7d6c4c59-852",
+      "rainstone": 0.003305,
+      "billing": 0.003313,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101658-38a0f69f-858",
+      "rainstone": 0.003194,
+      "billing": 0.003208,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101684-76295e4a-866",
+      "rainstone": 0.013005,
+      "billing": 0.013075,
+      "difference": -7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101688-689abec5-867",
+      "rainstone": 0.002616,
+      "billing": 0.002617,
+      "difference": -1e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101705-1ea7a017-874",
+      "rainstone": 0.010333,
+      "billing": 0.01036,
+      "difference": -2.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101711-951ca642-875",
+      "rainstone": 0.033404,
+      "billing": 0.033603,
+      "difference": -0.000199
+    },
+    {
+      "resource_key": "anvil-test-1795101717-571a0295-878",
+      "rainstone": 0.027435,
+      "billing": 0.027543,
+      "difference": -0.000108
+    },
+    {
+      "resource_key": "anvil-test-1795101718-2bc95102-879",
+      "rainstone": 0.018258,
+      "billing": 0.018367,
+      "difference": -0.000109
+    },
+    {
+      "resource_key": "anvil-test-1795101721-87b32e5c-882",
+      "rainstone": 0.034908,
+      "billing": 0.035044,
+      "difference": -0.000136
+    },
+    {
+      "resource_key": "anvil-test-1795101722-f8eaec8c-883",
+      "rainstone": 0.034348,
+      "billing": 0.034496,
+      "difference": -0.000148
+    },
+    {
+      "resource_key": "anvil-test-1795101723-e0861076-884",
+      "rainstone": 0.028411,
+      "billing": 0.028486,
+      "difference": -7.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101729-8bd40cdb-887",
+      "rainstone": 0.01855,
+      "billing": 0.018671,
+      "difference": -0.000121
+    },
+    {
+      "resource_key": "anvil-test-1795101736-c4cb8b14-894",
+      "rainstone": 0.027527,
+      "billing": 0.027635,
+      "difference": -0.000108
+    },
+    {
+      "resource_key": "anvil-test-1795101741-6598a568-897",
+      "rainstone": 0.00988,
+      "billing": 0.009906,
+      "difference": -2.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101778-19c82382-912",
+      "rainstone": 0.025053,
+      "billing": 0.025111,
+      "difference": -5.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101799-d75294af-926",
+      "rainstone": 0.017463,
+      "billing": 0.017527,
+      "difference": -6.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101811-579e31b2-869",
+      "rainstone": 0.035427,
+      "billing": 0.035584,
+      "difference": -0.000157
+    },
+    {
+      "resource_key": "anvil-test-1795101842-e384b94c-953",
+      "rainstone": 0.017872,
+      "billing": 0.017916,
+      "difference": -4.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101848-3de4cab3-958",
+      "rainstone": 0.012694,
+      "billing": 0.012912,
+      "difference": -0.000218
+    },
+    {
+      "resource_key": "anvil-test-1795101852-2cb6e578-960",
+      "rainstone": 0.064179,
+      "billing": 0.06423,
+      "difference": -5.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101860-51b1d0c9-968",
+      "rainstone": 0.003384,
+      "billing": 0.003389,
+      "difference": -5e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101869-2542b49e-974",
+      "rainstone": 0.014442,
+      "billing": 0.014524,
+      "difference": -8.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101871-1d5bc5d1-975",
+      "rainstone": 0.00568,
+      "billing": 0.005701,
+      "difference": -2.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101893-a18aa530-993",
+      "rainstone": 0.014618,
+      "billing": 0.014719,
+      "difference": -0.000101
+    },
+    {
+      "resource_key": "anvil-test-1795101895-7e4fc73d-995",
+      "rainstone": 0.006838,
+      "billing": 0.006849,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101898-0fd58907-997",
+      "rainstone": 0.006709,
+      "billing": 0.006729,
+      "difference": -2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101903-f01f744c-1001",
+      "rainstone": 0.003119,
+      "billing": 0.003139,
+      "difference": -2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101905-a90924f8-1003",
+      "rainstone": 0.003052,
+      "billing": 0.00306,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101906-e6c82a5b-1004",
+      "rainstone": 0.003321,
+      "billing": 0.00334,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101910-20e1c094-1007",
+      "rainstone": 0.013333,
+      "billing": 0.013414,
+      "difference": -8.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101911-1c7d4ec2-1008",
+      "rainstone": 0.004761,
+      "billing": 0.004775,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101913-63eb59f2-1010",
+      "rainstone": 0.004704,
+      "billing": 0.00474,
+      "difference": -3.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101919-a6c75411-1014",
+      "rainstone": 0.011446,
+      "billing": 0.011524,
+      "difference": -7.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101922-62724a56-1017",
+      "rainstone": 0.019875,
+      "billing": 0.019974,
+      "difference": -9.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101923-a0f20170-1018",
+      "rainstone": 0.013619,
+      "billing": 0.013728,
+      "difference": -0.000109
+    },
+    {
+      "resource_key": "anvil-test-1795101940-9cb446a5-1030",
+      "rainstone": 0.013949,
+      "billing": 0.014065,
+      "difference": -0.000116
+    },
+    {
+      "resource_key": "anvil-test-1795101942-75e8ee57-1031",
+      "rainstone": 0.008012,
+      "billing": 0.008036,
+      "difference": -2.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101944-e5767fd3-1033",
+      "rainstone": 0.018485,
+      "billing": 0.018561,
+      "difference": -7.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101945-77c90878-1034",
+      "rainstone": 0.004216,
+      "billing": 0.004228,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101948-552bf414-1038",
+      "rainstone": 0.007915,
+      "billing": 0.007933,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101951-229822bd-1039",
+      "rainstone": 0.002528,
+      "billing": 0.002537,
+      "difference": -9e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101952-36c56e70-1040",
+      "rainstone": 0.004048,
+      "billing": 0.004063,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101953-e3a5facd-1041",
+      "rainstone": 0.019284,
+      "billing": 0.019347,
+      "difference": -6.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101954-dead35cd-1042",
+      "rainstone": 0.019015,
+      "billing": 0.0191,
+      "difference": -8.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101955-1750bb45-1043",
+      "rainstone": 0.004582,
+      "billing": 0.004606,
+      "difference": -2.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101957-d0eec908-1045",
+      "rainstone": 0.010384,
+      "billing": 0.010453,
+      "difference": -6.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101958-1cd05543-1046",
+      "rainstone": 0.01292,
+      "billing": 0.013032,
+      "difference": -0.000112
+    },
+    {
+      "resource_key": "anvil-test-1795101965-eefe3ec2-1049",
+      "rainstone": 0.002193,
+      "billing": 0.002205,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101969-40074cdc-1052",
+      "rainstone": 0.025693,
+      "billing": 0.025863,
+      "difference": -0.00017
+    },
+    {
+      "resource_key": "anvil-test-1795101972-4febf1c9-1054",
+      "rainstone": 0.018404,
+      "billing": 0.018519,
+      "difference": -0.000115
+    },
+    {
+      "resource_key": "anvil-test-1795101973-09d88582-1055",
+      "rainstone": 0.004568,
+      "billing": 0.004575,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101975-c38cbbbb-1056",
+      "rainstone": 0.01913,
+      "billing": 0.019246,
+      "difference": -0.000116
+    },
+    {
+      "resource_key": "anvil-test-1795101977-fb773a4c-1057",
+      "rainstone": 0.004427,
+      "billing": 0.004434,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795101980-6aab9a19-1058",
+      "rainstone": 0.004484,
+      "billing": 0.004508,
+      "difference": -2.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101981-ef88f5b6-1059",
+      "rainstone": 0.004337,
+      "billing": 0.004349,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101983-659a219e-1061",
+      "rainstone": 0.004416,
+      "billing": 0.004438,
+      "difference": -2.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101984-903143dd-1063",
+      "rainstone": 0.012996,
+      "billing": 0.013038,
+      "difference": -4.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101984-b3a01f77-1062",
+      "rainstone": 0.012677,
+      "billing": 0.012734,
+      "difference": -5.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101985-085430ce-1064",
+      "rainstone": 0.004217,
+      "billing": 0.00423,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101988-dd2aab74-1066",
+      "rainstone": 0.005986,
+      "billing": 0.006029,
+      "difference": -4.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101990-e97ec388-1067",
+      "rainstone": 0.004198,
+      "billing": 0.00423,
+      "difference": -3.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795101996-a5f86edc-1072",
+      "rainstone": 0.006996,
+      "billing": 0.007029,
+      "difference": -3.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102000-8fa0d0f0-1075",
+      "rainstone": 0.002516,
+      "billing": 0.002537,
+      "difference": -2.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102009-aded329a-1082",
+      "rainstone": 0.013575,
+      "billing": 0.013672,
+      "difference": -9.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102010-49e49777-1083",
+      "rainstone": 0.006047,
+      "billing": 0.00609,
+      "difference": -4.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102011-5df26162-1084",
+      "rainstone": 0.019445,
+      "billing": 0.019538,
+      "difference": -9.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102013-a472de9b-1085",
+      "rainstone": 0.002293,
+      "billing": 0.002297,
+      "difference": -4e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102015-b93c3a5a-1087",
+      "rainstone": 0.019256,
+      "billing": 0.019336,
+      "difference": -8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102016-e66bfd72-1088",
+      "rainstone": 0.014222,
+      "billing": 0.014283,
+      "difference": -6.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102017-b30dea04-1089",
+      "rainstone": 0.006566,
+      "billing": 0.006602,
+      "difference": -3.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102019-00fff1e2-1090",
+      "rainstone": 0.015977,
+      "billing": 0.016031,
+      "difference": -5.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102022-355e62ce-1093",
+      "rainstone": 0.019107,
+      "billing": 0.01919,
+      "difference": -8.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102025-9dc94c23-1096",
+      "rainstone": 0.013956,
+      "billing": 0.014023,
+      "difference": -6.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102026-c17e5cd8-1097",
+      "rainstone": 0.014176,
+      "billing": 0.014248,
+      "difference": -7.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102027-007f42d1-1098",
+      "rainstone": 0.005629,
+      "billing": 0.005644,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102030-51046072-1100",
+      "rainstone": 0.005444,
+      "billing": 0.005458,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102032-a700ae11-1101",
+      "rainstone": 0.023866,
+      "billing": 0.023934,
+      "difference": -6.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102047-ef3fac92-1113",
+      "rainstone": 0.00232,
+      "billing": 0.002327,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102050-e0a63317-1116",
+      "rainstone": 0.002331,
+      "billing": 0.00234,
+      "difference": -9e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102052-c2e7cc1d-1118",
+      "rainstone": 0.034305,
+      "billing": 0.034452,
+      "difference": -0.000147
+    },
+    {
+      "resource_key": "anvil-test-1795102058-e234fbfa-1121",
+      "rainstone": 0.039541,
+      "billing": 0.039668,
+      "difference": -0.000127
+    },
+    {
+      "resource_key": "anvil-test-1795102061-c5f3e2a2-1124",
+      "rainstone": 0.006803,
+      "billing": 0.006812,
+      "difference": -9e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102068-e5bbe10a-1130",
+      "rainstone": 0.003009,
+      "billing": 0.003023,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102072-919d0ca5-1133",
+      "rainstone": 0.009635,
+      "billing": 0.009647,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102073-1e3bf348-1134",
+      "rainstone": 0.011719,
+      "billing": 0.011808,
+      "difference": -8.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102074-e531d653-1135",
+      "rainstone": 0.002436,
+      "billing": 0.002447,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102082-fb9bab86-1142",
+      "rainstone": 0.017562,
+      "billing": 0.017729,
+      "difference": -0.000167
+    },
+    {
+      "resource_key": "anvil-test-1795102087-0e99c72e-1147",
+      "rainstone": 0.024663,
+      "billing": 0.024808,
+      "difference": -0.000145
+    },
+    {
+      "resource_key": "anvil-test-1795102096-77e81578-1095",
+      "rainstone": 0.002373,
+      "billing": 0.002387,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102101-ebbc6798-1140",
+      "rainstone": 0.002333,
+      "billing": 0.002342,
+      "difference": -9e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102105-7ee6dfce-1153",
+      "rainstone": 0.009775,
+      "billing": 0.0098,
+      "difference": -2.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102110-15633684-1156",
+      "rainstone": 0.035647,
+      "billing": 0.035764,
+      "difference": -0.000117
+    },
+    {
+      "resource_key": "anvil-test-1795102114-05947acd-1159",
+      "rainstone": 0.035667,
+      "billing": 0.035822,
+      "difference": -0.000155
+    },
+    {
+      "resource_key": "anvil-test-1795102116-efa42254-1161",
+      "rainstone": 0.019031,
+      "billing": 0.019175,
+      "difference": -0.000144
+    },
+    {
+      "resource_key": "anvil-test-1795102136-91bdc437-1172",
+      "rainstone": 0.023779,
+      "billing": 0.023897,
+      "difference": -0.000118
+    },
+    {
+      "resource_key": "anvil-test-1795102144-558c1d28-1176",
+      "rainstone": 0.024496,
+      "billing": 0.02461,
+      "difference": -0.000114
+    },
+    {
+      "resource_key": "anvil-test-1795102151-112fd944-1181",
+      "rainstone": 0.026173,
+      "billing": 0.026315,
+      "difference": -0.000142
+    },
+    {
+      "resource_key": "anvil-test-1795102177-905ab61f-1199",
+      "rainstone": 0.041209,
+      "billing": 0.041306,
+      "difference": -9.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102187-b2254338-1192",
+      "rainstone": 0.035661,
+      "billing": 0.035843,
+      "difference": -0.000182
+    },
+    {
+      "resource_key": "anvil-test-1795102205-9a675dab-1215",
+      "rainstone": 0.003161,
+      "billing": 0.00318,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102208-6ae44a63-1217",
+      "rainstone": 0.017897,
+      "billing": 0.017958,
+      "difference": -6.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102239-b62f940f-1238",
+      "rainstone": 0.017633,
+      "billing": 0.017715,
+      "difference": -8.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102258-b5909067-1250",
+      "rainstone": 0.003412,
+      "billing": 0.003431,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102260-f55c08a2-1251",
+      "rainstone": 0.021549,
+      "billing": 0.021623,
+      "difference": -7.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102261-b74a03a7-1252",
+      "rainstone": 0.003168,
+      "billing": 0.003184,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102267-5e355007-1256",
+      "rainstone": 0.003079,
+      "billing": 0.003095,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102282-c5fdee7b-1266",
+      "rainstone": 0.004793,
+      "billing": 0.004815,
+      "difference": -2.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102304-d47ca969-1278",
+      "rainstone": 0.017708,
+      "billing": 0.017797,
+      "difference": -8.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102307-93410466-1282",
+      "rainstone": 0.012279,
+      "billing": 0.012366,
+      "difference": -8.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102310-9b376bf1-1284",
+      "rainstone": 0.004568,
+      "billing": 0.004603,
+      "difference": -3.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102345-9a68e4de-1307",
+      "rainstone": 0.014107,
+      "billing": 0.014176,
+      "difference": -6.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102348-41d551fe-1308",
+      "rainstone": 0.012955,
+      "billing": 0.013032,
+      "difference": -7.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102358-c8be3f2d-1314",
+      "rainstone": 0.017274,
+      "billing": 0.017358,
+      "difference": -8.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102363-93e21b9b-1317",
+      "rainstone": 0.012829,
+      "billing": 0.012898,
+      "difference": -6.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102364-fc14faaa-1318",
+      "rainstone": 0.012564,
+      "billing": 0.012628,
+      "difference": -6.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102366-555529b3-1320",
+      "rainstone": 0.013551,
+      "billing": 0.013596,
+      "difference": -4.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102374-2770525e-1325",
+      "rainstone": 0.013462,
+      "billing": 0.013552,
+      "difference": -9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102377-b40f5f69-1328",
+      "rainstone": 0.0055,
+      "billing": 0.005502,
+      "difference": -2e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102385-fa9ed24a-1333",
+      "rainstone": 0.014012,
+      "billing": 0.014098,
+      "difference": -8.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102398-2541df20-1342",
+      "rainstone": 0.013017,
+      "billing": 0.0131,
+      "difference": -8.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102402-b9ca2b8e-1344",
+      "rainstone": 0.012995,
+      "billing": 0.0131,
+      "difference": -0.000105
+    },
+    {
+      "resource_key": "anvil-test-1795102403-fb90b295-1345",
+      "rainstone": 0.012922,
+      "billing": 0.01301,
+      "difference": -8.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102437-239e6873-1366",
+      "rainstone": 0.032602,
+      "billing": 0.032839,
+      "difference": -0.000237
+    },
+    {
+      "resource_key": "anvil-test-1795102440-565888f8-1368",
+      "rainstone": 0.027656,
+      "billing": 0.027826,
+      "difference": -0.00017
+    },
+    {
+      "resource_key": "anvil-test-1795102447-43620cbb-1372",
+      "rainstone": 0.027334,
+      "billing": 0.027489,
+      "difference": -0.000155
+    },
+    {
+      "resource_key": "anvil-test-1795102451-374a1f74-1376",
+      "rainstone": 0.036482,
+      "billing": 0.036629,
+      "difference": -0.000147
+    },
+    {
+      "resource_key": "anvil-test-1795102453-09e17575-1377",
+      "rainstone": 0.006209,
+      "billing": 0.006253,
+      "difference": -4.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102458-202da919-1380",
+      "rainstone": 0.004329,
+      "billing": 0.004345,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102459-80f1481f-1381",
+      "rainstone": 0.004704,
+      "billing": 0.00474,
+      "difference": -3.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102463-b09cbb7c-1384",
+      "rainstone": 0.004174,
+      "billing": 0.004182,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102468-3e91e14e-1387",
+      "rainstone": 0.004532,
+      "billing": 0.004557,
+      "difference": -2.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102474-9fec8227-1391",
+      "rainstone": 0.010685,
+      "billing": 0.010718,
+      "difference": -3.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102480-3a969090-1394",
+      "rainstone": 0.060023,
+      "billing": 0.060194,
+      "difference": -0.000171
+    },
+    {
+      "resource_key": "anvil-test-1795102482-a0097aec-1396",
+      "rainstone": 0.010789,
+      "billing": 0.010801,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102483-600d59cb-1397",
+      "rainstone": 0.010722,
+      "billing": 0.010761,
+      "difference": -3.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102485-5033f0ad-1398",
+      "rainstone": 0.023941,
+      "billing": 0.024012,
+      "difference": -7.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102488-d87e0143-1399",
+      "rainstone": 0.010717,
+      "billing": 0.010744,
+      "difference": -2.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102490-f43ef724-1401",
+      "rainstone": 0.002532,
+      "billing": 0.00254,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102491-0545365f-1402",
+      "rainstone": 0.01872,
+      "billing": 0.018797,
+      "difference": -7.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102501-31a3d523-1407",
+      "rainstone": 0.013177,
+      "billing": 0.013256,
+      "difference": -7.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102503-17600c08-1409",
+      "rainstone": 0.018466,
+      "billing": 0.018583,
+      "difference": -0.000117
+    },
+    {
+      "resource_key": "anvil-test-1795102507-97b9aa6e-1412",
+      "rainstone": 0.019087,
+      "billing": 0.019281,
+      "difference": -0.000194
+    },
+    {
+      "resource_key": "anvil-test-1795102517-26c5279c-1417",
+      "rainstone": 0.004329,
+      "billing": 0.004309,
+      "difference": 2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102517-9fe73671-1416",
+      "rainstone": 0.017912,
+      "billing": 0.01799,
+      "difference": -7.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102519-035fcf3c-1418",
+      "rainstone": 0.069784,
+      "billing": 0.069952,
+      "difference": -0.000168
+    },
+    {
+      "resource_key": "anvil-test-1795102522-b9f1964c-1419",
+      "rainstone": 0.004069,
+      "billing": 0.004083,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102524-f43e9b82-1420",
+      "rainstone": 0.0697,
+      "billing": 0.069851,
+      "difference": -0.000151
+    },
+    {
+      "resource_key": "anvil-test-1795102525-7292e9de-1421",
+      "rainstone": 0.004129,
+      "billing": 0.004144,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102533-5b316c2d-1426",
+      "rainstone": 0.004162,
+      "billing": 0.00417,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102535-60471720-1427",
+      "rainstone": 0.004208,
+      "billing": 0.004224,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102536-e021d37d-1428",
+      "rainstone": 0.012839,
+      "billing": 0.012884,
+      "difference": -4.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102538-135b4033-1430",
+      "rainstone": 0.067916,
+      "billing": 0.068078,
+      "difference": -0.000162
+    },
+    {
+      "resource_key": "anvil-test-1795102554-e075005a-1439",
+      "rainstone": 0.002208,
+      "billing": 0.002219,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102558-4ea8f94a-1442",
+      "rainstone": 0.013436,
+      "billing": 0.013489,
+      "difference": -5.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102559-58595b0a-1443",
+      "rainstone": 0.002234,
+      "billing": 0.00225,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102561-4ac13438-1444",
+      "rainstone": 0.00223,
+      "billing": 0.002237,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102562-a0396b4d-1445",
+      "rainstone": 0.002127,
+      "billing": 0.002142,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102565-b2215348-1446",
+      "rainstone": 0.006732,
+      "billing": 0.006743,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102566-54da0e91-1447",
+      "rainstone": 0.004195,
+      "billing": 0.004208,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102567-7e421e83-1448",
+      "rainstone": 0.006745,
+      "billing": 0.006763,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102575-27ef6a4e-1453",
+      "rainstone": 0.00484,
+      "billing": 0.00485,
+      "difference": -1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102577-bfc07fc1-1454",
+      "rainstone": 0.011762,
+      "billing": 0.011834,
+      "difference": -7.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102579-e8b0e87c-1456",
+      "rainstone": 0.012279,
+      "billing": 0.012338,
+      "difference": -5.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102581-b4b2b391-1457",
+      "rainstone": 0.002367,
+      "billing": 0.002373,
+      "difference": -6e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102585-5493a404-1459",
+      "rainstone": 0.011869,
+      "billing": 0.011932,
+      "difference": -6.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102587-ab8c8128-1461",
+      "rainstone": 0.002469,
+      "billing": 0.002479,
+      "difference": -1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102610-ad2319a9-1474",
+      "rainstone": 0.009541,
+      "billing": 0.009603,
+      "difference": -6.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102618-040fe515-1478",
+      "rainstone": 0.012867,
+      "billing": 0.012942,
+      "difference": -7.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102619-a00bdd55-1479",
+      "rainstone": 0.009223,
+      "billing": 0.009268,
+      "difference": -4.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102640-bb125e6e-1491",
+      "rainstone": 0.010098,
+      "billing": 0.010151,
+      "difference": -5.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102642-9168b4e8-1492",
+      "rainstone": 0.010313,
+      "billing": 0.010348,
+      "difference": -3.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102656-7af2b16e-1499",
+      "rainstone": 0.013163,
+      "billing": 0.01319,
+      "difference": -2.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102667-b0034425-1505",
+      "rainstone": 0.003023,
+      "billing": 0.003027,
+      "difference": -4e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102668-8f111ed8-1506",
+      "rainstone": 0.002453,
+      "billing": 0.002465,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102669-a1f7623a-1507",
+      "rainstone": 0.00538,
+      "billing": 0.005395,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102671-6e26a46a-1508",
+      "rainstone": 0.011522,
+      "billing": 0.011662,
+      "difference": -0.00014
+    },
+    {
+      "resource_key": "anvil-test-1795102693-85bc66d9-1517",
+      "rainstone": 0.005737,
+      "billing": 0.005744,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102694-f76f6257-1518",
+      "rainstone": 0.006769,
+      "billing": 0.006786,
+      "difference": -1.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102695-f8e4df90-1519",
+      "rainstone": 0.007302,
+      "billing": 0.007319,
+      "difference": -1.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102697-d4a529a0-1520",
+      "rainstone": 0.019775,
+      "billing": 0.019872,
+      "difference": -9.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102706-2b6959d0-1525",
+      "rainstone": 0.029517,
+      "billing": 0.029638,
+      "difference": -0.000121
+    },
+    {
+      "resource_key": "anvil-test-1795102707-13c211da-1526",
+      "rainstone": 0.005698,
+      "billing": 0.005718,
+      "difference": -2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102717-75d5fc28-1530",
+      "rainstone": 0.024358,
+      "billing": 0.024439,
+      "difference": -8.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102729-bc249d14-1537",
+      "rainstone": 0.004633,
+      "billing": 0.004666,
+      "difference": -3.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102729-f9701cb6-1536",
+      "rainstone": 0.004789,
+      "billing": 0.004832,
+      "difference": -4.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102731-394c79e4-1538",
+      "rainstone": 0.004688,
+      "billing": 0.004727,
+      "difference": -3.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102734-f00dc972-1540",
+      "rainstone": 0.00474,
+      "billing": 0.004759,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102739-89acb046-1542",
+      "rainstone": 0.02445,
+      "billing": 0.024519,
+      "difference": -6.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102741-60dea0e4-1543",
+      "rainstone": 0.024321,
+      "billing": 0.024443,
+      "difference": -0.000122
+    },
+    {
+      "resource_key": "anvil-test-1795102743-f358b3ba-1544",
+      "rainstone": 0.039234,
+      "billing": 0.039315,
+      "difference": -8.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102749-22967f88-1547",
+      "rainstone": 0.003524,
+      "billing": 0.003554,
+      "difference": -3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102751-a6b6d00f-1548",
+      "rainstone": 0.022914,
+      "billing": 0.023032,
+      "difference": -0.000118
+    },
+    {
+      "resource_key": "anvil-test-1795102764-61ca382a-1556",
+      "rainstone": 0.005361,
+      "billing": 0.005365,
+      "difference": -4e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102789-6e338e95-1568",
+      "rainstone": 0.003641,
+      "billing": 0.003656,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102794-25bd64aa-1571",
+      "rainstone": 0.003366,
+      "billing": 0.003381,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102801-0af1b33c-1574",
+      "rainstone": 0.003362,
+      "billing": 0.003384,
+      "difference": -2.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102804-6a5529aa-1576",
+      "rainstone": 0.004639,
+      "billing": 0.004649,
+      "difference": -1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102825-2e86c200-1588",
+      "rainstone": 0.014084,
+      "billing": 0.014147,
+      "difference": -6.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102844-5fc5f771-1598",
+      "rainstone": 0.024715,
+      "billing": 0.024787,
+      "difference": -7.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102847-5bc713b7-1600",
+      "rainstone": 0.004161,
+      "billing": 0.004166,
+      "difference": -5e-06
+    },
+    {
+      "resource_key": "anvil-test-1795102852-90ed47dc-1602",
+      "rainstone": 0.013811,
+      "billing": 0.013862,
+      "difference": -5.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102910-bda3b121-1630",
+      "rainstone": 0.016093,
+      "billing": 0.016173,
+      "difference": -8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102925-daaee49d-1638",
+      "rainstone": 0.015199,
+      "billing": 0.01532,
+      "difference": -0.000121
+    },
+    {
+      "resource_key": "anvil-test-1795102927-fb55d0ec-1639",
+      "rainstone": 0.013419,
+      "billing": 0.013475,
+      "difference": -5.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102929-3ca1b3fc-1642",
+      "rainstone": 0.014228,
+      "billing": 0.014311,
+      "difference": -8.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102936-f7f89f68-1645",
+      "rainstone": 0.015677,
+      "billing": 0.015758,
+      "difference": -8.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102938-5105fa52-1646",
+      "rainstone": 0.013454,
+      "billing": 0.013507,
+      "difference": -5.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102950-fa83bb7c-1653",
+      "rainstone": 0.013325,
+      "billing": 0.013403,
+      "difference": -7.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102960-5744060d-1659",
+      "rainstone": 0.012297,
+      "billing": 0.012382,
+      "difference": -8.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102964-db661fcb-1660",
+      "rainstone": 0.012571,
+      "billing": 0.012626,
+      "difference": -5.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102965-c4de058a-1661",
+      "rainstone": 0.01416,
+      "billing": 0.014221,
+      "difference": -6.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102969-f68a2d46-1664",
+      "rainstone": 0.008396,
+      "billing": 0.008411,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102974-2b01772f-1666",
+      "rainstone": 0.009151,
+      "billing": 0.009246,
+      "difference": -9.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102975-0213561c-1667",
+      "rainstone": 0.008926,
+      "billing": 0.008955,
+      "difference": -2.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102977-7406623b-1668",
+      "rainstone": 0.009817,
+      "billing": 0.009863,
+      "difference": -4.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795102990-161000ff-1676",
+      "rainstone": 0.029459,
+      "billing": 0.029676,
+      "difference": -0.000217
+    },
+    {
+      "resource_key": "anvil-test-1795103004-63532d85-1684",
+      "rainstone": 0.006361,
+      "billing": 0.006376,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103029-71ae3a79-1697",
+      "rainstone": 0.004738,
+      "billing": 0.004744,
+      "difference": -6e-06
+    },
+    {
+      "resource_key": "anvil-test-1795103035-903a1e3d-1641",
+      "rainstone": 0.175738,
+      "billing": 0.175802,
+      "difference": -6.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103040-65efd4c5-1701",
+      "rainstone": 0.032311,
+      "billing": 0.032615,
+      "difference": -0.000304
+    },
+    {
+      "resource_key": "anvil-test-1795103049-fda44ced-1705",
+      "rainstone": 0.035765,
+      "billing": 0.035934,
+      "difference": -0.000169
+    },
+    {
+      "resource_key": "anvil-test-1795103051-d9f32f68-1707",
+      "rainstone": 0.004899,
+      "billing": 0.004924,
+      "difference": -2.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103057-d0749eb0-1709",
+      "rainstone": 0.028686,
+      "billing": 0.028847,
+      "difference": -0.000161
+    },
+    {
+      "resource_key": "anvil-test-1795103109-649510d5-1736",
+      "rainstone": 0.141237,
+      "billing": 0.141338,
+      "difference": -0.000101
+    },
+    {
+      "resource_key": "anvil-test-1795103117-8f2e908c-1740",
+      "rainstone": 0.129512,
+      "billing": 0.12964,
+      "difference": -0.000128
+    },
+    {
+      "resource_key": "anvil-test-1795103127-5b4052cb-1744",
+      "rainstone": 0.050506,
+      "billing": 0.050671,
+      "difference": -0.000165
+    },
+    {
+      "resource_key": "anvil-test-1795103128-63ba20bd-1745",
+      "rainstone": 0.04365,
+      "billing": 0.043786,
+      "difference": -0.000136
+    },
+    {
+      "resource_key": "anvil-test-1795103142-576c7937-1752",
+      "rainstone": 0.014067,
+      "billing": 0.014108,
+      "difference": -4.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103167-417c9b86-1764",
+      "rainstone": 0.010593,
+      "billing": 0.010617,
+      "difference": -2.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103171-5497afb1-1766",
+      "rainstone": 0.004543,
+      "billing": 0.004556,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103173-fcac51ae-1768",
+      "rainstone": 0.011631,
+      "billing": 0.011642,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103177-11653d14-1769",
+      "rainstone": 0.004398,
+      "billing": 0.004411,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103178-0cbee098-1770",
+      "rainstone": 0.011006,
+      "billing": 0.01105,
+      "difference": -4.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103180-b3547ff4-1771",
+      "rainstone": 0.004324,
+      "billing": 0.004311,
+      "difference": 1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103182-06a74519-1772",
+      "rainstone": 0.002293,
+      "billing": 0.002297,
+      "difference": -4e-06
+    },
+    {
+      "resource_key": "anvil-test-1795103194-012cfe44-1778",
+      "rainstone": 0.014828,
+      "billing": 0.014874,
+      "difference": -4.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103198-690e2213-1780",
+      "rainstone": 0.00271,
+      "billing": 0.002722,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103200-da1df120-1781",
+      "rainstone": 0.002401,
+      "billing": 0.002417,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103205-4e939d07-1784",
+      "rainstone": 0.002393,
+      "billing": 0.002388,
+      "difference": 5e-06
+    },
+    {
+      "resource_key": "anvil-test-1795103218-01d98d5b-1790",
+      "rainstone": 0.010639,
+      "billing": 0.010679,
+      "difference": -4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103219-591d197d-1791",
+      "rainstone": 0.011097,
+      "billing": 0.011155,
+      "difference": -5.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103223-2f31e422-1793",
+      "rainstone": 0.01101,
+      "billing": 0.011062,
+      "difference": -5.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103231-9810e423-1797",
+      "rainstone": 0.011097,
+      "billing": 0.011167,
+      "difference": -7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103274-556cde6d-1819",
+      "rainstone": 0.014026,
+      "billing": 0.014071,
+      "difference": -4.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103276-c22683eb-1820",
+      "rainstone": 0.01427,
+      "billing": 0.014367,
+      "difference": -9.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103278-8576574c-1821",
+      "rainstone": 0.013959,
+      "billing": 0.013921,
+      "difference": 3.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103300-f9016632-1832",
+      "rainstone": 0.011409,
+      "billing": 0.011485,
+      "difference": -7.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103302-8332077c-1833",
+      "rainstone": 0.014865,
+      "billing": 0.014919,
+      "difference": -5.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103305-3c00a2b1-1835",
+      "rainstone": 0.016266,
+      "billing": 0.016332,
+      "difference": -6.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103336-70792692-1849",
+      "rainstone": 0.043133,
+      "billing": 0.043281,
+      "difference": -0.000148
+    },
+    {
+      "resource_key": "anvil-test-1795103349-aa4c935f-1855",
+      "rainstone": 0.012707,
+      "billing": 0.012764,
+      "difference": -5.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103352-8e7d4cca-1856",
+      "rainstone": 0.011753,
+      "billing": 0.011793,
+      "difference": -4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103389-f89cb076-1875",
+      "rainstone": 0.007373,
+      "billing": 0.007399,
+      "difference": -2.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103407-ad60bff6-1884",
+      "rainstone": 0.016326,
+      "billing": 0.016403,
+      "difference": -7.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103411-290e227c-1886",
+      "rainstone": 0.00726,
+      "billing": 0.007276,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103470-c5eeea1f-1915",
+      "rainstone": 0.054187,
+      "billing": 0.054373,
+      "difference": -0.000186
+    },
+    {
+      "resource_key": "anvil-test-1795103473-461418a0-1917",
+      "rainstone": 0.038356,
+      "billing": 0.038537,
+      "difference": -0.000181
+    },
+    {
+      "resource_key": "anvil-test-1795103486-008b17b1-1923",
+      "rainstone": 0.00599,
+      "billing": 0.006005,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103488-bd4bd958-1924",
+      "rainstone": 0.039203,
+      "billing": 0.039333,
+      "difference": -0.00013
+    },
+    {
+      "resource_key": "anvil-test-1795103491-e36abd9f-1926",
+      "rainstone": 0.005526,
+      "billing": 0.005545,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103501-59d5caff-1931",
+      "rainstone": 0.003278,
+      "billing": 0.003299,
+      "difference": -2.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103505-7877f4d6-1932",
+      "rainstone": 0.004876,
+      "billing": 0.004907,
+      "difference": -3.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103506-58ea40f5-1933",
+      "rainstone": 0.004616,
+      "billing": 0.004637,
+      "difference": -2.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103509-e4e45983-1935",
+      "rainstone": 0.005588,
+      "billing": 0.005601,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103514-83dc6708-1937",
+      "rainstone": 0.00471,
+      "billing": 0.004741,
+      "difference": -3.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103518-3fba1130-1940",
+      "rainstone": 0.025714,
+      "billing": 0.025769,
+      "difference": -5.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103520-869459cf-1941",
+      "rainstone": 0.070073,
+      "billing": 0.070171,
+      "difference": -9.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103524-719fe6c5-1943",
+      "rainstone": 0.115497,
+      "billing": 0.115563,
+      "difference": -6.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103528-663a99e7-1945",
+      "rainstone": 0.024266,
+      "billing": 0.024322,
+      "difference": -5.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103561-869a5312-1962",
+      "rainstone": 0.006356,
+      "billing": 0.006374,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103582-6dea309f-1973",
+      "rainstone": 0.00706,
+      "billing": 0.007074,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103598-1070a8d0-1981",
+      "rainstone": 0.003403,
+      "billing": 0.003423,
+      "difference": -2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103600-da58fa96-1982",
+      "rainstone": 0.007066,
+      "billing": 0.007076,
+      "difference": -1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103603-d941a2a4-1984",
+      "rainstone": 0.003307,
+      "billing": 0.003324,
+      "difference": -1.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103605-13311c30-1985",
+      "rainstone": 0.003236,
+      "billing": 0.003246,
+      "difference": -1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103649-c3a4c687-2004",
+      "rainstone": 0.01518,
+      "billing": 0.01525,
+      "difference": -7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103706-7f76dcc5-2031",
+      "rainstone": 0.00937,
+      "billing": 0.009388,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103723-05e14eb8-2039",
+      "rainstone": 0.010517,
+      "billing": 0.010532,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103726-013b39af-2041",
+      "rainstone": 0.008708,
+      "billing": 0.008738,
+      "difference": -3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103748-4c52a6ea-2051",
+      "rainstone": 0.010005,
+      "billing": 0.010045,
+      "difference": -4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103795-1fbb839d-2074",
+      "rainstone": 0.004277,
+      "billing": 0.004288,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103805-5107526a-2080",
+      "rainstone": 0.006097,
+      "billing": 0.00611,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103822-d9a685b9-2088",
+      "rainstone": 0.00494,
+      "billing": 0.00496,
+      "difference": -2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103827-33db6320-2091",
+      "rainstone": 0.004572,
+      "billing": 0.004591,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103834-9b812c7d-2094",
+      "rainstone": 0.005134,
+      "billing": 0.005145,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103842-cbb42179-2098",
+      "rainstone": 0.013295,
+      "billing": 0.01338,
+      "difference": -8.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103844-2148b5b5-2075",
+      "rainstone": 0.004396,
+      "billing": 0.004396,
+      "difference": 0.0
+    },
+    {
+      "resource_key": "anvil-test-1795103856-851e4ef6-2104",
+      "rainstone": 0.018514,
+      "billing": 0.018589,
+      "difference": -7.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103861-cefc328e-2106",
+      "rainstone": 0.018369,
+      "billing": 0.018464,
+      "difference": -9.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103879-4b22fc5c-2115",
+      "rainstone": 0.019065,
+      "billing": 0.019214,
+      "difference": -0.000149
+    },
+    {
+      "resource_key": "anvil-test-1795103888-aff763c4-2119",
+      "rainstone": 0.018816,
+      "billing": 0.018896,
+      "difference": -8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103893-442f8c04-2122",
+      "rainstone": 0.013548,
+      "billing": 0.0136,
+      "difference": -5.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103901-b5a2c008-2126",
+      "rainstone": 0.01357,
+      "billing": 0.013635,
+      "difference": -6.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103918-c1338a98-2134",
+      "rainstone": 0.010218,
+      "billing": 0.010249,
+      "difference": -3.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103933-dfd11c18-2141",
+      "rainstone": 0.010246,
+      "billing": 0.010278,
+      "difference": -3.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103953-186e0db8-2151",
+      "rainstone": 0.009907,
+      "billing": 0.009967,
+      "difference": -6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103965-f9c19322-2157",
+      "rainstone": 0.11595,
+      "billing": 0.116137,
+      "difference": -0.000187
+    },
+    {
+      "resource_key": "anvil-test-1795103974-ce67b2a4-2161",
+      "rainstone": 0.015076,
+      "billing": 0.015148,
+      "difference": -7.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795103983-1dc4d872-2165",
+      "rainstone": 0.014671,
+      "billing": 0.014796,
+      "difference": -0.000125
+    },
+    {
+      "resource_key": "anvil-test-1795104009-aed8e5e1-2177",
+      "rainstone": 0.009048,
+      "billing": 0.009079,
+      "difference": -3.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104012-10ddcdb1-2179",
+      "rainstone": 0.03068,
+      "billing": 0.030854,
+      "difference": -0.000174
+    },
+    {
+      "resource_key": "anvil-test-1795104034-e7d5d11d-2189",
+      "rainstone": 0.005894,
+      "billing": 0.005905,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104050-8f959c9d-2197",
+      "rainstone": 0.00469,
+      "billing": 0.004698,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795104126-0d9b6873-2230",
+      "rainstone": 0.002538,
+      "billing": 0.002552,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104127-513b4a71-2231",
+      "rainstone": 0.002312,
+      "billing": 0.002324,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104131-de9f353d-2232",
+      "rainstone": 0.002308,
+      "billing": 0.002324,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104133-9ac61ffb-2233",
+      "rainstone": 0.002626,
+      "billing": 0.002632,
+      "difference": -6e-06
+    },
+    {
+      "resource_key": "anvil-test-1795104135-3d2207df-2234",
+      "rainstone": 0.047512,
+      "billing": 0.047643,
+      "difference": -0.000131
+    },
+    {
+      "resource_key": "anvil-test-1795104169-52f964a0-2249",
+      "rainstone": 0.10464,
+      "billing": 0.104899,
+      "difference": -0.000259
+    },
+    {
+      "resource_key": "anvil-test-1795104172-9f2a5b33-2251",
+      "rainstone": 0.011618,
+      "billing": 0.011643,
+      "difference": -2.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104174-85f47196-2252",
+      "rainstone": 0.011499,
+      "billing": 0.011526,
+      "difference": -2.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104181-3014d368-2255",
+      "rainstone": 0.009304,
+      "billing": 0.009405,
+      "difference": -0.000101
+    },
+    {
+      "resource_key": "anvil-test-1795104183-05d31094-2256",
+      "rainstone": 0.008748,
+      "billing": 0.00881,
+      "difference": -6.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104186-7394167a-2257",
+      "rainstone": 0.01097,
+      "billing": 0.011031,
+      "difference": -6.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104188-575ef26f-2258",
+      "rainstone": 0.010953,
+      "billing": 0.011014,
+      "difference": -6.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104215-83b4c531-2271",
+      "rainstone": 0.015316,
+      "billing": 0.015398,
+      "difference": -8.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104270-93697ca5-2297",
+      "rainstone": 0.013373,
+      "billing": 0.013418,
+      "difference": -4.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104299-486ffc0b-2310",
+      "rainstone": 0.004864,
+      "billing": 0.004879,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104302-7c0c66da-2311",
+      "rainstone": 0.004601,
+      "billing": 0.004613,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104304-aa77d4b3-2312",
+      "rainstone": 0.004724,
+      "billing": 0.004759,
+      "difference": -3.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104313-158ccb26-2316",
+      "rainstone": 0.004334,
+      "billing": 0.004351,
+      "difference": -1.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104316-e805bfa5-2318",
+      "rainstone": 0.012068,
+      "billing": 0.012156,
+      "difference": -8.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104347-5fdb590a-2331",
+      "rainstone": 0.00351,
+      "billing": 0.003524,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104353-701f04b7-2334",
+      "rainstone": 0.00311,
+      "billing": 0.003117,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795104356-a1c8773c-2335",
+      "rainstone": 0.003222,
+      "billing": 0.003236,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104358-a7480552-2336",
+      "rainstone": 0.003247,
+      "billing": 0.003253,
+      "difference": -6e-06
+    },
+    {
+      "resource_key": "anvil-test-1795104374-feba7163-2343",
+      "rainstone": 0.061768,
+      "billing": 0.061966,
+      "difference": -0.000198
+    },
+    {
+      "resource_key": "anvil-test-1795104379-0f08013a-2347",
+      "rainstone": 0.106894,
+      "billing": 0.107042,
+      "difference": -0.000148
+    },
+    {
+      "resource_key": "anvil-test-1795104406-779d8170-2359",
+      "rainstone": 0.003635,
+      "billing": 0.003653,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104411-48e1c9fa-2361",
+      "rainstone": 0.005372,
+      "billing": 0.005412,
+      "difference": -4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104422-b42cfe78-2366",
+      "rainstone": 0.00509,
+      "billing": 0.005105,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104424-1f4cd413-2367",
+      "rainstone": 0.005047,
+      "billing": 0.005076,
+      "difference": -2.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104431-8be066b0-2370",
+      "rainstone": 0.006789,
+      "billing": 0.006807,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104433-e0a9539a-2371",
+      "rainstone": 0.006777,
+      "billing": 0.006791,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104437-7b2d5bf4-2372",
+      "rainstone": 0.005534,
+      "billing": 0.005539,
+      "difference": -5e-06
+    },
+    {
+      "resource_key": "anvil-test-1795104446-2bbe54c4-2376",
+      "rainstone": 0.005831,
+      "billing": 0.005846,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104459-84166097-2382",
+      "rainstone": 0.00351,
+      "billing": 0.003513,
+      "difference": -3e-06
+    },
+    {
+      "resource_key": "anvil-test-1795104470-fac3d93f-2387",
+      "rainstone": 0.003276,
+      "billing": 0.003286,
+      "difference": -1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104474-3572be0d-2388",
+      "rainstone": 0.003293,
+      "billing": 0.003306,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104484-488543ad-2392",
+      "rainstone": 0.006562,
+      "billing": 0.006603,
+      "difference": -4.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104485-a8ca57d2-2393",
+      "rainstone": 0.006924,
+      "billing": 0.006968,
+      "difference": -4.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104487-21daabf6-2394",
+      "rainstone": 0.006641,
+      "billing": 0.006682,
+      "difference": -4.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104496-73f4df86-2398",
+      "rainstone": 0.005799,
+      "billing": 0.00582,
+      "difference": -2.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104504-428f79c3-2400",
+      "rainstone": 0.024317,
+      "billing": 0.024401,
+      "difference": -8.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104519-72fd5d6e-2406",
+      "rainstone": 0.007375,
+      "billing": 0.007385,
+      "difference": -1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104571-100ca29e-2427",
+      "rainstone": 0.00689,
+      "billing": 0.006915,
+      "difference": -2.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104573-2c3074b9-2428",
+      "rainstone": 0.008493,
+      "billing": 0.008523,
+      "difference": -3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104575-6867acc7-2429",
+      "rainstone": 0.008395,
+      "billing": 0.008417,
+      "difference": -2.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104583-60f4aa47-2432",
+      "rainstone": 0.008915,
+      "billing": 0.008949,
+      "difference": -3.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104602-50ebe233-2434",
+      "rainstone": 0.009536,
+      "billing": 0.009587,
+      "difference": -5.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104603-89232024-2435",
+      "rainstone": 0.009467,
+      "billing": 0.009526,
+      "difference": -5.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104629-e34c74e9-2450",
+      "rainstone": 0.00593,
+      "billing": 0.005948,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104632-3a146b69-2451",
+      "rainstone": 0.014221,
+      "billing": 0.014267,
+      "difference": -4.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104634-45d07911-2452",
+      "rainstone": 0.013759,
+      "billing": 0.013797,
+      "difference": -3.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104637-0e60a9d0-2453",
+      "rainstone": 0.019496,
+      "billing": 0.019594,
+      "difference": -9.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104681-2c79ea54-2471",
+      "rainstone": 0.01182,
+      "billing": 0.011845,
+      "difference": -2.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104683-8844640a-2472",
+      "rainstone": 0.009204,
+      "billing": 0.009248,
+      "difference": -4.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104693-f29d5a5f-2476",
+      "rainstone": 0.009972,
+      "billing": 0.010008,
+      "difference": -3.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104696-1e7dfcb5-2477",
+      "rainstone": 0.013665,
+      "billing": 0.01372,
+      "difference": -5.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104703-fb9e672f-2480",
+      "rainstone": 0.009719,
+      "billing": 0.009738,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104706-47e7fe39-2481",
+      "rainstone": 0.007029,
+      "billing": 0.007049,
+      "difference": -2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104708-59dba7dd-2482",
+      "rainstone": 0.006934,
+      "billing": 0.006947,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104710-2eb6cbf9-2483",
+      "rainstone": 0.006756,
+      "billing": 0.006771,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104712-8676e4fc-2484",
+      "rainstone": 0.006758,
+      "billing": 0.006768,
+      "difference": -1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104715-4d3ef091-2485",
+      "rainstone": 0.012474,
+      "billing": 0.012536,
+      "difference": -6.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104717-254ab473-2486",
+      "rainstone": 0.012844,
+      "billing": 0.012914,
+      "difference": -7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104718-2c625d45-2487",
+      "rainstone": 0.011057,
+      "billing": 0.01112,
+      "difference": -6.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104720-38f6e4ad-2488",
+      "rainstone": 0.00981,
+      "billing": 0.009848,
+      "difference": -3.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104724-841dbfd0-2489",
+      "rainstone": 0.010629,
+      "billing": 0.010699,
+      "difference": -7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104735-2ee6341d-2494",
+      "rainstone": 0.002806,
+      "billing": 0.002813,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795104767-10a9f846-2507",
+      "rainstone": 0.002746,
+      "billing": 0.002753,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795104771-cec64eab-2508",
+      "rainstone": 0.002437,
+      "billing": 0.002491,
+      "difference": -5.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104773-43b570b5-2509",
+      "rainstone": 0.002551,
+      "billing": 0.002557,
+      "difference": -6e-06
+    },
+    {
+      "resource_key": "anvil-test-1795104778-fd40f3b1-2511",
+      "rainstone": 0.009137,
+      "billing": 0.009166,
+      "difference": -2.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104789-5677aa22-2516",
+      "rainstone": 0.002784,
+      "billing": 0.002797,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104797-716a8cf6-2519",
+      "rainstone": 0.002494,
+      "billing": 0.002507,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104799-9b65cc85-2520",
+      "rainstone": 0.002296,
+      "billing": 0.00231,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104803-4d35dbf0-2522",
+      "rainstone": 0.002178,
+      "billing": 0.002187,
+      "difference": -9e-06
+    },
+    {
+      "resource_key": "anvil-test-1795104818-52265c68-2528",
+      "rainstone": 0.005625,
+      "billing": 0.005638,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104820-8bb7159b-2529",
+      "rainstone": 0.006452,
+      "billing": 0.006497,
+      "difference": -4.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104825-802cbe4a-2530",
+      "rainstone": 0.006957,
+      "billing": 0.006992,
+      "difference": -3.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104827-2684566c-2531",
+      "rainstone": 0.006782,
+      "billing": 0.006825,
+      "difference": -4.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104829-8f86c92d-2532",
+      "rainstone": 0.007027,
+      "billing": 0.007076,
+      "difference": -4.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104861-f07842a0-2545",
+      "rainstone": 0.018213,
+      "billing": 0.01826,
+      "difference": -4.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104867-ec9949f9-2546",
+      "rainstone": 0.017854,
+      "billing": 0.017884,
+      "difference": -3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104879-ff564afb-2551",
+      "rainstone": 0.008236,
+      "billing": 0.008267,
+      "difference": -3.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104885-47d0b420-2553",
+      "rainstone": 0.02664,
+      "billing": 0.026754,
+      "difference": -0.000114
+    },
+    {
+      "resource_key": "anvil-test-1795104886-bcb7eac1-2554",
+      "rainstone": 0.026036,
+      "billing": 0.026179,
+      "difference": -0.000143
+    },
+    {
+      "resource_key": "anvil-test-1795104888-aaf69abc-2555",
+      "rainstone": 0.027328,
+      "billing": 0.027452,
+      "difference": -0.000124
+    },
+    {
+      "resource_key": "anvil-test-1795104892-2c958b5d-2556",
+      "rainstone": 0.0265,
+      "billing": 0.026632,
+      "difference": -0.000132
+    },
+    {
+      "resource_key": "anvil-test-1795104895-d6ce6733-2557",
+      "rainstone": 0.01393,
+      "billing": 0.013976,
+      "difference": -4.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104897-d5c9abfb-2558",
+      "rainstone": 0.017782,
+      "billing": 0.017851,
+      "difference": -6.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104943-a8966f84-2575",
+      "rainstone": 0.003599,
+      "billing": 0.003604,
+      "difference": -5e-06
+    },
+    {
+      "resource_key": "anvil-test-1795104955-581392a2-2580",
+      "rainstone": 0.003211,
+      "billing": 0.003222,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104961-bf85ed26-2582",
+      "rainstone": 0.003138,
+      "billing": 0.003146,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795104969-3432dab5-2585",
+      "rainstone": 0.029406,
+      "billing": 0.029502,
+      "difference": -9.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104975-fc65d7a5-2588",
+      "rainstone": 0.028272,
+      "billing": 0.028381,
+      "difference": -0.000109
+    },
+    {
+      "resource_key": "anvil-test-1795104985-2a932158-2592",
+      "rainstone": 0.026194,
+      "billing": 0.026284,
+      "difference": -9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795104988-c731360a-2593",
+      "rainstone": 0.029176,
+      "billing": 0.029306,
+      "difference": -0.00013
+    },
+    {
+      "resource_key": "anvil-test-1795104991-55145a3e-2594",
+      "rainstone": 0.003581,
+      "billing": 0.003588,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795105008-2c606388-2600",
+      "rainstone": 0.012059,
+      "billing": 0.012111,
+      "difference": -5.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105023-7f9dd6b4-2607",
+      "rainstone": 0.004737,
+      "billing": 0.004756,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105032-1916e036-2610",
+      "rainstone": 0.004461,
+      "billing": 0.004474,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105034-9eda9881-2611",
+      "rainstone": 0.005061,
+      "billing": 0.00507,
+      "difference": -9e-06
+    },
+    {
+      "resource_key": "anvil-test-1795105095-7ca0adfc-2632",
+      "rainstone": 0.003564,
+      "billing": 0.003572,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795105099-d2dcf3da-2633",
+      "rainstone": 0.003433,
+      "billing": 0.003437,
+      "difference": -4e-06
+    },
+    {
+      "resource_key": "anvil-test-1795105101-7daeb025-2634",
+      "rainstone": 0.003422,
+      "billing": 0.003433,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105103-796d1f2a-2635",
+      "rainstone": 0.003343,
+      "billing": 0.003358,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105138-400e0c50-2648",
+      "rainstone": 0.003548,
+      "billing": 0.003566,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105226-1e61cdb8-2681",
+      "rainstone": 0.00387,
+      "billing": 0.003901,
+      "difference": -3.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105240-73f41546-2686",
+      "rainstone": 0.006767,
+      "billing": 0.006825,
+      "difference": -5.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105244-7d8938ad-2687",
+      "rainstone": 0.003326,
+      "billing": 0.003344,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105249-68a61322-2689",
+      "rainstone": 0.003206,
+      "billing": 0.003221,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105269-e8a2b431-2697",
+      "rainstone": 0.008143,
+      "billing": 0.008181,
+      "difference": -3.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105275-c271186c-2602",
+      "rainstone": 0.00466,
+      "billing": 0.004675,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105307-1fc9bc47-2711",
+      "rainstone": 0.005871,
+      "billing": 0.005889,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105309-aa56a341-2712",
+      "rainstone": 0.005873,
+      "billing": 0.005885,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105329-30a3115c-2720",
+      "rainstone": 0.007071,
+      "billing": 0.007118,
+      "difference": -4.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105354-f032b016-2729",
+      "rainstone": 0.00689,
+      "billing": 0.006895,
+      "difference": -5e-06
+    },
+    {
+      "resource_key": "anvil-test-1795105355-5de9a0b6-2730",
+      "rainstone": 0.006956,
+      "billing": 0.006973,
+      "difference": -1.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105358-8f01c854-2731",
+      "rainstone": 0.00495,
+      "billing": 0.004969,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105372-9c6522ee-2737",
+      "rainstone": 0.011601,
+      "billing": 0.011667,
+      "difference": -6.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105376-7478decc-2738",
+      "rainstone": 0.007533,
+      "billing": 0.007586,
+      "difference": -5.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105382-7ab3f819-2741",
+      "rainstone": 0.01145,
+      "billing": 0.011515,
+      "difference": -6.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105436-622a0ec5-2762",
+      "rainstone": 0.006912,
+      "billing": 0.006928,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105489-da2269f7-2782",
+      "rainstone": 0.00704,
+      "billing": 0.007053,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105503-bbe6b32c-2787",
+      "rainstone": 0.009557,
+      "billing": 0.009592,
+      "difference": -3.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105537-29b2e188-2800",
+      "rainstone": 0.011035,
+      "billing": 0.011108,
+      "difference": -7.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105541-7918efc3-2801",
+      "rainstone": 0.010444,
+      "billing": 0.010486,
+      "difference": -4.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105543-bf5f3e62-2802",
+      "rainstone": 0.002403,
+      "billing": 0.002416,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105556-7d8b2474-2807",
+      "rainstone": 0.011673,
+      "billing": 0.011729,
+      "difference": -5.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105565-da5cc4f7-2811",
+      "rainstone": 0.00258,
+      "billing": 0.002585,
+      "difference": -5e-06
+    },
+    {
+      "resource_key": "anvil-test-1795105567-dd967c9f-2812",
+      "rainstone": 0.002479,
+      "billing": 0.002492,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105573-3fc43499-2814",
+      "rainstone": 0.006703,
+      "billing": 0.006722,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105575-0977c4a2-2815",
+      "rainstone": 0.006108,
+      "billing": 0.006116,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795105585-d470f7fc-2819",
+      "rainstone": 0.006892,
+      "billing": 0.006906,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105586-660f5e66-2820",
+      "rainstone": 0.002337,
+      "billing": 0.002343,
+      "difference": -6e-06
+    },
+    {
+      "resource_key": "anvil-test-1795105590-7f8cd22e-2821",
+      "rainstone": 0.002404,
+      "billing": 0.002417,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105593-f5f1a371-2822",
+      "rainstone": 0.002359,
+      "billing": 0.002371,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105594-bf201ea6-2823",
+      "rainstone": 0.007124,
+      "billing": 0.007173,
+      "difference": -4.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105598-11c07cc6-2824",
+      "rainstone": 0.007019,
+      "billing": 0.007071,
+      "difference": -5.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105607-47975bf8-2828",
+      "rainstone": 0.004738,
+      "billing": 0.004757,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105616-7689777c-2832",
+      "rainstone": 0.002401,
+      "billing": 0.002404,
+      "difference": -3e-06
+    },
+    {
+      "resource_key": "anvil-test-1795105630-832a2be6-2837",
+      "rainstone": 0.026959,
+      "billing": 0.027119,
+      "difference": -0.00016
+    },
+    {
+      "resource_key": "anvil-test-1795105643-bf329ca0-2842",
+      "rainstone": 0.018605,
+      "billing": 0.018656,
+      "difference": -5.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105657-18633823-2847",
+      "rainstone": 0.003681,
+      "billing": 0.003691,
+      "difference": -1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105690-3d918b08-2859",
+      "rainstone": 0.028119,
+      "billing": 0.028211,
+      "difference": -9.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105692-daf123cc-2860",
+      "rainstone": 0.029995,
+      "billing": 0.03011,
+      "difference": -0.000115
+    },
+    {
+      "resource_key": "anvil-test-1795105698-500b55a1-2862",
+      "rainstone": 0.010913,
+      "billing": 0.010953,
+      "difference": -4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105766-61de5c19-2886",
+      "rainstone": 0.004257,
+      "billing": 0.004269,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105841-fde3b485-2912",
+      "rainstone": 0.003731,
+      "billing": 0.00375,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105845-96da0feb-2913",
+      "rainstone": 0.003601,
+      "billing": 0.003614,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105847-0b28dbf3-2914",
+      "rainstone": 0.007049,
+      "billing": 0.007094,
+      "difference": -4.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105961-c30d4f56-2954",
+      "rainstone": 0.006393,
+      "billing": 0.006418,
+      "difference": -2.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795105965-e753db17-2955",
+      "rainstone": 0.006186,
+      "billing": 0.006209,
+      "difference": -2.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106015-1532712c-2973",
+      "rainstone": 0.005753,
+      "billing": 0.005779,
+      "difference": -2.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106029-ab749929-2978",
+      "rainstone": 0.022504,
+      "billing": 0.022632,
+      "difference": -0.000128
+    },
+    {
+      "resource_key": "anvil-test-1795106031-4ea9c312-2979",
+      "rainstone": 0.019899,
+      "billing": 0.019974,
+      "difference": -7.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106035-db76c2eb-2980",
+      "rainstone": 0.019454,
+      "billing": 0.019526,
+      "difference": -7.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106037-6df75977-2981",
+      "rainstone": 0.01392,
+      "billing": 0.013958,
+      "difference": -3.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106039-ba28a36c-2982",
+      "rainstone": 0.079157,
+      "billing": 0.079191,
+      "difference": -3.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106045-a2b738bb-2984",
+      "rainstone": 0.020807,
+      "billing": 0.020883,
+      "difference": -7.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106125-7558418d-3013",
+      "rainstone": 0.007624,
+      "billing": 0.007632,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795106140-2a392b12-3018",
+      "rainstone": 0.007499,
+      "billing": 0.007525,
+      "difference": -2.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106194-36e4e7f8-3037",
+      "rainstone": 0.007746,
+      "billing": 0.007766,
+      "difference": -2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106246-ba42962a-3053",
+      "rainstone": 0.009245,
+      "billing": 0.009267,
+      "difference": -2.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106252-c8021488-3055",
+      "rainstone": 0.009042,
+      "billing": 0.009071,
+      "difference": -2.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106255-72e5e9b2-3056",
+      "rainstone": 0.008667,
+      "billing": 0.008689,
+      "difference": -2.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106258-50146018-3057",
+      "rainstone": 0.008462,
+      "billing": 0.008481,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106272-4c277352-3062",
+      "rainstone": 0.007359,
+      "billing": 0.007378,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106277-14215b9b-3064",
+      "rainstone": 0.004422,
+      "billing": 0.004449,
+      "difference": -2.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106280-e81d813c-3065",
+      "rainstone": 0.004423,
+      "billing": 0.004434,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106395-f36cc3e7-3105",
+      "rainstone": 0.014226,
+      "billing": 0.014271,
+      "difference": -4.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106397-b8438598-3106",
+      "rainstone": 0.008862,
+      "billing": 0.008901,
+      "difference": -3.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106399-f45ce6fe-3107",
+      "rainstone": 0.005947,
+      "billing": 0.005964,
+      "difference": -1.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106458-79e28aec-3126",
+      "rainstone": 0.026643,
+      "billing": 0.02667,
+      "difference": -2.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106463-747ad573-3129",
+      "rainstone": 0.018816,
+      "billing": 0.018854,
+      "difference": -3.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106467-a1a50162-3130",
+      "rainstone": 0.005834,
+      "billing": 0.005904,
+      "difference": -7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106472-37b97c91-3132",
+      "rainstone": 0.010488,
+      "billing": 0.010514,
+      "difference": -2.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106476-82e6247b-3133",
+      "rainstone": 0.008671,
+      "billing": 0.00871,
+      "difference": -3.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106478-6c73e1e2-3134",
+      "rainstone": 0.008572,
+      "billing": 0.008616,
+      "difference": -4.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106481-3c00df96-3135",
+      "rainstone": 0.00867,
+      "billing": 0.008698,
+      "difference": -2.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106485-a9833c6d-3136",
+      "rainstone": 0.008589,
+      "billing": 0.008616,
+      "difference": -2.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106487-4664cf42-3137",
+      "rainstone": 0.008197,
+      "billing": 0.008219,
+      "difference": -2.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106494-d9701fd7-3139",
+      "rainstone": 0.009592,
+      "billing": 0.009619,
+      "difference": -2.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106498-fac6456e-3141",
+      "rainstone": 0.008987,
+      "billing": 0.009026,
+      "difference": -3.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106504-abd4037f-3143",
+      "rainstone": 0.008929,
+      "billing": 0.008981,
+      "difference": -5.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106506-397fa488-3144",
+      "rainstone": 0.009151,
+      "billing": 0.009183,
+      "difference": -3.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106509-8f84cd22-3145",
+      "rainstone": 0.004499,
+      "billing": 0.004514,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106514-386c1ae4-3147",
+      "rainstone": 0.004632,
+      "billing": 0.00464,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795106522-58f9ca3d-3150",
+      "rainstone": 0.004771,
+      "billing": 0.004795,
+      "difference": -2.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106524-64a0a27f-3151",
+      "rainstone": 0.027489,
+      "billing": 0.027769,
+      "difference": -0.00028
+    },
+    {
+      "resource_key": "anvil-test-1795106529-012bf97c-3128",
+      "rainstone": 0.009234,
+      "billing": 0.009263,
+      "difference": -2.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106532-e865499f-3152",
+      "rainstone": 0.02689,
+      "billing": 0.026952,
+      "difference": -6.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106535-184bb122-3153",
+      "rainstone": 0.026587,
+      "billing": 0.026708,
+      "difference": -0.000121
+    },
+    {
+      "resource_key": "anvil-test-1795106558-0f0f38c3-3161",
+      "rainstone": 0.007047,
+      "billing": 0.007065,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106563-b806db30-3162",
+      "rainstone": 0.006898,
+      "billing": 0.006916,
+      "difference": -1.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106583-958a1be2-3169",
+      "rainstone": 0.028095,
+      "billing": 0.028181,
+      "difference": -8.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106584-aaa380cd-3170",
+      "rainstone": 0.027143,
+      "billing": 0.027239,
+      "difference": -9.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106588-a984405f-3171",
+      "rainstone": 0.025975,
+      "billing": 0.026071,
+      "difference": -9.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106591-0bf3e2aa-3172",
+      "rainstone": 0.006768,
+      "billing": 0.006791,
+      "difference": -2.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106593-30b600aa-3173",
+      "rainstone": 0.006524,
+      "billing": 0.006537,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106597-ce571eb9-3174",
+      "rainstone": 0.006759,
+      "billing": 0.006778,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106611-50d2a2e6-3179",
+      "rainstone": 0.006772,
+      "billing": 0.006819,
+      "difference": -4.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106615-fd72db83-3180",
+      "rainstone": 0.007622,
+      "billing": 0.00766,
+      "difference": -3.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106618-b7a84a8a-3181",
+      "rainstone": 0.00737,
+      "billing": 0.007401,
+      "difference": -3.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106620-2b9bf1ad-3182",
+      "rainstone": 0.00695,
+      "billing": 0.006986,
+      "difference": -3.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106634-c8a3295f-3186",
+      "rainstone": 0.006955,
+      "billing": 0.006987,
+      "difference": -3.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106635-ad152afd-3187",
+      "rainstone": 0.006874,
+      "billing": 0.006912,
+      "difference": -3.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106637-f62bd0e8-3188",
+      "rainstone": 0.008229,
+      "billing": 0.00825,
+      "difference": -2.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106701-9d98c23d-3208",
+      "rainstone": 0.00582,
+      "billing": 0.005827,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795106703-b00849b0-3209",
+      "rainstone": 0.005756,
+      "billing": 0.005768,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106709-2e3ab6fb-3210",
+      "rainstone": 0.005883,
+      "billing": 0.005889,
+      "difference": -6e-06
+    },
+    {
+      "resource_key": "anvil-test-1795106711-d05051e0-3211",
+      "rainstone": 0.019987,
+      "billing": 0.020064,
+      "difference": -7.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106714-fd0793cc-3212",
+      "rainstone": 0.020361,
+      "billing": 0.020423,
+      "difference": -6.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106722-2c63ccac-3215",
+      "rainstone": 0.0095,
+      "billing": 0.009533,
+      "difference": -3.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106742-fbf2a264-3221",
+      "rainstone": 0.006897,
+      "billing": 0.006911,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106784-d8e07b0f-3235",
+      "rainstone": 0.028081,
+      "billing": 0.028166,
+      "difference": -8.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106786-0f124af3-3236",
+      "rainstone": 0.027462,
+      "billing": 0.027543,
+      "difference": -8.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106790-88d19052-3237",
+      "rainstone": 0.004485,
+      "billing": 0.004497,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106793-3fc52fdd-3238",
+      "rainstone": 0.004578,
+      "billing": 0.004612,
+      "difference": -3.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106827-354da4bc-3250",
+      "rainstone": 0.008353,
+      "billing": 0.008373,
+      "difference": -2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106846-9a58bdb3-3256",
+      "rainstone": 0.008722,
+      "billing": 0.00875,
+      "difference": -2.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106906-898585fb-3276",
+      "rainstone": 0.021212,
+      "billing": 0.021298,
+      "difference": -8.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106937-ec25f137-3287",
+      "rainstone": 0.005808,
+      "billing": 0.005823,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106973-941d6f9f-3299",
+      "rainstone": 0.004403,
+      "billing": 0.004415,
+      "difference": -1.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106979-60faadb9-3301",
+      "rainstone": 0.003059,
+      "billing": 0.003084,
+      "difference": -2.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106981-94720bb9-3302",
+      "rainstone": 0.007156,
+      "billing": 0.007187,
+      "difference": -3.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106985-e90bc534-3303",
+      "rainstone": 0.008698,
+      "billing": 0.00872,
+      "difference": -2.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106987-77f10db9-3304",
+      "rainstone": 0.008822,
+      "billing": 0.008857,
+      "difference": -3.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795106998-d2018be0-3308",
+      "rainstone": 0.020903,
+      "billing": 0.021041,
+      "difference": -0.000138
+    },
+    {
+      "resource_key": "anvil-test-1795107001-188f09d4-3309",
+      "rainstone": 0.020905,
+      "billing": 0.021055,
+      "difference": -0.00015
+    },
+    {
+      "resource_key": "anvil-test-1795107004-abc5435d-3310",
+      "rainstone": 0.026449,
+      "billing": 0.026558,
+      "difference": -0.000109
+    },
+    {
+      "resource_key": "anvil-test-1795107006-8428cede-3311",
+      "rainstone": 0.025226,
+      "billing": 0.025356,
+      "difference": -0.00013
+    },
+    {
+      "resource_key": "anvil-test-1795107013-26ba818b-3313",
+      "rainstone": 0.008543,
+      "billing": 0.008575,
+      "difference": -3.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107015-f5aa5a33-3314",
+      "rainstone": 0.008621,
+      "billing": 0.008657,
+      "difference": -3.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107019-e9a4b3ba-3315",
+      "rainstone": 0.00932,
+      "billing": 0.009367,
+      "difference": -4.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107023-7cae0c15-3317",
+      "rainstone": 0.008949,
+      "billing": 0.008996,
+      "difference": -4.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107038-5271f055-3322",
+      "rainstone": 0.002974,
+      "billing": 0.002979,
+      "difference": -5e-06
+    },
+    {
+      "resource_key": "anvil-test-1795107044-c6e13f3f-3324",
+      "rainstone": 0.003077,
+      "billing": 0.003084,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795107047-80959c06-3325",
+      "rainstone": 0.00331,
+      "billing": 0.003326,
+      "difference": -1.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107055-7269151a-3328",
+      "rainstone": 0.003232,
+      "billing": 0.003261,
+      "difference": -2.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107059-3490ee39-3329",
+      "rainstone": 0.004729,
+      "billing": 0.004742,
+      "difference": -1.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107079-d2ef0e5b-3336",
+      "rainstone": 0.006468,
+      "billing": 0.006503,
+      "difference": -3.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107082-7580b59d-3337",
+      "rainstone": 0.017525,
+      "billing": 0.017628,
+      "difference": -0.000103
+    },
+    {
+      "resource_key": "anvil-test-1795107085-9364cd78-3338",
+      "rainstone": 0.026701,
+      "billing": 0.026797,
+      "difference": -9.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107088-e82a6272-3339",
+      "rainstone": 0.027857,
+      "billing": 0.02797,
+      "difference": -0.000113
+    },
+    {
+      "resource_key": "anvil-test-1795107090-e230bf10-3340",
+      "rainstone": 0.006312,
+      "billing": 0.00635,
+      "difference": -3.8e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107149-95b042e9-3357",
+      "rainstone": 0.01929,
+      "billing": 0.019355,
+      "difference": -6.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107155-0019f320-3358",
+      "rainstone": 0.018167,
+      "billing": 0.018279,
+      "difference": -0.000112
+    },
+    {
+      "resource_key": "anvil-test-1795107157-20e399ca-3359",
+      "rainstone": 0.019927,
+      "billing": 0.020069,
+      "difference": -0.000142
+    },
+    {
+      "resource_key": "anvil-test-1795107163-a12714d9-3361",
+      "rainstone": 0.020953,
+      "billing": 0.021057,
+      "difference": -0.000104
+    },
+    {
+      "resource_key": "anvil-test-1795107166-f051ef11-3362",
+      "rainstone": 0.009452,
+      "billing": 0.009525,
+      "difference": -7.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107167-be8efe46-3363",
+      "rainstone": 0.009667,
+      "billing": 0.009727,
+      "difference": -6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107178-1817c9ed-3364",
+      "rainstone": 0.006906,
+      "billing": 0.006929,
+      "difference": -2.3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107197-b343b118-3367",
+      "rainstone": 0.003535,
+      "billing": 0.003566,
+      "difference": -3.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107202-f840cf1d-3369",
+      "rainstone": 0.003074,
+      "billing": 0.003081,
+      "difference": -7e-06
+    },
+    {
+      "resource_key": "anvil-test-1795107206-15b0215b-3370",
+      "rainstone": 0.003267,
+      "billing": 0.003284,
+      "difference": -1.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107212-af54dcc4-3372",
+      "rainstone": 0.00432,
+      "billing": 0.004331,
+      "difference": -1.1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107214-e1123a9d-3373",
+      "rainstone": 0.005476,
+      "billing": 0.005481,
+      "difference": -5e-06
+    },
+    {
+      "resource_key": "anvil-test-1795107217-7f1ccea7-3374",
+      "rainstone": 0.005467,
+      "billing": 0.005492,
+      "difference": -2.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107221-83922073-3375",
+      "rainstone": 0.004528,
+      "billing": 0.00455,
+      "difference": -2.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107240-bd4598fb-3382",
+      "rainstone": 0.003686,
+      "billing": 0.003694,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795107242-f6990337-3383",
+      "rainstone": 0.0033,
+      "billing": 0.003308,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795107246-901b531d-3384",
+      "rainstone": 0.003383,
+      "billing": 0.003391,
+      "difference": -8e-06
+    },
+    {
+      "resource_key": "anvil-test-1795107248-89a2ecff-3385",
+      "rainstone": 0.030108,
+      "billing": 0.030383,
+      "difference": -0.000275
+    },
+    {
+      "resource_key": "anvil-test-1795107271-980012c0-3393",
+      "rainstone": 0.032443,
+      "billing": 0.032603,
+      "difference": -0.00016
+    },
+    {
+      "resource_key": "anvil-test-1795107274-49a888d6-3394",
+      "rainstone": 0.033867,
+      "billing": 0.034039,
+      "difference": -0.000172
+    },
+    {
+      "resource_key": "anvil-test-1795107304-bb9e2c93-3404",
+      "rainstone": 0.007094,
+      "billing": 0.007119,
+      "difference": -2.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107361-7ab23ea4-3423",
+      "rainstone": 0.00775,
+      "billing": 0.007777,
+      "difference": -2.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107384-6c4cbbd9-3431",
+      "rainstone": 0.004535,
+      "billing": 0.00455,
+      "difference": -1.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107388-bb291d67-3432",
+      "rainstone": 0.004559,
+      "billing": 0.004576,
+      "difference": -1.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107393-af44e900-3434",
+      "rainstone": 0.005566,
+      "billing": 0.005583,
+      "difference": -1.7e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107475-af2ce7bd-3460",
+      "rainstone": 0.00332,
+      "billing": 0.003329,
+      "difference": -9e-06
+    },
+    {
+      "resource_key": "anvil-test-1795107483-28912784-3462",
+      "rainstone": 0.009236,
+      "billing": 0.009271,
+      "difference": -3.5e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107512-38f9c83d-3472",
+      "rainstone": 0.002467,
+      "billing": 0.002481,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107515-8c96da95-3473",
+      "rainstone": 0.002415,
+      "billing": 0.002421,
+      "difference": -6e-06
+    },
+    {
+      "resource_key": "anvil-test-1795107704-43bba70c-3532",
+      "rainstone": 0.005516,
+      "billing": 0.005535,
+      "difference": -1.9e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107805-90d1c2c9-3563",
+      "rainstone": 0.004451,
+      "billing": 0.004475,
+      "difference": -2.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795107810-0a4a9d6a-3565",
+      "rainstone": 0.005491,
+      "billing": 0.005501,
+      "difference": -1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795108069-2ed0cb39-3641",
+      "rainstone": 0.005577,
+      "billing": 0.005583,
+      "difference": -6e-06
+    },
+    {
+      "resource_key": "anvil-test-1795108327-043e9cf0-3716",
+      "rainstone": 0.005679,
+      "billing": 0.005701,
+      "difference": -2.2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795108376-6b75cd5e-3731",
+      "rainstone": 0.005634,
+      "billing": 0.00566,
+      "difference": -2.6e-05
+    },
+    {
+      "resource_key": "anvil-test-1795108429-ae984504-3747",
+      "rainstone": 0.005508,
+      "billing": 0.005518,
+      "difference": -1e-05
+    },
+    {
+      "resource_key": "anvil-test-1795108695-0c55a007-3823",
+      "rainstone": 0.004504,
+      "billing": 0.004518,
+      "difference": -1.4e-05
+    },
+    {
+      "resource_key": "anvil-test-1795108741-0187866a-3840",
+      "rainstone": 0.004285,
+      "billing": 0.004305,
+      "difference": -2e-05
+    },
+    {
+      "resource_key": "anvil-test-1795108744-0d42278d-3841",
+      "rainstone": 0.005407,
+      "billing": 0.005437,
+      "difference": -3e-05
+    },
+    {
+      "resource_key": "anvil-test-1795108753-19805ccc-3842",
+      "rainstone": 0.004401,
+      "billing": 0.004413,
+      "difference": -1.2e-05
+    }
+  ]
+}
