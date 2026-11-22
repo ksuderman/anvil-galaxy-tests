@@ -3,6 +3,12 @@
         "deployments": [
             {
                 "status": "success",
+                "duration_seconds": 611.0,
+                "date": "Sun Nov 22 13:51:48 2026",
+                "run_url": "https://github.com/anvilproject/galaxy-tests/actions/runs/45028566140"
+            },
+            {
+                "status": "success",
                 "duration_seconds": 632.0,
                 "date": "Sat Nov 21 13:56:55 2026",
                 "run_url": "https://github.com/anvilproject/galaxy-tests/actions/runs/44910347109"
