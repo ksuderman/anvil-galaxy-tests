@@ -1,0 +1,37 @@
+{
+  "label": "in-run-1650",
+  "host": "34.48.6.139",
+  "port": 80,
+  "started_at": "2026-11-23T16:50:28Z",
+  "elapsed_seconds": 8384.5,
+  "mode": "paced",
+  "poll_interval": 0.25,
+  "concurrency": 4,
+  "requested_rate": 2.0,
+  "achieved_rate": 2.0,
+  "connect_attempts": 16768,
+  "connect_ok": 16768,
+  "connect_failed": 0,
+  "connect_failure_pct": 0.0,
+  "outcomes": {
+    "connect_ok": 16768
+  },
+  "connect_latency_ms": {
+    "n": 16768,
+    "min": 51.08,
+    "p50": 53.19,
+    "p99": 58.06,
+    "max": 102.93
+  },
+  "tcp_stats_before": {
+    "ActiveOpens": 1117,
+    "AttemptFails": 0,
+    "RetransSegs": 0
+  },
+  "tcp_stats_after": {
+    "ActiveOpens": 25538,
+    "AttemptFails": 0,
+    "RetransSegs": 21
+  },
+  "failure_samples": []
+}
